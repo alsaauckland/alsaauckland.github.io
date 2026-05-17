@@ -231,7 +231,7 @@
 <body>
 <div class="page">
   <div id="root"></div>
-  <p class="hint" id="hint" style="display:none">Scan QR code to verify &middot; Screenshot to save your card</p>
+  <p class="hint" id="hint" style="display:none">Screenshot to save your card</p>
 </div>
 
 <script>
@@ -251,7 +251,7 @@
   if (!name) {
     root.innerHTML = '<div class="invalid"><h2>No card found.</h2><p>This link may be incomplete.<br>Contact ALSA at alsaauckland@gmail.com for your membership card.</p></div>';
   } else {
-    document.getElementById('hint').style.display = 'block';
+    
 
 
     root.innerHTML =
