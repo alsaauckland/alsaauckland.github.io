@@ -45,7 +45,7 @@
   .event-eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#5b0f0f;margin-bottom:10px;font-weight:600;}
   .event-title{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:#1a1a1a;margin-bottom:8px;letter-spacing:-0.3px;}
   .event-date{font-size:13px;color:#888;font-style:italic;margin-bottom:14px;letter-spacing:0.5px;}
-  .event-desc{font-size:15px;line-height:1.75;color:#555;max-width:680px;}
+  .event-desc{text-wrap:balance;font-size:15px;line-height:1.75;color:#555;max-width:680px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   
   /* PHOTO GRID */
   .photo-grid{max-width:1200px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
@@ -99,6 +99,25 @@
     .event-nav-inner{gap:18px;}
     .event-nav a{font-size:10px;letter-spacing:1.5px;}
   }
+
+  /* ALBUM LANDING */
+  .albums-home { padding: 60px 0; }
+  .albums-header { text-align: center; margin-bottom: 50px; }
+  .albums-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+  .album-card { cursor: pointer; position: relative; background: #1a1a1a; overflow: hidden; }
+  .album-card:hover .album-cover { transform: scale(1.03); }
+  .album-cover-wrap { aspect-ratio: 4/3; overflow: hidden; }
+  .album-cover { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; display: block; }
+  .album-cover-placeholder { width: 100%; aspect-ratio: 4/3; background: #2a2a2a; display: flex; align-items: center; justify-content: center; }
+  .album-info { padding: 18px 20px 20px; }
+  .album-event-date { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #C9A84C; margin-bottom: 8px; font-weight: 600; }
+  .album-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 6px; }
+  .album-count { font-size: 12px; color: rgba(255,255,255,0.4); }
+  .back-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #C9A84C; cursor: pointer; background: none; border: none; padding: 0; margin-bottom: 32px; font-family: 'Lora', serif; font-weight: 600; }
+  .back-btn:hover { color: #fff; }
+  @media(max-width:900px){ .albums-grid{ grid-template-columns:1fr 1fr; } }
+  @media(max-width:600px){ .albums-grid{ grid-template-columns:1fr; padding:0 20px; } }
+
 </style>
 </head>
 <body>
@@ -203,7 +222,7 @@
       slug: 'launch-night',
       title: 'Inaugural Launch Night',
       date: '30 April 2026',
-      description: 'The first ALSA event. A room full of motivated law students, sponsors, and the start of everything we are building.',
+      description: 'The first ALSA event. Motivated law students, sponsors, and the start of everything we are building together.',
       folder: 'launch-night',
       photos: [
         'File1.JPG', 'File2.JPG', 'File3.JPG', 'File4.JPG', 'File5.JPG', 'File6.JPG', 'File7.JPG', 'File8.JPG', 'File9.JPG', 'File10.JPG', 'File11.JPG', 'File12.JPG', 'File13.JPG', 'File14.JPG', 'File15.JPG', 'File16.JPG', 'File17.JPG', 'File18.JPG', 'File19.JPG', 'File20.JPG', 'File21.JPG', 'File22.JPG', 'File23.JPG', 'File24.JPG', 'File25.JPG', 'File26.JPG', 'File27.JPG', 'File28.JPG', 'File29.JPG', 'File30.JPG', 'File31.JPG', 'File32.JPG', 'File33.JPG', 'File34.JPG', 'File35.JPG', 'File36.JPG', 'File37.JPG', 'File38.JPG', 'File39.JPG', 'File40.JPG', 'File41.JPG', 'File42.JPG', 'File43.JPG', 'File44.JPG', 'File45.JPG', 'File46.JPG', 'File47.JPG', 'File48.JPG', 'File49.JPG', 'File50.JPG', 'File51.JPG', 'File52.JPG', 'File53.JPG', 'File54.JPG', 'File55.JPG', 'File56.JPG'
@@ -224,22 +243,80 @@
   // RENDER GALLERY (do not edit below this line)
   // =============================================
   const galleryRoot = document.getElementById('galleryRoot');
-  const eventNav = document.getElementById('eventNav').querySelector('.event-nav-inner');
+  const eventNav = document.getElementById('eventNav');
   
-  let allPhotos = [];  // flat list for modal navigation
-  
-  events.forEach(event => {
-    // Add to event nav
-    const navLink = document.createElement('a');
-    navLink.href = '#' + event.slug;
-    navLink.textContent = event.title;
-    eventNav.appendChild(navLink);
-    
-    // Build event section
+  let allPhotos = [];
+
+  function getEventSlug() {
+    return new URLSearchParams(window.location.search).get('event');
+  }
+
+  function showAlbumHome() {
+    eventNav.style.display = 'none';
+    galleryRoot.innerHTML = '';
+    const wrap = document.createElement('div');
+    wrap.className = 'albums-home';
+
+    const header = document.createElement('div');
+    header.className = 'albums-header';
+    header.innerHTML = `
+      <div style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:14px;font-weight:600;">Events</div>
+      <h1 style="font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:#1a1a1a;letter-spacing:-0.5px;margin-bottom:14px;">ALSA <em style="font-style:italic;color:#5b0f0f;font-weight:400;">Gallery</em></h1>
+      <p style="font-size:16px;color:#555;max-width:500px;margin:0 auto;">Every event, documented. Select an album to view the photos.</p>
+    `;
+    wrap.appendChild(header);
+
+    const grid = document.createElement('div');
+    grid.className = 'albums-grid';
+
+    events.forEach(event => {
+      const card = document.createElement('div');
+      card.className = 'album-card';
+      card.addEventListener('click', () => {
+        window.history.pushState({}, '', '?event=' + event.slug);
+        showEvent(event.slug);
+      });
+
+      const coverSrc = event.photos.length > 0 ? `images/${event.folder}/${event.photos[0]}` : null;
+      card.innerHTML = `
+        <div class="album-cover-wrap">
+          ${coverSrc
+            ? `<img class="album-cover" src="${coverSrc}" alt="${event.title}" loading="lazy">`
+            : `<div class="album-cover-placeholder"></div>`}
+        </div>
+        <div class="album-info">
+          <div class="album-event-date">${event.date}</div>
+          <div class="album-title">${event.title}</div>
+          <div class="album-count">${event.photos.length} photos</div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+
+    wrap.appendChild(grid);
+    galleryRoot.appendChild(wrap);
+  }
+
+  function showEvent(slug) {
+    allPhotos = [];
+    galleryRoot.innerHTML = '';
+    eventNav.style.display = 'none';
+
+    const event = events.find(e => e.slug === slug);
+    if (!event) { showAlbumHome(); return; }
+
+    const backBtn = document.createElement('button');
+    backBtn.className = 'back-btn';
+    backBtn.innerHTML = '&larr; All Albums';
+    backBtn.addEventListener('click', () => {
+      window.history.pushState({}, '', window.location.pathname);
+      showAlbumHome();
+    });
+    galleryRoot.appendChild(backBtn);
+
     const section = document.createElement('section');
     section.className = 'event-section';
-    section.id = event.slug;
-    
+
     const header = document.createElement('div');
     header.className = 'event-header';
     header.innerHTML = `
@@ -249,24 +326,38 @@
       ${event.description ? `<p class="event-desc">${event.description}</p>` : ''}
     `;
     section.appendChild(header);
-    
+
     const grid = document.createElement('div');
     grid.className = 'photo-grid';
-    
+
     event.photos.forEach((photo, index) => {
       const globalIndex = allPhotos.length;
       const src = `images/${event.folder}/${photo}`;
       allPhotos.push(src);
-      
+
       const tile = document.createElement('div');
       tile.className = 'photo-tile';
       tile.innerHTML = `<img src="${src}" alt="${event.title} photo ${index + 1}" loading="lazy">`;
       tile.addEventListener('click', () => openModal(globalIndex));
       grid.appendChild(tile);
     });
-    
+
     section.appendChild(grid);
     galleryRoot.appendChild(section);
+  }
+
+  // Initial render
+  const initialSlug = getEventSlug();
+  if (initialSlug) {
+    showEvent(initialSlug);
+  } else {
+    showAlbumHome();
+  }
+
+  // Handle browser back/forward
+  window.addEventListener('popstate', () => {
+    const slug = getEventSlug();
+    if (slug) { showEvent(slug); } else { showAlbumHome(); }
   });
   
   // =============================================
