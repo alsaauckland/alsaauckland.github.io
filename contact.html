@@ -140,26 +140,52 @@
     <label for="inq-message">Message</label>
     <textarea id="inq-message" rows="5" placeholder="What would you like to know?"></textarea>
   </div>
-  <button class="inquiry-submit" onclick="sendInquiry()">Send Inquiry</button>
-  <p class="inq-note">You will be redirected to your email client with this message ready to send.</p>
+  <button class="inquiry-submit" id="inq-btn" onclick="sendInquiry()">Send Inquiry</button>
+  <p class="inq-note" id="inq-note"></p>
 </div>
 
 <script>
-function sendInquiry() {
-  const name = document.getElementById('inq-name').value.trim();
-  const email = document.getElementById('inq-email').value.trim();
-  const subject = document.getElementById('inq-subject').value;
+const CONTACT_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwwe_C3q8lYzSBF-wBXgyEUrvRbgeQb4FPNvGIg9N9ewCrrwekqh_-kiUQAkgFn68wguQ/exec';
+
+async function sendInquiry() {
+  const name    = document.getElementById('inq-name').value.trim();
+  const email   = document.getElementById('inq-email').value.trim();
+  const subject = document.getElementById('inq-subject').value || 'General Inquiry';
   const message = document.getElementById('inq-message').value.trim();
+  const note    = document.getElementById('inq-note');
+  const btn     = document.getElementById('inq-btn');
 
   if (!name || !message) {
-    alert('Please enter your name and message before sending.');
+    note.style.color = '#c0392b';
+    note.textContent = 'Please enter your name and message before sending.';
     return;
   }
 
-  const subjectLine = subject ? subject + ' — ALSA Auckland Inquiry' : 'General Inquiry — ALSA Auckland';
-  const body = (name ? 'From: ' + name + (email ? ' (' + email + ')' : '') + '\n\n' : '') + message;
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  note.textContent = '';
 
-  window.location.href = 'mailto:alsaauckland@gmail.com?subject=' + encodeURIComponent(subjectLine) + '&body=' + encodeURIComponent(body);
+  try {
+    await fetch(CONTACT_ENDPOINT, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify({ name, email, subject, message })
+    });
+
+    document.querySelector('.inquiry-form').innerHTML = \`
+      <div style="text-align:center;padding:48px 20px;">
+        <div style="font-size:32px;margin-bottom:16px;">✓</div>
+        <p style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#5b0f0f;margin-bottom:10px;">Message received.</p>
+        <p style="color:#555;font-size:15px;line-height:1.7;">We will be in touch within three working days at <strong>\${email || 'the email you provided'}</strong>.</p>
+      </div>
+    \`;
+  } catch(err) {
+    btn.textContent = 'Send Inquiry';
+    btn.disabled = false;
+    note.style.color = '#c0392b';
+    note.textContent = 'Something went wrong. Email us directly at alsaauckland@gmail.com';
+  }
 }
 </script>
 
