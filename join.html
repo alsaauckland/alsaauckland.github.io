@@ -161,6 +161,10 @@
   @media(max-width:900px){.perks-grid{grid-template-columns:1fr 1fr;}}
   @media(max-width:600px){.perks-grid{grid-template-columns:1fr;}}
 
+
+  .sub-heritage { margin-bottom: 8px; }
+  .sub-heritage .checkbox-group label { font-size: 13px; color: #666; }
+
 </style>
 </head>
 <body>
@@ -384,6 +388,10 @@
                 <input type="text" id="lastName" name="Last Name" required>
               </div>
             </div>
+            <div class="form-row">
+              <label for="preferredName">Preferred Name <span style="font-size:12px;color:#888;font-weight:400;">(optional)</span><span class="hint">The name you go by day to day. Used in all ALSA communications and on your membership card.</span></label>
+              <input type="text" id="preferredName" name="Preferred Name">
+            </div>
             <div class="form-row-split">
               <div>
                 <label for="email">Personal Email<span class="req">*</span></label>
@@ -412,10 +420,58 @@
             <div class="form-row">
               <label>Asian Heritage<span class="req">*</span><span class="hint">ALSA welcomes students with heritage from East, Southeast, South, and Central Asia. Select all that apply.</span></label>
               <div class="checkbox-group">
-                <label><input type="checkbox" name="heritage" value="East Asian"> East Asian</label>
-                <label><input type="checkbox" name="heritage" value="Southeast Asian"> Southeast Asian</label>
-                <label><input type="checkbox" name="heritage" value="South Asian"> South Asian</label>
-                <label><input type="checkbox" name="heritage" value="Central Asian"> Central Asian</label>
+                <label><input type="checkbox" name="heritage" value="East Asian" onchange="toggleSubHeritage('eastAsianSub', this)"> East Asian</label>
+                <div id="eastAsianSub" class="sub-heritage" style="display:none;margin-left:20px;margin-top:6px;">
+                  <div class="checkbox-group" style="gap:6px;">
+                    <label><input type="checkbox" name="heritage-sub" value="Chinese"> Chinese</label>
+                    <label><input type="checkbox" name="heritage-sub" value="Japanese"> Japanese</label>
+                    <label><input type="checkbox" name="heritage-sub" value="Korean"> Korean</label>
+                    <label><input type="checkbox" name="heritage-sub" value="Taiwanese"> Taiwanese</label>
+                    <label><input type="checkbox" name="heritage-sub" value="Hong Kong"> Hong Kong</label>
+                    <label><input type="checkbox" name="heritage-sub" value="Mongolian"> Mongolian</label>
+                  </div>
+                </div>
+
+                <label><input type="checkbox" name="heritage" value="Southeast Asian" onchange="toggleSubHeritage('seAsianSub', this)"> Southeast Asian</label>
+                <div id="seAsianSub" class="sub-heritage" style="display:none;margin-left:20px;margin-top:6px;">
+                  <div class="checkbox-group" style="gap:6px;">
+                    <label><input type="checkbox" name="heritage-sub" value="Filipino"> Filipino</label>
+                    <label><input type="checkbox" name="heritage-sub" value="Vietnamese"> Vietnamese</label>
+                    <label><input type="checkbox" name="heritage-sub" value="Thai"> Thai</label>
+                    <label><input type="checkbox" name="heritage-sub" value="Indonesian"> Indonesian</label>
+                    <label><input type="checkbox" name="heritage-sub" value="Malaysian"> Malaysian</label>
+                    <label><input type="checkbox" name="heritage-sub" value="Singaporean"> Singaporean</label>
+                    <label><input type="checkbox" name="heritage-sub" value="Cambodian"> Cambodian</label>
+                    <label><input type="checkbox" name="heritage-sub" value="Burmese"> Burmese</label>
+                    <label><input type="checkbox" name="heritage-sub" value="Laotian"> Laotian</label>
+                  </div>
+                </div>
+
+                <label><input type="checkbox" name="heritage" value="South Asian" onchange="toggleSubHeritage('southAsianSub', this)"> South Asian</label>
+                <div id="southAsianSub" class="sub-heritage" style="display:none;margin-left:20px;margin-top:6px;">
+                  <div class="checkbox-group" style="gap:6px;">
+                    <label><input type="checkbox" name="heritage-sub" value="Indian"> Indian</label>
+                    <label><input type="checkbox" name="heritage-sub" value="Pakistani"> Pakistani</label>
+                    <label><input type="checkbox" name="heritage-sub" value="Sri Lankan"> Sri Lankan</label>
+                    <label><input type="checkbox" name="heritage-sub" value="Bangladeshi"> Bangladeshi</label>
+                    <label><input type="checkbox" name="heritage-sub" value="Nepali"> Nepali</label>
+                    <label><input type="checkbox" name="heritage-sub" value="Afghan"> Afghan</label>
+                  </div>
+                </div>
+
+                <label><input type="checkbox" name="heritage" value="Central Asian" onchange="toggleSubHeritage('centralAsianSub', this)"> Central Asian</label>
+                <div id="centralAsianSub" class="sub-heritage" style="display:none;margin-left:20px;margin-top:6px;">
+                  <div class="checkbox-group" style="gap:6px;">
+                    <label><input type="checkbox" name="heritage-sub" value="Kazakh"> Kazakh</label>
+                    <label><input type="checkbox" name="heritage-sub" value="Uzbek"> Uzbek</label>
+                    <label><input type="checkbox" name="heritage-sub" value="Kyrgyz"> Kyrgyz</label>
+                    <label><input type="checkbox" name="heritage-sub" value="Tajik"> Tajik</label>
+                    <label><input type="checkbox" name="heritage-sub" value="Turkmen"> Turkmen</label>
+                    <label><input type="checkbox" name="heritage-sub" value="Azerbaijani"> Azerbaijani</label>
+                    <label><input type="checkbox" name="heritage-sub" value="Georgian"> Georgian</label>
+                    <label><input type="checkbox" name="heritage-sub" value="Other Central Asian"> Other Central Asian</label>
+                  </div>
+                </div>
                 <label><input type="checkbox" name="heritage" value="Other" onchange="toggleOther('heritageOther', this)"> Other</label>
               </div>
               <input type="text" id="heritageOther" class="other-input" placeholder="Please specify">
@@ -471,9 +527,17 @@
               <label>How would you like to be involved?<span class="hint">Select all that apply</span></label>
               <div class="checkbox-group">
                 <label><input type="checkbox" name="involvement" value="Attend events"> Attend events</label>
-                <label><input type="checkbox" name="involvement" value="Join the mentoring programme"> Join the mentoring programme</label>
+                <label><input type="checkbox" name="involvement" value="Join the mentoring programme as a mentee"> Join the mentoring programme as a mentee</label>
+                <label><input type="checkbox" name="involvement" value="Become a mentor"> Become a mentor</label>
                 <label><input type="checkbox" name="involvement" value="Network with practitioners"> Network with practitioners</label>
-                <label><input type="checkbox" name="involvement" value="Volunteer with the exec"> Volunteer with the exec</label>
+                <label><input type="checkbox" name="involvement" value="Join the ALSA executive team"> Join the ALSA executive team</label>
+                <label><input type="checkbox" name="involvement" value="Volunteer at events"> Volunteer at events</label>
+                <label><input type="checkbox" name="involvement" value="Contribute to the newsletter"> Contribute to the newsletter (writing or editing)</label>
+                <label><input type="checkbox" name="involvement" value="Participate in the Legal Writing Competition"> Participate in the Legal Writing Competition</label>
+                <label><input type="checkbox" name="involvement" value="Be featured in the Professional Spotlight"> Be featured in the Professional Spotlight</label>
+                <label><input type="checkbox" name="involvement" value="Participate in the ALSA podcast"> Participate in the ALSA podcast</label>
+                <label><input type="checkbox" name="involvement" value="Help with social media content"> Help with social media content</label>
+                <label><input type="checkbox" name="involvement" value="Attend cultural competency workshops"> Attend cultural competency workshops</label>
                 <label><input type="checkbox" name="involvement" value="Receive the newsletter only"> Receive the newsletter only</label>
                 <label><input type="checkbox" name="involvement" value="Other" onchange="toggleOther('involvementOther', this)"> Other</label>
               </div>
@@ -497,6 +561,10 @@
                   <!-- <a href="STRIPE_PAYMENT_LINK_HERE" class="stripe-btn" target="_blank">Pay $10 with Card</a> -->
                 </div>
               </div>
+            </div>
+            <div class="form-row">
+              <label for="dietary">Dietary Requirements <span style="font-size:12px;color:#888;font-weight:400;">(optional)</span><span class="hint">We use this for catering at events. Leave blank if you have none.</span></label>
+              <input type="text" id="dietary" name="Dietary Requirements" placeholder="e.g. vegetarian, halal, gluten free, none">
             </div>
             <div class="form-row">
               <label for="referredBy">Referred by (optional)<span class="hint">Did an ALSA exec member tell you about us?</span></label>
@@ -571,6 +639,14 @@
 <script>
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw3HTgZUuK_GtVpodCGvIlQhAxEDstIpPDnz7LHLv7v9FAM-PMWV_L2y3Qu3esGoz2u/exec';
 
+  function toggleSubHeritage(subId, checkbox) {
+    const sub = document.getElementById(subId);
+    if (sub) sub.style.display = checkbox.checked ? 'block' : 'none';
+    if (!checkbox.checked) {
+      sub.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+    }
+  }
+
   function toggleOther(otherId, checkbox, triggerValue) {
     const otherInput = document.getElementById(otherId);
     if (triggerValue) {
@@ -603,6 +679,8 @@
 
     // Build the data object matching sheet columns
     const heritage = getCheckboxValues('heritage');
+    const heritageSub = getCheckboxValues('heritage-sub');
+    const heritageAll = [heritage, heritageSub].filter(Boolean).join(', ');
     const heritageOther = document.getElementById('heritageOther').value.trim();
     const interest = getCheckboxValues('interest');
     const interestOther = document.getElementById('interestOther').value.trim();
@@ -618,12 +696,14 @@
       'University Email': document.getElementById('uniEmail').value.trim(),
       'Student ID': document.getElementById('studentId').value.trim(),
       'UPI': document.getElementById('upi').value.trim(),
-      'Heritage Regions': heritage + (heritageOther ? ` (Other: ${heritageOther})` : ''),
+      'Heritage Regions': heritageAll + (heritageOther ? ` (Other: ${heritageOther})` : ''),
       'Degree of Study': degree === 'Other' && degreeOther ? `Other: ${degreeOther}` : degree,
       'Year Level': document.querySelector('input[name="Year Level"]:checked')?.value || '',
       'Areas of Interest': interest + (interestOther ? ` (Other: ${interestOther})` : ''),
       'Involvement Preferences': involvement + (involvementOther ? ` (Other: ${involvementOther})` : ''),
       'Membership Tier': document.querySelector('input[name="Membership Tier"]:checked')?.value || 'General ALSA Member',
+      'Preferred Name': document.getElementById('preferredName').value.trim(),
+      'Dietary Requirements': document.getElementById('dietary').value.trim(),
       'Referred By': document.getElementById('referredBy').value.trim(),
       'Additional Comments': document.getElementById('comments').value.trim(),
       'Consent': 'Yes'

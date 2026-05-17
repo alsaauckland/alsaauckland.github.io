@@ -162,9 +162,15 @@ async function sendInquiry() {
   const note    = document.getElementById('inq-note');
   const btn     = document.getElementById('inq-btn');
 
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!name || !message) {
     note.style.color = '#c0392b';
     note.textContent = 'Please enter your name and message before sending.';
+    return;
+  }
+  if (!email || !emailRegex.test(email)) {
+    note.style.color = '#c0392b';
+    note.textContent = 'Please enter a valid email address.';
     return;
   }
 
