@@ -248,9 +248,11 @@
 </section>
 
 <!-- PARALLAX -->
-<section style="position:relative;overflow:hidden;">
-  <img src="images/portraits/The Committee.png" alt="The 2026 ALSA Executive" style="width:100%;height:auto;display:block;">
-  <div style="position:absolute;inset:0;background:rgba(26,10,10,0.62);display:flex;align-items:center;justify-content:center;text-align:center;padding:60px 40px;">
+<section id="parallaxSection" style="position:relative;height:620px;overflow:hidden;background:#1a1a1a;">
+  <img src="images/portraits/The Committee.png" id="parallaxImg" alt="The 2026 ALSA Executive"
+       style="width:100%;position:absolute;left:0;top:0;transform:translateY(0);will-change:transform;">
+  <div style="position:absolute;inset:0;background:rgba(26,10,10,0.62);"></div>
+  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 40px;z-index:1;">
     <div style="max-width:700px;">
       <div style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:18px;font-weight:600;">The 2026 Executive</div>
       <p style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:18px;letter-spacing:-0.3px;">17 students. One <em style="font-style:italic;color:#C9A84C;font-weight:400;">shared mission</em>.</p>
@@ -259,6 +261,29 @@
     </div>
   </div>
 </section>
+
+<script>
+(function() {
+  var section = document.getElementById('parallaxSection');
+  var img     = document.getElementById('parallaxImg');
+  var rate    = 0.45;
+
+  function updateParallax() {
+    var rect     = section.getBoundingClientRect();
+    var viewH    = window.innerHeight;
+    var progress = (viewH - rect.top) / (viewH + rect.height);
+    var imgH     = img.offsetHeight;
+    var sectionH = section.offsetHeight;
+    var maxShift = imgH - sectionH;
+    var shift    = Math.min(Math.max(progress * maxShift, 0), maxShift);
+    img.style.transform = 'translateY(-' + shift + 'px)';
+  }
+
+  window.addEventListener('scroll', updateParallax, { passive: true });
+  window.addEventListener('resize', updateParallax);
+  updateParallax();
+})();
+</script>
 
 <!-- THREE PILLARS -->
 <section class="pillars">
