@@ -173,13 +173,13 @@ async function sendInquiry() {
       body: JSON.stringify({ name, email, subject, message })
     });
 
-    document.querySelector('.inquiry-form').innerHTML = \`
+    document.querySelector('.inquiry-form').innerHTML = `
       <div style="text-align:center;padding:48px 20px;">
-        <div style="font-size:32px;margin-bottom:16px;">✓</div>
+        <div style="font-size:32px;margin-bottom:16px;">&#10003;</div>
         <p style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#5b0f0f;margin-bottom:10px;">Message received.</p>
-        <p style="color:#555;font-size:15px;line-height:1.7;">We will be in touch within three working days at <strong>\${email || 'the email you provided'}</strong>.</p>
+        <p style="color:#555;font-size:15px;line-height:1.7;">We will be in touch within three working days at <strong>${email || 'the email you provided'}</strong>.</p>
       </div>
-    \`;
+    `;
   } catch(err) {
     btn.textContent = 'Send Inquiry';
     btn.disabled = false;
