@@ -225,7 +225,7 @@
       description: 'The first ALSA event. Motivated law students, sponsors, and the start of everything we are building together.',
       folder: 'launch-night',
       photos: [
-        'File1.JPG', 'File2.JPG', 'File3.JPG', 'File4.JPG', 'File5.JPG', 'File6.JPG', 'File7.JPG', 'File8.JPG', 'File9.JPG', 'File10.JPG', 'File11.JPG', 'File12.JPG', 'File13.JPG', 'File14.JPG', 'File15.JPG', 'File16.JPG', 'File17.JPG', 'File18.JPG', 'File19.JPG', 'File20.JPG', 'File21.JPG', 'File22.JPG', 'File23.JPG', 'File24.JPG', 'File25.JPG', 'File26.JPG', 'File27.JPG', 'File28.JPG', 'File29.JPG', 'File30.JPG', 'File31.JPG', 'File32.JPG', 'File33.JPG', 'File34.JPG', 'File35.JPG', 'File36.JPG', 'File37.JPG', 'File38.JPG', 'File39.JPG', 'File40.JPG', 'File41.JPG', 'File42.JPG', 'File43.JPG', 'File44.JPG', 'File45.JPG', 'File46.JPG', 'File47.JPG', 'File48.JPG', 'File49.JPG', 'File50.JPG', 'File51.JPG', 'File52.JPG', 'File53.JPG', 'File54.JPG', 'File55.JPG', 'File56.JPG'
+        'photo1.JPG', 'photo2.JPG', 'photo3.JPG', 'photo4.JPG', 'photo5.JPG', 'photo6.JPG', 'photo7.JPG', 'photo8.JPG', 'photo9.JPG', 'photo10.JPG', 'photo11.JPG', 'photo12.JPG', 'photo13.JPG', 'photo14.JPG', 'photo15.JPG', 'photo16.JPG', 'photo17.JPG', 'photo18.JPG', 'photo19.JPG', 'photo20.JPG', 'photo21.JPG', 'photo22.JPG', 'photo23.JPG', 'photo24.JPG', 'photo25.JPG', 'photo26.JPG', 'photo27.JPG', 'photo28.JPG', 'photo29.JPG', 'photo30.JPG', 'photo31.JPG', 'photo32.JPG', 'photo33.JPG', 'photo34.JPG', 'photo35.JPG', 'photo36.JPG', 'photo37.JPG', 'photo38.JPG', 'photo39.JPG', 'photo40.JPG', 'photo41.JPG', 'photo42.JPG', 'photo43.JPG', 'photo44.JPG', 'photo45.JPG', 'photo46.JPG', 'photo47.JPG', 'photo48.JPG', 'photo49.JPG', 'photo50.JPG', 'photo51.JPG', 'photo52.JPG', 'photo53.JPG', 'photo54.JPG', 'photo55.JPG', 'photo56.JPG', 'photo57.JPG', 'photo58.JPG', 'photo59.JPG', 'photo60.JPG', 'photo61.JPG', 'photo62.JPG', 'photo63.JPG', 'photo64.JPG', 'photo65.JPG', 'photo66.JPG', 'photo67.JPG', 'photo68.JPG', 'photo69.JPG', 'photo70.JPG', 'photo71.JPG', 'photo72.JPG', 'photo73.JPG', 'photo74.JPG', 'photo75.JPG', 'photo76.JPG', 'photo77.JPG', 'photo78.JPG', 'photo79.JPG'
       ]
     }
     // Add new events here. Example:
@@ -277,7 +277,7 @@
         showEvent(event.slug);
       });
 
-      const coverSrc = event.photos.length > 0 ? `images/gallery/${event.folder}/${event.photos[0]}` : null;
+      const coverSrc = event.photos.length > 0 ? `images/gallary/${event.folder}/${event.photos[0]}` : null;
       card.innerHTML = `
         <div class="album-cover-wrap">
           ${coverSrc
@@ -332,12 +332,12 @@
 
     event.photos.forEach((photo, index) => {
       const globalIndex = allPhotos.length;
-      const src = `images/gallery/${event.folder}/${photo}`;
+      const src = `images/gallary/${event.folder}/${photo}`;
       allPhotos.push(src);
 
       const tile = document.createElement('div');
       tile.className = 'photo-tile';
-      tile.innerHTML = `<img src="${src}" alt="${event.title} photo ${index + 1}" loading="lazy">`;
+      tile.innerHTML = `<img src="${src}" alt="${event.title} photo ${index + 1}" loading="lazy" onerror="this.closest('.photo-tile').style.display='none'">`;
       tile.addEventListener('click', () => openModal(globalIndex));
       grid.appendChild(tile);
     });
