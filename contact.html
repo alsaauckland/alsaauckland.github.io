@@ -70,7 +70,7 @@
   .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
   .form-group{display:flex;flex-direction:column;margin-bottom:20px;}
   .form-group label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#888;margin-bottom:8px;font-weight:600;font-family:'Lora',serif;}
-  .form-group input,.form-group select,.form-group textarea{border:0.5px solid rgba(0,0,0,0.15);background:#fdfaf4;padding:12px 14px;font-family:'Lora',Georgia,serif;font-size:15px;color:#2a2a2a;outline:none;transition:border-color 0.2s;}
+  .form-group input,.form-group select,.form-group textarea{border:1.5px solid rgba(0,0,0,0.2);background:#fff;padding:12px 14px;font-family:'Lora',Georgia,serif;font-size:15px;color:#2a2a2a;outline:none;transition:border-color 0.2s;}
   .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#5b0f0f;}
   .form-group textarea{resize:vertical;}
   .inquiry-submit{background:#5b0f0f;color:#fff;border:none;padding:14px 36px;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;cursor:pointer;font-family:'Lora',serif;transition:background 0.2s;}
@@ -88,8 +88,8 @@
       <span class="nav-name">ALSA <span>AUCKLAND</span></span>
     </a>
     <div class="nav-links">
-      <a href="index.html#why">About</a>
-      <a href="index.html#programmes">Programmes</a>
+      <a href="about.html">About</a>
+      <a href="programmes.html">Programmes</a>
       <a href="newsletters.html">Newsletter</a>
       <a href="gallery.html">Gallery</a>
       <a href="team.html">Team</a>
@@ -129,14 +129,14 @@
     <label for="inq-subject">Subject</label>
     <select id="inq-subject">
       <option value="">Select a topic</option>
+      <option value="Inquiry">Inquiry</option>
       <option value="Membership Question">Membership Question</option>
       <option value="Events and Programmes">Events and Programmes</option>
-      <option value="Mentoring — General Question">Mentoring — General Question</option>
-      <option value="Mentoring — Mentor Application">Mentoring — Mentor Application</option>
+      <option value="Mentoring">Mentoring</option>
+      <option value="Professional Spotlight">Professional Spotlight</option>
       <option value="Join the Executive">Join the Executive</option>
       <option value="Collaboration with ALSA">Collaboration with ALSA</option>
-      <option value="Partnership Enquiry">Partnership Enquiry</option>
-      <option value="Sponsorship Enquiry">Sponsorship Enquiry</option>
+      <option value="Sponsorship and Partnership">Sponsorship and Partnership</option>
       <option value="Media and Press">Media and Press</option>
       <option value="Complaint or Concern">Complaint or Concern</option>
       <option value="Feedback">Feedback</option>
@@ -223,7 +223,7 @@ async function sendInquiry() {
         <div class="footer-col">
           <h4>About</h4>
           <a href="index.html#why">Why ALSA</a>
-          <a href="index.html#programmes">Programmes</a>
+          <a href="programmes.html">Programmes</a>
           <a href="team.html">Team</a>
         </div>
         <div class="footer-col">
@@ -253,5 +253,28 @@ async function sendInquiry() {
   </div>
 </footer>
 
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    const topic = params.get('topic');
+    if (topic) {
+      const select = document.getElementById('inq-subject');
+      for (let i = 0; i < select.options.length; i++) {
+        if (select.options[i].value === topic) {
+          select.selectedIndex = i;
+          select.dispatchEvent(new Event('change'));
+          break;
+        }
+      }
+    }
+    if (topic === 'Join the Executive') {
+      const msg = document.getElementById('inq-message');
+      if (msg && !msg.value) {
+        msg.placeholder = 'Tell us about yourself, your year level, the role that interests you, and why you want to be part of the ALSA executive team.';
+      }
+    }
+  });
+</script>
 </body>
 </html>

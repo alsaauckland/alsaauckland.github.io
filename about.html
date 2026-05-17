@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="images/logo.png" sizes="196x196">
 <link rel="apple-touch-icon" href="images/logo.png">
-<title>Legal Careers Board  ALSA Auckland</title>
+<title>About | ALSA Auckland</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   *{margin:0;padding:0;box-sizing:border-box;}
@@ -21,23 +21,47 @@
   .nav-links a{font-size:13px;color:#555;text-decoration:none;letter-spacing:0.5px;}
   .nav-links a:hover{color:#5b0f0f;}
   .nav-cta{background:#5b0f0f;color:#fff;padding:9px 20px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;font-weight:600;}
-  .hero{background:#1a1a1a;padding:80px 40px 70px;text-align:center;}
-  .hero-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:18px;font-weight:600;}
-  .hero h1{font-family:'Playfair Display',serif;font-size:52px;font-weight:700;color:#fff;letter-spacing:-0.5px;margin-bottom:18px;}
+  .hero{background:#5b0f0f;padding:90px 40px 80px;}
+  .hero-inner{max-width:860px;margin:0 auto;}
+  .hero-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:20px;font-weight:600;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:58px;font-weight:700;color:#fff;line-height:1.05;letter-spacing:-0.5px;margin-bottom:24px;}
   .hero h1 em{font-style:italic;color:#C9A84C;font-weight:400;}
-  .hero-lead{font-size:16px;color:rgba(255,255,255,0.65);max-width:560px;margin:0 auto;}
-  .coming-section{padding:100px 40px;text-align:center;}
-  .coming-inner{max-width:620px;margin:0 auto;}
-  .coming-tag{display:inline-block;background:#f5f0e8;border:0.5px solid rgba(0,0,0,0.1);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#5b0f0f;padding:8px 20px;font-weight:600;margin-bottom:32px;}
-  .coming-inner h2{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:#1a1a1a;margin-bottom:18px;letter-spacing:-0.3px;}
-  .coming-inner h2 em{font-style:italic;color:#5b0f0f;font-weight:400;}
-  .coming-inner p{font-size:16px;color:#555;line-height:1.8;margin-bottom:16px;}
-  .preview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:60px;}
-  .preview-card{background:#fff;border:0.5px solid rgba(0,0,0,0.08);padding:24px;text-align:left;opacity:0.4;}
-  .preview-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#888;margin-bottom:10px;}
-  .preview-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:6px;}
-  .preview-firm{font-size:13px;color:#C9A84C;font-weight:600;}
-  .preview-bar{height:8px;background:#f0ebe0;margin-top:16px;}
+  .hero-lead{font-size:18px;color:rgba(255,255,255,0.75);line-height:1.8;max-width:640px;}
+  .section{padding:80px 0;}
+  .section-alt{background:#f5f0e8;}
+  .section-dark{background:#1a1a1a;}
+  .container{max-width:860px;margin:0 auto;padding:0 40px;}
+  .eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#5b0f0f;margin-bottom:14px;font-weight:600;}
+  .eyebrow-light{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:14px;font-weight:600;}
+  h2{font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:#1a1a1a;line-height:1.15;letter-spacing:-0.3px;margin-bottom:28px;}
+  h2 em{font-style:italic;color:#5b0f0f;font-weight:400;}
+  h2.light{color:#fff;}
+  h2.light em{color:#C9A84C;}
+  p.body{font-size:17px;color:#444;line-height:1.85;margin-bottom:22px;}
+  p.body-light{font-size:17px;color:rgba(255,255,255,0.72);line-height:1.85;margin-bottom:22px;}
+  p.body:last-child,p.body-light:last-child{margin-bottom:0;}
+  .pull-quote{border-left:3px solid #C9A84C;padding:24px 32px;background:#fff;margin:40px 0;}
+  .pull-quote p{font-family:'Playfair Display',serif;font-size:22px;font-style:italic;color:#1a1a1a;line-height:1.65;margin-bottom:12px;}
+  .pull-quote cite{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#888;font-style:normal;}
+  .pull-quote-dark{border-left:3px solid #C9A84C;padding:24px 32px;background:rgba(255,255,255,0.05);margin:40px 0;}
+  .pull-quote-dark p{font-family:'Playfair Display',serif;font-size:22px;font-style:italic;color:#fff;line-height:1.65;margin-bottom:12px;}
+  .pull-quote-dark cite{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45);font-style:normal;}
+  .data-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:40px 0;}
+  .data-card{background:#fff;padding:28px;border-top:3px solid #5b0f0f;}
+  .data-card h4{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:10px;}
+  .data-card p{font-size:14px;color:#666;line-height:1.7;}
+  .sources{margin-top:48px;padding-top:32px;border-top:0.5px solid rgba(0,0,0,0.1);}
+  .sources h3{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#888;font-weight:600;margin-bottom:16px;}
+  .source-item{display:flex;gap:16px;margin-bottom:20px;align-items:flex-start;}
+  .source-num{font-size:12px;color:#C9A84C;font-weight:700;flex-shrink:0;margin-top:2px;}
+  .source-text{font-size:14px;color:#555;line-height:1.7;}
+  .source-text a{color:#5b0f0f;text-decoration:none;font-weight:600;}
+  .source-text a:hover{text-decoration:underline;}
+  .programmes-cta{background:#5b0f0f;padding:70px 40px;text-align:center;}
+  .programmes-cta h2{color:#fff;margin-bottom:14px;}
+  .programmes-cta h2 em{color:#C9A84C;font-style:italic;}
+  .programmes-cta p{font-size:16px;color:rgba(255,255,255,0.65);max-width:500px;margin:0 auto 28px;}
+  .programmes-cta a{display:inline-block;background:#C9A84C;color:#1a1a1a;padding:14px 36px;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;font-weight:700;}
   footer{background:#1a1a1a;color:rgba(255,255,255,0.5);padding:50px 0 30px;}
   .footer-inner{max-width:1100px;margin:0 auto;padding:0 40px;}
   .footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:36px;padding-bottom:36px;border-bottom:0.5px solid rgba(255,255,255,0.1);flex-wrap:wrap;gap:30px;}
@@ -49,11 +73,17 @@
   .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;padding:4px 0;}
   .footer-col a:hover{color:#fff;}
   .footer-bottom{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.7;}
-  @media(max-width:900px){.nav-links{display:none;}.preview-grid{grid-template-columns:1fr 1fr;}.hero h1{font-size:36px;}}
-  @media(max-width:600px){.preview-grid{grid-template-columns:1fr;}}
+  @media(max-width:900px){
+    .nav-links{display:none;}
+    .hero h1{font-size:38px;}
+    h2{font-size:30px;}
+    .data-grid{grid-template-columns:1fr;}
+    .nav-inner,.container,.footer-inner,.programmes-cta,.hero{padding-left:24px;padding-right:24px;}
+  }
 </style>
 </head>
 <body>
+
 <nav class="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-brand">
@@ -73,40 +103,86 @@
 </nav>
 
 <section class="hero">
-  <div class="hero-eyebrow">Development</div>
-  <h1>Legal Careers <em>Board</em>.</h1>
-  <p class="hero-lead">Open roles, clerkship opportunities, and graduate positions from ALSA's law firm partners  curated for Auckland law students.</p>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">About ALSA Auckland</div>
+    <h1>Built to close a <em>gap</em>.</h1>
+    <p class="hero-lead">ALSA Auckland exists because Asian law students in Aotearoa are capable, motivated, and underrepresented in the rooms that matter. We are building the structures that change that.</p>
+  </div>
 </section>
 
-<section class="coming-section">
-  <div class="coming-inner">
-    <div class="coming-tag">Launching Semester 2 · 2026</div>
-    <h2>Coming <em>soon</em>.</h2>
-    <p>The ALSA Legal Careers Board will launch in Semester 2. Kevin and Daniel, our Development Officers, are building relationships with law firms and organisations to curate a list of genuine opportunities for ALSA members.</p>
-    <p>Listings will include clerkship positions, graduate roles, internships, and volunteer opportunities across commercial law, public law, community legal services, and more.</p>
-    <p>Become a member to be notified when the board goes live.</p>
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">The Founding Story</div>
+    <h2>It started with an <em>observation</em>.</h2>
+    <p class="body">ALSA Auckland was founded in 2026 by Jayden Lin, a law student at the University of Auckland who kept noticing the same thing. The students around him who were struggling to break into the profession were not the ones lacking in ability. They were the ones lacking in visibility. Strong students, good grades, genuine ambition. But without the right connections, the right rooms, and the confidence that comes from knowing the profession is actually accessible to them, many were not getting where they should.</p>
+    <p class="body">The gap was not capability. It was infrastructure. Asian law students enter the legal pipeline in significant numbers. The same cannot be said for their presence further along it.</p>
+    <div class="pull-quote">
+      <p>"I built ALSA because I saw a gap between capability and visibility. Strong Asian law students weren't always getting the confidence and connections to match their ability. ALSA closes that gap."</p>
+      <cite>Jayden Lin, Founding President</cite>
+    </div>
+    <p class="body">ALSA was incorporated as an independent society in 2026. It is not a cultural club. It does not exist to celebrate shared heritage, though that heritage matters. It exists to build a professional pipeline: structured, deliberate, and anchored in the skills and relationships that actually move people forward in law.</p>
+    <p class="body">The 2026 Inaugural Launch Night brought together over 200 students, practitioners, and supporters. That night confirmed what the founding team had already known: there was real appetite for this, and real need for it.</p>
+  </div>
+</section>
 
-    <div class="preview-grid">
-      <div class="preview-card">
-        <div class="preview-label">Law Clerk</div>
-        <div class="preview-title">Law Clerk</div>
-        <div class="preview-firm">Partner Firm</div>
-        <div class="preview-bar"></div>
+<section class="section section-alt">
+  <div class="container">
+    <div class="eyebrow">The Evidence</div>
+    <h2>The numbers tell a <em>consistent story</em>.</h2>
+    <p class="body">ALSA's founding is grounded in evidence, not anecdote. The research on Asian communities in Aotearoa's legal system is clear: the gap between representation at entry level and representation in senior positions is real, persistent, and structural.</p>
+    <div class="data-grid">
+      <div class="data-card">
+        <h4>A growing population, an underrepresented profession</h4>
+        <p>New Zealand's Asian population has grown significantly in recent decades and continues to grow. The legal profession has not kept pace at senior levels. The gap between community representation and professional representation is structural, not incidental.</p>
       </div>
-      <div class="preview-card">
-        <div class="preview-label">Graduate Role</div>
-        <div class="preview-title">Graduate Solicitor</div>
-        <div class="preview-firm">Partner Firm</div>
-        <div class="preview-bar"></div>
+      <div class="data-card">
+        <h4>Cultural barriers are documented and specific</h4>
+        <p>Research has identified concrete ways in which cultural background affects how Asian practitioners navigate legal education, clerkship applications, workplace culture, and client relationships. These are addressable. ALSA addresses them.</p>
       </div>
-      <div class="preview-card">
-        <div class="preview-label">Internship</div>
-        <div class="preview-title">Legal Intern</div>
-        <div class="preview-firm">Partner Organisation</div>
-        <div class="preview-bar"></div>
+    </div>
+    <p class="body">Two pieces of research inform ALSA's work in particular. The first is Mai Chen's 2019 report on culturally and linguistically diverse parties in New Zealand courts, produced with Ministry of Justice support. The second is the New Zealand Law Society's annual Snapshot of the Profession, which tracks demographic representation across the legal profession year by year.</p>
+    <div class="pull-quote">
+      <p>"Real confidence comes from competence."</p>
+      <cite>Mai Chen, Constitutional Law Practitioner and President, NZ Asian Lawyers</cite>
+    </div>
+    <div class="sources">
+      <h3>Primary Sources</h3>
+      <div class="source-item">
+        <div class="source-num">01</div>
+        <div class="source-text">
+          Mai Chen, <em>Culturally and Linguistically Diverse Parties in the Courts: A Chinese Case Study</em>, Superdiversity Institute of Law, Policy and Business, November 2019. Supported by the Ministry of Justice, NZ Law Foundation, and Borrin Foundation.<br>
+          <a href="https://www.superdiversity.org/news/media-releases/ground-breaking-report-into-superdiverse-parties-in-courts/" target="_blank" rel="noopener">Read more at superdiversity.org &rarr;</a>
+        </div>
+      </div>
+      <div class="source-item">
+        <div class="source-num">02</div>
+        <div class="source-text">
+          New Zealand Law Society Te Kahui Ture o Aotearoa, <em>Snapshot of the Profession 2024</em>, LawTalk Issue 960, December 2024.<br>
+          <a href="https://www.lawsociety.org.nz/news/publications/lawtalk/lawtalk-issue-960/snapshot-of-the-profession-2024/" target="_blank" rel="noopener">Read the full snapshot at lawsociety.org.nz &rarr;</a>
+        </div>
       </div>
     </div>
   </div>
+</section>
+
+<section class="section section-dark">
+  <div class="container">
+    <div class="eyebrow-light">The Vision</div>
+    <h2 class="light">A profession that reflects the <em>country it serves</em>.</h2>
+    <p class="body-light">ALSA is not building a better social club. It is building a professional pipeline that closes the gap between what Asian law students can do and what the profession currently allows them to be seen doing.</p>
+    <p class="body-light">The vision is not radical. It is straightforward. A legal profession where the most capable people reach the most senior positions, regardless of whether they had the networks to match their ability when they started. ALSA creates those networks. It provides the skills, the mentorship, the visibility, and the relationships that have historically been unevenly distributed.</p>
+    <div class="pull-quote-dark">
+      <p>The profession will be better for having them in it. We are here to make sure they get there with everything they deserve behind them.</p>
+      <cite>ALSA Auckland, 2026</cite>
+    </div>
+    <p class="body-light">ALSA operates as an independent incorporated society, free of institutional constraints and built to serve its members first. It is run entirely by students who believe in building something that outlasts their degree.</p>
+  </div>
+</section>
+
+<section class="programmes-cta">
+  <h2>See how we <em>close the gap</em>.</h2>
+  <p>ALSA runs five structured programmes covering academic skills, professional development, mentoring, engagement, and cultural competence in law.</p>
+  <a href="index.html#programmes">View Our Programmes</a>
 </section>
 
 <footer>
@@ -119,7 +195,7 @@
       <div class="footer-cols">
         <div class="footer-col">
           <h4>About</h4>
-          <a href="index.html#why">Why ALSA</a>
+          <a href="about.html">About ALSA</a>
           <a href="programmes.html">Programmes</a>
           <a href="team.html">Team</a>
         </div>
@@ -127,6 +203,7 @@
           <h4>Engage</h4>
           <a href="newsletters.html">Newsletter</a>
           <a href="gallery.html">Gallery</a>
+          <a href="events.html">Events</a>
           <a href="join.html">Become a Member</a>
         </div>
         <div class="footer-col">
@@ -145,10 +222,11 @@
       </div>
     </div>
     <div class="footer-bottom">
-      ALSA Auckland · Incorporated Society<br>
-      © 2026 Asian Law Students' Association (Auckland). All rights reserved.
+      ALSA Auckland &middot; Incorporated Society<br>
+      &copy; 2026 Asian Law Students' Association (Auckland). All rights reserved.
     </div>
   </div>
 </footer>
+
 </body>
 </html>
