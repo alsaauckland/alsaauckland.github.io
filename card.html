@@ -253,8 +253,6 @@
   } else {
     document.getElementById('hint').style.display = 'block';
 
-    const verifyURL = 'https://alsaauckland.org/verify.html?name=' + encodeURIComponent(name) + '&year=' + encodeURIComponent(year) + '&tier=' + encodeURIComponent(tier);
-    const qr = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=0&data=' + encodeURIComponent(verifyURL) + '&color=1a1a1a&bgcolor=ffffff';
 
     root.innerHTML =
       '<div class="card">' +
@@ -280,7 +278,7 @@
               '</div>' +
               '<div class="card-year-mark">ALSA · 2026</div>' +
             '</div>' +
-            '<div class="card-qr"><img src="' + qr + '" alt="Verify membership"></div>' +
+
           '</div>' +
         '</div>' +
         '<div class="card-bottombar"></div>' +
