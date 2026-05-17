@@ -65,6 +65,18 @@
     .nav-inner,.doc-content,.footer-inner{padding-left:24px;padding-right:24px;}
     .footer-top{flex-direction:column;gap:14px;text-align:center;}
   }
+
+  .inquiry-form{background:#fff;border:0.5px solid rgba(0,0,0,0.08);padding:36px;margin:0 0 40px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .form-group{display:flex;flex-direction:column;margin-bottom:20px;}
+  .form-group label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#888;margin-bottom:8px;font-weight:600;font-family:'Lora',serif;}
+  .form-group input,.form-group select,.form-group textarea{border:0.5px solid rgba(0,0,0,0.15);background:#fdfaf4;padding:12px 14px;font-family:'Lora',Georgia,serif;font-size:15px;color:#2a2a2a;outline:none;transition:border-color 0.2s;}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#5b0f0f;}
+  .form-group textarea{resize:vertical;}
+  .inquiry-submit{background:#5b0f0f;color:#fff;border:none;padding:14px 36px;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;cursor:pointer;font-family:'Lora',serif;transition:background 0.2s;}
+  .inquiry-submit:hover{background:#3d0a0a;}
+  .inq-note{font-size:12px;color:#999;margin-top:12px;font-style:italic;}
+  @media(max-width:700px){.form-row{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -96,11 +108,60 @@
 <article class="doc-content">
 <p style="text-align:center;font-size:16px;color:#555;margin-bottom:50px;max-width:560px;margin-left:auto;margin-right:auto;">Whether you are a student looking to get involved, a firm interested in partnership, or anyone else wanting to reach us, here is how to make contact.</p>
 
-<div class="contact-block">
+<div class="contact-block" style="padding-bottom:0;">
   <h3>General Inquiries</h3>
-  <p>For membership questions, event details, programme information, or general feedback. We aim to respond within three working days.</p>
-  <a href="mailto:alsaauckland@gmail.com" class="email">alsaauckland@gmail.com</a>
+  <p>Fill in the form below and you will be taken straight to your email client with your message ready to send. We aim to respond within three working days.</p>
 </div>
+
+<div class="inquiry-form">
+  <div class="form-row">
+    <div class="form-group">
+      <label for="inq-name">Your Name</label>
+      <input type="text" id="inq-name" placeholder="First and last name">
+    </div>
+    <div class="form-group">
+      <label for="inq-email">Your Email</label>
+      <input type="email" id="inq-email" placeholder="your@email.com">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inq-subject">Subject</label>
+    <select id="inq-subject">
+      <option value="">Select a topic</option>
+      <option>Membership Question</option>
+      <option>Event Information</option>
+      <option>Programme Information</option>
+      <option>Mentoring Programme</option>
+      <option>Feedback</option>
+      <option>Other</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="inq-message">Message</label>
+    <textarea id="inq-message" rows="5" placeholder="What would you like to know?"></textarea>
+  </div>
+  <button class="inquiry-submit" onclick="sendInquiry()">Send Inquiry</button>
+  <p class="inq-note">You will be redirected to your email client with this message ready to send.</p>
+</div>
+
+<script>
+function sendInquiry() {
+  const name = document.getElementById('inq-name').value.trim();
+  const email = document.getElementById('inq-email').value.trim();
+  const subject = document.getElementById('inq-subject').value;
+  const message = document.getElementById('inq-message').value.trim();
+
+  if (!name || !message) {
+    alert('Please enter your name and message before sending.');
+    return;
+  }
+
+  const subjectLine = subject ? subject + ' — ALSA Auckland Inquiry' : 'General Inquiry — ALSA Auckland';
+  const body = (name ? 'From: ' + name + (email ? ' (' + email + ')' : '') + '\n\n' : '') + message;
+
+  window.location.href = 'mailto:alsaauckland@gmail.com?subject=' + encodeURIComponent(subjectLine) + '&body=' + encodeURIComponent(body);
+}
+</script>
 
 <div class="contact-block">
   <h3>Partnerships &amp; Sponsorship</h3>
