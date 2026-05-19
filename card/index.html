@@ -13,7 +13,7 @@
 <title>ALSA Auckland · Member Card</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=fallback" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=optional" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; -webkit-font-smoothing:antialiased; }
 
@@ -289,26 +289,5 @@
   }
 </script>
 
-<script>
-(function(){
-  var path = window.location.pathname.split('/').pop() || 'index.html';
-  // Highlight nav links
-  document.querySelectorAll('.nav-links a').forEach(function(a){
-    var href = a.getAttribute('href');
-    if(href && (href === path || (path === '' && href === 'index.html'))){
-      a.style.color = '#5b0f0f';
-      a.style.fontWeight = '600';
-    }
-  });
-  // Highlight footer links
-  document.querySelectorAll('footer a').forEach(function(a){
-    var href = a.getAttribute('href');
-    if(href && href === path){
-      a.style.color = '#fff';
-      a.style.fontWeight = '600';
-    }
-  });
-})();
-</script>
 </body>
 </html>

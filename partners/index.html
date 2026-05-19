@@ -8,7 +8,7 @@
 <title>Partners | ALSA Auckland</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=fallback" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=optional" rel="stylesheet">
 <style>
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;overflow-y:scroll;}
@@ -76,12 +76,12 @@
   .footer-col h4{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:14px;font-weight:600;font-family:'Lora',serif;}
   .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;padding:4px 0;}
   .footer-col a:hover{color:#fff;}
-  .footer-bottom{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.7;}
+  .footer-bottom{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.7;text-align:center;}
   @media(max-width:900px){.nav-links{display:none;}.retail-grid{grid-template-columns:1fr 1fr;}.ipls-card{flex-direction:column;gap:28px;}.hero h1{font-size:36px;}.container,.footer-inner{padding-left:24px;padding-right:24px;}}
   @media(max-width:600px){.retail-grid{grid-template-columns:1fr;}}
 
   .ipls-logo{max-width:260px;width:100%;height:auto;display:block;margin:20px 0 24px;filter:brightness(0) invert(1);opacity:0.95;}
-  .retail-logo{width:100%;height:90px;object-fit:contain;object-position:center;display:block;margin-bottom:16px;transition:opacity 0.2s;}
+  .retail-logo{width:100%;height:120px;object-fit:contain;object-position:center;display:block;margin-bottom:16px;transition:opacity 0.2s;}
   
   .retail-logo-placeholder{height:0;}
 
@@ -374,9 +374,6 @@
           <a href="/newsletters/">Newsletter</a>
           <a href="/gallery/">Gallery</a>
           <a href="/events/">Events</a>
-          <a href="/join/">Join Us</a>
-          <a href="/partners/">Partners</a>
-          <a href="/careers/">Careers</a>
           <a href="/competition/">Legal Writing</a>
         </div>
         <div class="footer-col">
@@ -384,6 +381,9 @@
           <a href="https://instagram.com/alsa.akl" target="_blank">Instagram</a>
           <a href="https://www.linkedin.com/company/alsa-akl/" target="_blank">LinkedIn</a>
           <a href="mailto:alsaauckland@gmail.com">Email Us</a>
+          <a href="/join/">Join Us</a>
+          <a href="/partners/">Partners</a>
+          <a href="/careers/">Careers</a>
         </div>
         <div class="footer-col">
           <h4>Policies</h4>
@@ -395,34 +395,14 @@
       </div>
       </div>
       </div>
+      </div>
     </div>
     <div class="footer-bottom">
       ALSA Auckland · Incorporated Society<br>
-      © 2026 Asian Law Students' Association (Auckland). All rights reserved.
+      © 2026 Asian Law Students' Association. All rights reserved.
     </div>
   </div>
 </footer>
 
-<script>
-(function(){
-  var path = window.location.pathname.split('/').pop() || 'index.html';
-  // Highlight nav links
-  document.querySelectorAll('.nav-links a').forEach(function(a){
-    var href = a.getAttribute('href');
-    if(href && (href === path || (path === '' && href === 'index.html'))){
-      a.style.color = '#5b0f0f';
-      a.style.fontWeight = '600';
-    }
-  });
-  // Highlight footer links
-  document.querySelectorAll('footer a').forEach(function(a){
-    var href = a.getAttribute('href');
-    if(href && href === path){
-      a.style.color = '#fff';
-      a.style.fontWeight = '600';
-    }
-  });
-})();
-</script>
 </body>
 </html>
