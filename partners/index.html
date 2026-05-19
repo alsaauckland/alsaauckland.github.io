@@ -338,7 +338,7 @@
         var data = {};
         new FormData(e.target).forEach(function(v,k){ data[k]=v; });
         data.subject = 'Sponsorship and Partnership';
-        fetch('https://script.google.com/macros/s/AKfycbyazku0MvWjY9ROhbuNyOzsLGccC6UsW_PDRfQ7CfmSZ_cwMk-EebJ3s3PXSx5EAQ99s/exec', {
+        fetch('https://script.google.com/macros/s/AKfycbyazku0MvWjY9ROhbuNyOzsLGccC6UsW_PDRfQ7CfmSZ_cwMk-EbJ3s3PXSx5EAQ99s/exec', {
           method: 'POST', body: JSON.stringify(data)
         }).then(function(){
           document.getElementById('partnerFormMsg').style.display='block';
@@ -373,9 +373,6 @@
           <a href="/newsletters/">Newsletter</a>
           <a href="/gallery/">Gallery</a>
           <a href="/events/">Events</a>
-          <a href="/competition/">Legal Writing</a>
-          <a href="/mentoring/apply/">Mentoring Programme</a>
-          <a href="/spotlight/">Spotlight Nomination</a>
         </div>
         <div class="footer-col">
           <h4>Connect</h4>
@@ -386,7 +383,7 @@
         </div>
         <div class="footer-col">
           <h4>Policies</h4>
-          <a href="/contact/">Contact</a>
+          <a href="/contact/" style="display:block;font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;padding:4px 0;">Contact</a>
           <a href="/privacy/">Privacy Policy</a>
           <a href="/conduct/">Code of Conduct</a>
         </div>
