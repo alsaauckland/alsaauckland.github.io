@@ -65,6 +65,7 @@
   .event-desc{font-size:14px;color:#666;line-height:1.65;}
   .event-badge{font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;padding:6px 14px;white-space:nowrap;}
   .badge-confirmed{background:#e8f5e9;color:#2e7d32;}
+  .badge-completed{background:#f0f0f0;color:#888;}
   .badge-tbd{background:#f5f0e8;color:#aaa;}
 
   /* TBD SECTION */
@@ -95,6 +96,19 @@
     .event-card{grid-template-columns:1fr;}
     .event-date{text-align:left;display:flex;align-items:center;gap:12px;}
   }
+
+  /* MOBILE NAV */
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+  .hamburger span{display:block;width:22px;height:2px;background:#5b0f0f;transition:all 0.3s;}
+  @media(max-width:768px){
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(253,250,244,0.98);padding:16px 24px;flex-direction:column;gap:0;border-bottom:0.5px solid rgba(0,0,0,0.08);z-index:200;}
+    .nav-links.open{display:flex;}
+    .nav-links a{padding:12px 0;border-bottom:0.5px solid rgba(0,0,0,0.06);font-size:14px;}
+    .nav-links a:last-child{border-bottom:none;}
+    .nav-cta{display:none;}
+    .hamburger{display:flex;}
+    .nav{position:sticky;}
+  }
 </style>
 </head>
 <body>
@@ -115,13 +129,16 @@
       <a href="/contact/">Contact</a>
     </div>
     <a href="/join/" class="nav-cta">Join Us</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
 <section class="hero">
   <div class="hero-eyebrow">ALSA Auckland 2026</div>
   <h1>Events <em>Calendar</em>.</h1>
-  <p class="hero-lead">Semester 1 events are confirmed. Semester 2 programme dates will be announced ahead of July.</p>
+  <p class="hero-lead">Upcoming events are confirmed. Semester 2 programme dates will be announced ahead of July.</p>
 </section>
 
 <!-- SEMESTER 1 -->
@@ -132,12 +149,12 @@
         <div class="section-eyebrow">Semester 1 · 2026</div>
         <div class="section-title">Confirmed <em>Events</em>.</div>
       </div>
-      <a href="/programmes/">View All Programmes &rarr;</a>
+      <a href="/programmes/" style="color:#5b0f0f;font-weight:700;text-decoration:none;">View All Programmes &rarr;</a>
     </div>
 
     <div class="events-grid">
 
-      <div class="event-card" data-date="2026-05-18">
+      <div class="event-card" data-date="2026-05-18" style="opacity:0.75;">
         <div class="event-date">
           <div class="event-date-day">18</div>
           <div class="event-date-month">May 2026</div>
@@ -148,7 +165,7 @@
           <div class="event-name">Inaugural Academic Workshop</div>
           <div class="event-desc">ALSA's first academic skills workshop. Covering legal writing, research technique, and examination strategy for law students across all year levels.</div>
         </div>
-        <div class="event-badge badge-confirmed">Confirmed</div>
+        <div class="event-badge badge-completed">Completed</div>
       </div>
 
       <div class="event-card" data-date="2026-05-28">
@@ -316,5 +333,22 @@
 </script>
 
 
+
+<script>
+(function(){
+  var btn = document.getElementById('hamburger');
+  var links = document.querySelector('.nav-links');
+  if(btn && links){
+    btn.addEventListener('click', function(){
+      links.classList.toggle('open');
+    });
+    document.addEventListener('click', function(e){
+      if(!btn.contains(e.target) && !links.contains(e.target)){
+        links.classList.remove('open');
+      }
+    });
+  }
+})();
+</script>
 </body>
 </html>

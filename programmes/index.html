@@ -82,6 +82,19 @@
     .programme-number{font-size:60px;}
     .programme-title{font-size:28px;}
   }
+
+  /* MOBILE NAV */
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+  .hamburger span{display:block;width:22px;height:2px;background:#5b0f0f;transition:all 0.3s;}
+  @media(max-width:768px){
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(253,250,244,0.98);padding:16px 24px;flex-direction:column;gap:0;border-bottom:0.5px solid rgba(0,0,0,0.08);z-index:200;}
+    .nav-links.open{display:flex;}
+    .nav-links a{padding:12px 0;border-bottom:0.5px solid rgba(0,0,0,0.06);font-size:14px;}
+    .nav-links a:last-child{border-bottom:none;}
+    .nav-cta{display:none;}
+    .hamburger{display:flex;}
+    .nav{position:sticky;}
+  }
 </style>
 </head>
 <body>
@@ -102,6 +115,9 @@
       <a href="/contact/">Contact</a>
     </div>
     <a href="/join/" class="nav-cta">Join Us</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
@@ -188,7 +204,7 @@
         <div class="programme-number">03</div>
         <div class="programme-tag">Mentoring</div>
         <h2 class="programme-title">Guidance from someone who <em>knows the path</em>.</h2>
-        <p class="programme-lead">The most valuable thing ALSA can give a law student is access to a practitioner who understands where they are coming from. ALSA's mentoring programme matches students with lawyers based on shared interests, background, and career direction. It runs for the full length of Semester 2, giving each pair enough time to build a relationship that actually means something.</p>
+        <p class="programme-lead">Access to a practitioner who understands where you are coming from is one of the most direct things ALSA offers a law student. ALSA's mentoring programme matches students with lawyers based on shared interests, background, and career direction. It runs for the full length of Semester 2, giving each pair enough time to build a relationship that actually means something.</p>
         <div class="programme-officers">Led by <strong>Cayla Huang</strong> and <strong>Charlotte Dobbs</strong>, Mentoring Officer.</div>
         <div class="programme-cta">
           <a href="/mentoring/apply/">Apply to the Programme &rarr;</a>
@@ -257,7 +273,7 @@
         <div class="programme-number">05</div>
         <div class="programme-tag">Marketing &amp; Communications</div>
         <h2 class="programme-title">Telling the story of <em>what we build</em>.</h2>
-        <p class="programme-lead">ALSA's reach extends well beyond its events. Through social media, a published newsletter, and an upcoming podcast, the Marketing and Communications portfolio puts the work and voices of Auckland's Asian law students in front of the profession, the public, and future members.</p>
+        <p class="programme-lead">Through social media, a published newsletter, and an upcoming podcast, the Marketing and Communications portfolio puts the work and voices of ALSA's members in front of the profession and future members.</p>
         <div class="programme-officers">Led by <strong>Nora He</strong>, Marketing Officer, with <strong>Yamato Maemura</strong> and <strong>Joone Tan</strong>, Social Media Officers, and <strong>Grace Deng</strong>, Designer.</div>
         <div class="programme-cta">
           <a href="/newsletters/">Read the Newsletter &rarr;</a>
@@ -338,5 +354,22 @@
 </footer>
 
 
+
+<script>
+(function(){
+  var btn = document.getElementById('hamburger');
+  var links = document.querySelector('.nav-links');
+  if(btn && links){
+    btn.addEventListener('click', function(){
+      links.classList.toggle('open');
+    });
+    document.addEventListener('click', function(e){
+      if(!btn.contains(e.target) && !links.contains(e.target)){
+        links.classList.remove('open');
+      }
+    });
+  }
+})();
+</script>
 </body>
 </html>

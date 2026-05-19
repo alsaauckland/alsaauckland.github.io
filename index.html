@@ -171,6 +171,19 @@
     .hero{padding:60px 0 80px;}
     section{padding:60px 0;}
   }
+
+  /* MOBILE NAV */
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+  .hamburger span{display:block;width:22px;height:2px;background:#5b0f0f;transition:all 0.3s;}
+  @media(max-width:768px){
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(253,250,244,0.98);padding:16px 24px;flex-direction:column;gap:0;border-bottom:0.5px solid rgba(0,0,0,0.08);z-index:200;}
+    .nav-links.open{display:flex;}
+    .nav-links a{padding:12px 0;border-bottom:0.5px solid rgba(0,0,0,0.06);font-size:14px;}
+    .nav-links a:last-child{border-bottom:none;}
+    .nav-cta{display:none;}
+    .hamburger{display:flex;}
+    .nav{position:sticky;}
+  }
 </style>
 </head>
 <body>
@@ -192,6 +205,9 @@
       <a href="/contact/">Contact</a>
     </div>
     <a href="/join/" class="nav-cta">Join Us</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
@@ -343,7 +359,7 @@
       </div>
 
     </div>
-    <div id="indexNoEvents" style="display:none;font-size:15px;color:#888;font-style:italic;padding:20px 0;">All Semester 1 events have passed. Semester 2 dates coming soon.</div>
+    <div id="indexNoEvents" style="display:none;font-size:15px;color:#888;font-style:italic;padding:20px 0;">Semester 2 dates coming soon.</div>
   </div>
 </section>
 
@@ -450,7 +466,7 @@
         <div class="section-eyebrow">Publication</div>
         <h2 class="section-title">The ALSA <em>Newsletter</em></h2>
         <p>Every issue, ALSA publishes spotlights on students and lawyers doing exceptional work, professional opportunities from partner firms, and updates on our programmes.</p>
-        <p>The newsletter goes directly to our membership, partner firms, and sponsors. It is how the profession sees what ALSA is building.</p>
+        <p>The newsletter goes directly to our membership, partner firms, and sponsors.</p>
         <div style="margin-top:30px;">
           <a href="/newsletters/" class="btn-primary">Read the Newsletter</a>
         </div>
@@ -596,5 +612,22 @@
 </footer>
 
 
+
+<script>
+(function(){
+  var btn = document.getElementById('hamburger');
+  var links = document.querySelector('.nav-links');
+  if(btn && links){
+    btn.addEventListener('click', function(){
+      links.classList.toggle('open');
+    });
+    document.addEventListener('click', function(e){
+      if(!btn.contains(e.target) && !links.contains(e.target)){
+        links.classList.remove('open');
+      }
+    });
+  }
+})();
+</script>
 </body>
 </html>

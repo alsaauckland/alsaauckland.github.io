@@ -83,6 +83,19 @@
     .data-grid{grid-template-columns:1fr;}
     .nav-inner,.container,.footer-inner,.programmes-cta,.hero{padding-left:24px;padding-right:24px;}
   }
+
+  /* MOBILE NAV */
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+  .hamburger span{display:block;width:22px;height:2px;background:#5b0f0f;transition:all 0.3s;}
+  @media(max-width:768px){
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(253,250,244,0.98);padding:16px 24px;flex-direction:column;gap:0;border-bottom:0.5px solid rgba(0,0,0,0.08);z-index:200;}
+    .nav-links.open{display:flex;}
+    .nav-links a{padding:12px 0;border-bottom:0.5px solid rgba(0,0,0,0.06);font-size:14px;}
+    .nav-links a:last-child{border-bottom:none;}
+    .nav-cta{display:none;}
+    .hamburger{display:flex;}
+    .nav{position:sticky;}
+  }
 </style>
 </head>
 <body>
@@ -103,6 +116,9 @@
       <a href="/contact/">Contact</a>
     </div>
     <a href="/join/" class="nav-cta">Join Us</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
@@ -118,11 +134,11 @@
   <div class="container">
     <div class="eyebrow">The Founding Story</div>
     <h2>You should not have to <em>shrink to succeed</em>.</h2>
-    <p class="body">ALSA Auckland was founded in 2026 by Jayden Lin, a law student at the University of Auckland who kept noticing the same pattern. New Zealand is one of the most diverse countries in the world. Auckland is one of the most diverse cities. And yet the further up the legal profession you look, the less diversity is reflected. Senior partners, King's Counsel, judges. The pipeline narrows at every stage. It is not a failing unique to law, and it is not the result of any single decision. It is a structural outcome that accumulates over years, and one that the profession itself has begun to name. ALSA was built to address it from the student end.</p>
-    <p class="body">The students Jayden saw were capable. Many were exceptional. What they were missing was not ability, but infrastructure. Visible pathways into the profession. Mentors who had walked the same road. A professional community that understood where they had come from and where they were trying to go. ALSA was built to provide exactly that: the visibility, the relationships, and the professional structure that turns capability into career.</p>
+    <p class="body">ALSA Auckland was founded in 2026 after the same pattern kept emerging. New Zealand is one of the most diverse countries in the world. Auckland is one of the most diverse cities. And yet the further up the legal profession you look, the less that diversity is reflected. The pipeline narrows at every stage. It is a structural outcome that accumulates over years, and one the profession itself has begun to name. ALSA was built to address it from the student end.</p>
+    <p class="body">The students Jayden saw were capable. Many were exceptional. What they were missing was not ability — it was infrastructure. Visible pathways into the profession. Mentors who had walked the same road. A professional community that understood where they had come from and where they were trying to go. ALSA was built to provide exactly that: the visibility, the relationships, and the professional structure that turns capability into career.</p>
     <p class="body">What those students needed was a platform. A community that showed them they could stand in the same rooms as anyone else in the profession, not despite who they are, but because of it. A place where their background was not something to manage around, but a genuine professional asset. Where they could see that others had walked the same path and made it through.</p>
-    <p class="body">Jayden did not build ALSA to campaign about this or describe it. He built it to change the conditions directly. ALSA is an independent incorporated society, not a cultural club. It is not built around shared heritage or social connection alone. It exists to be a professional platform: structured, credible, and anchored in the skills and relationships that actually move people forward in the profession. An organisation that produces graduates who are confident, technically strong, culturally fluent, and backed by a community that understands exactly where they have come from and where they are going.</p>
-    <p class="body">The response was immediate. Within three months of launching, ALSA had gathered 200 members, built a social media following of over 500, and run its first events to capacity. The numbers confirmed what the founding team had already known: some students had been waiting for exactly this.</p>
+    <p class="body">ALSA was built to change those conditions directly. It is an independent incorporated society, not a cultural club. It exists as a professional platform: structured, credible, and anchored in the skills and relationships that actually move people forward in the profession.</p>
+    <p class="body">Within three months of launching, ALSA had gathered 200 members, built a social media following of over 500, and run its first events to capacity.</p>
     <div class="pull-quote">
       <p>"We live in one of the most diverse societies in the world, and the legal profession is only stronger when it reflects that. But that only happens if people start building those connections early, before they graduate, before they enter firms, before they are too busy to invest in each other. ALSA is not about separation. It is about creating a community that learns from each other, understands each other, and carries each other forward. Because the lawyers we are building relationships with today are the colleagues, the mentors, and the advocates we will rely on for the rest of our careers."</p>
       <cite>Jayden Lin, Founding President</cite>
@@ -139,12 +155,12 @@
       <div style="border-top:2px solid #5b0f0f;padding-top:24px;">
         <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#5b0f0f;font-weight:600;margin-bottom:10px;">Founding Vice President</div>
         <h3 style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#1a1a1a;margin-bottom:12px;">Gabriel Gerente</h3>
-        <p style="font-size:15px;color:#555;line-height:1.8;">Gabriel was there before ALSA had infrastructure, members, or certainty. He helped manage the internal team through the early stages of the organisation's formation, and led the operational delivery of the Inaugural Launch Night. His commitment to the vision in its earliest and most uncertain phase was what made the launch possible.</p>
+        <p style="font-size:15px;color:#555;line-height:1.8;">Gabriel was there before ALSA had infrastructure, members, or certainty. He led the operational delivery of the Inaugural Launch Night and managed the internal team through the early stages of formation.</p>
       </div>
       <div style="border-top:2px solid #5b0f0f;padding-top:24px;">
         <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#5b0f0f;font-weight:600;margin-bottom:10px;">Founding Treasurer</div>
         <h3 style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#1a1a1a;margin-bottom:12px;">Anthony Huang</h3>
-        <p style="font-size:15px;color:#555;line-height:1.8;">Anthony handled the foundational work that made ALSA a real institution rather than an idea. He set up the bank account, managed the incorporation process, and built the financial infrastructure that everything else runs on. The administrative groundwork he laid in ALSA's earliest weeks is what gave the organisation its legal and financial standing.</p>
+        <p style="font-size:15px;color:#555;line-height:1.8;">Anthony handled the foundational work that made ALSA a real institution. He set up the bank account, managed the incorporation process, and built the financial infrastructure the organisation runs on.</p>
       </div>
     </div>
   </div>
@@ -159,12 +175,12 @@
     <div class="data-grid">
       <div class="data-card">
         <h4>A documented collapse in representation</h4>
-        <p>The NZ Law Society's Snapshot of the Profession 2024 records Asian lawyers at 11.9% of the profession overall, and 19.4% at junior level. Down from 22.7% the year before. Asian students enter law in strong numbers. The opportunity is to ensure that entry-level strength translates into long-term careers. That is precisely what ALSA is built to support.</p>
+        <p>The NZ Law Society's Snapshot of the Profession 2024 records Asian lawyers at 11.9% of the profession overall, and 19.4% at junior level — down from 22.7% the year before. Asian students enter law in strong numbers. The opportunity is to ensure that entry-level strength translates into long-term careers. That is precisely what ALSA is built to support.</p>
         <a href="https://www.lawsociety.org.nz/news/publications/lawtalk/lawtalk-issue-960/snapshot-of-the-profession-2024/" target="_blank" rel="noopener" style="font-size:12px;color:#5b0f0f;font-weight:600;text-decoration:none;display:inline-block;margin-top:10px;">Source: NZ Law Society Snapshot 2024 &rarr;</a>
       </div>
       <div class="data-card">
         <h4>The Law Society's own findings</h4>
-        <p>The Law Society's own publications acknowledge "still significant barriers to admission, progression and retention within the legal profession" for Asian lawyers. A 2023 NZ Asian Lawyers stocktake reported that members had experienced unconscious bias and cultural barriers in the workplace. These are findings the profession has produced about itself, and is now actively working to address.</p>
+        <p>The Law Society's own publications acknowledge "still significant barriers to admission, progression and retention within the legal profession" for Asian lawyers. A 2023 NZ Asian Lawyers stocktake reported that members had experienced unconscious bias and cultural barriers in the workplace. These are findings the profession has produced about itself — and is now actively working to address.</p>
         <a href="https://www.lawsociety.org.nz/news/publications/lawtalk/lawtalk-issue-956/you-are-seen-you-are-heard/" target="_blank" rel="noopener" style="font-size:12px;color:#5b0f0f;font-weight:600;text-decoration:none;display:inline-block;margin-top:10px;">Source: NZLS &amp; NZAL findings &rarr;</a>
       </div>
       <div class="data-card">
@@ -196,7 +212,7 @@
     <h2 class="light">One chapter is only the <em>beginning</em>.</h2>
     <p class="body-light">ALSA Auckland was the first. The vision does not stop here. The immediate goal is to build a unified national network across New Zealand. ALSA chapters at Canterbury, Otago, and Waikato have already agreed to support national coordination. The goal is shared resources, shared speaker relationships, shared standards, and a professional community that extends well beyond any single university.</p>
     <p class="body-light">The longer-term ambition is to establish New Zealand as a national chapter of <a href="https://alsainternational.org/" target="_blank" style="color:#C9A84C;font-weight:600;">ALSA International</a>. That connection would open direct pathways for New Zealand's Asian law students: international competitions held across Asia, exposure to how law is practised in different Asian jurisdictions, direct engagement with Asian law firms operating internationally, and the kind of cross-border relationships that are increasingly relevant in a legal market becoming more globally connected every year.</p>
-    <p class="body-light">New Zealand's legal profession has an opportunity to be genuinely fluent in the legal and commercial cultures of its largest trading partners and fastest-growing communities. ALSA is building the students who will make that possible for the next generation. In time, the vision extends further still: the establishment of an Asian Law Centre in New Zealand, modelled on what already exists in Melbourne, as a permanent home for research, practice, and professional development at the intersection of Asian and New Zealand law.</p>
+    <p class="body-light">New Zealand's legal profession has an opportunity to be genuinely fluent in the legal and commercial cultures of its largest trading partners and fastest-growing communities. ALSA is building the students who will make that possible for the next generation.</p>
   </div>
 </section>
 
@@ -237,7 +253,7 @@
       </div>
       <div style="border-bottom:0.5px solid rgba(0,0,0,0.1);padding:24px 0;">
         <h4 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#1a1a1a;margin-bottom:10px;">Is ALSA's mentoring programme just senior students helping juniors?</h4>
-        <p style="font-size:14px;color:#555;line-height:1.75;">No. Most student mentoring programmes pair first and second-year students with senior students. ALSA's programme is built differently. It targets students in their final years approaching graduation and pairs them with graduates and junior lawyers who have recently navigated exactly the transition those students are about to make. It is a transition-to-practice model, not a peer support model. It addresses the critical gap between the final years of a law degree and entry into the profession, a gap no existing student club fills.</p>
+        <p style="font-size:14px;color:#555;line-height:1.75;">No. Most student mentoring programmes pair first and second-year students with senior students. ALSA's programme is built differently. It targets students in their final years approaching graduation and pairs them with graduates and junior lawyers who have recently navigated exactly the transition those students are about to make. It is a transition-to-practice model, not a peer support model. It addresses the critical gap between the final years of a law degree and entry into the profession.</p>
       </div>
       <div style="padding:24px 0;">
         <h4 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#1a1a1a;margin-bottom:10px;">Does ALSA open up international opportunities?</h4>
@@ -300,5 +316,22 @@
 </footer>
 
 
+
+<script>
+(function(){
+  var btn = document.getElementById('hamburger');
+  var links = document.querySelector('.nav-links');
+  if(btn && links){
+    btn.addEventListener('click', function(){
+      links.classList.toggle('open');
+    });
+    document.addEventListener('click', function(e){
+      if(!btn.contains(e.target) && !links.contains(e.target)){
+        links.classList.remove('open');
+      }
+    });
+  }
+})();
+</script>
 </body>
 </html>
