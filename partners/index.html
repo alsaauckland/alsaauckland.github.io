@@ -339,7 +339,10 @@
         new FormData(e.target).forEach(function(v,k){ data[k]=v; });
         data.subject = 'Sponsorship and Partnership';
         fetch('https://script.google.com/macros/s/AKfycbyazku0MvWjY9ROhbuNyOzsLGccC6UsW_PDRfQ7CfmSZ_cwMk-EbJ3s3PXSx5EAQ99s/exec', {
-          method: 'POST', body: JSON.stringify(data)
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify(data)
         }).then(function(){
           document.getElementById('partnerFormMsg').style.display='block';
           e.target.reset();
@@ -379,7 +382,6 @@
           <a href="https://instagram.com/alsa.akl" target="_blank">Instagram</a>
           <a href="https://www.linkedin.com/company/alsa-akl/" target="_blank">LinkedIn</a>
           <a href="/partners/">Partners</a>
-          <a href="/careers/">Careers</a>
         </div>
         <div class="footer-col">
           <h4>Policies</h4>
