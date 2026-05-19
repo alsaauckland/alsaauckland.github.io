@@ -198,6 +198,12 @@
   [...issues].reverse().forEach(issue => {
     const card = document.createElement('div');
     card.className = 'issue-card';
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', function(e) {
+      if (e.target.tagName !== 'A') {
+        window.location.href = issue.file;
+      }
+    });
 
     const topicsHTML = issue.topics.map(t => `<div class="issue-topic">${t}</div>`).join('');
 
@@ -209,7 +215,7 @@
       </div>
       <div class="issue-card-body">
         <div class="issue-topics">${topicsHTML}</div>
-        <a href="${issue.file}" class="issue-read">Read Issue &rarr;</a>
+        <span class="issue-read">Read Issue &rarr;</span>
       </div>
     `;
     grid.appendChild(card);
