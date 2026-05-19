@@ -48,7 +48,7 @@
 
   /* Retail partners */
   .retail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-  .retail-card{background:#fff;border:0.5px solid rgba(0,0,0,0.08);padding:32px;position:relative;}
+  .retail-card{background:#fff;border:0.5px solid rgba(0,0,0,0.08);padding:28px 24px;position:relative;}
   .retail-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:#C9A84C;}
   .retail-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#1a1a1a;margin-bottom:8px;}
   .retail-perk{font-size:13px;font-weight:600;color:#5b0f0f;letter-spacing:0.5px;margin-bottom:12px;}
@@ -79,8 +79,8 @@
   @media(max-width:600px){.retail-grid{grid-template-columns:1fr;}}
 
   .ipls-logo{max-width:260px;width:100%;height:auto;display:block;margin:20px 0 24px;filter:brightness(0) invert(1);opacity:0.95;}
-  .retail-logo{width:100%;height:60px;object-fit:contain;object-position:left;display:block;margin-bottom:16px;filter:grayscale(1);opacity:0.7;transition:opacity 0.2s;}
-  .retail-card:hover .retail-logo{opacity:1;filter:none;}
+  .retail-logo{width:100%;height:90px;object-fit:contain;object-position:center;display:block;margin-bottom:16px;transition:opacity 0.2s;}
+  
   .retail-logo-placeholder{height:0;}
 
 </style>
@@ -144,8 +144,8 @@
       <div class="retail-card">
         <img src="images/sponsors/Anytime%20Fitness.png" alt="Anytime Fitness" class="retail-logo" onerror="this.classList.add('retail-logo-placeholder')">
         <div class="retail-name">Anytime Fitness</div>
-        <div class="retail-perk">50% off membership</div>
-        <div class="retail-desc">50% off your gym membership at the Lorne St location, plus entries into a giveaway of three years worth of memberships.</div>
+        <div class="retail-perk">Exclusive member deal</div>
+        <div class="retail-desc">ALSA members receive an exclusive offer at the Lorne St location. Present your membership card at reception to find out more.</div>
         <div class="retail-tier premium">Premium Members</div>
       </div>
 
