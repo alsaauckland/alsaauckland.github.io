@@ -171,12 +171,12 @@
       number: 1,
       title: 'Issue One',
       date: 'May 2026',
-      file: 'newsletter.html',
+      file: 'newsletters/issue-1.html',
       topics: [
         'Inaugural Launch Night recap',
         'ALSA Mentoring Programme launch',
+        'Development: Professional Spotlight',
         'ALSA Legal Writing Competition',
-        'Development — Professional Spotlight',
       ]
     }
     // Add future issues here. Example:
@@ -198,7 +198,6 @@
   [...issues].reverse().forEach(issue => {
     const card = document.createElement('div');
     card.className = 'issue-card';
-    card.addEventListener('click', () => window.location.href = issue.file);
 
     const topicsHTML = issue.topics.map(t => `<div class="issue-topic">${t}</div>`).join('');
 
