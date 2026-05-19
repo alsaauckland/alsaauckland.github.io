@@ -228,6 +228,7 @@
       title: 'Inaugural Launch Night',
       date: '30 April 2026',
       description: 'The first ALSA event. Motivated law students, sponsors, and the start of everything we are building together.',
+      basePath: 'images/gallery/launch-night',
       folder: 'launch-night',
       photos: [
         'photo1.JPG', 'photo2.JPG', 'photo3.JPG', 'photo4.JPG', 'photo5.JPG', 'photo6.JPG', 'photo7.JPG', 'photo8.JPG', 'photo9.JPG', 'photo10.JPG', 'photo11.JPG', 'photo12.JPG', 'photo13.JPG', 'photo14.JPG', 'photo15.JPG', 'photo16.JPG', 'photo17.JPG', 'photo18.JPG', 'photo19.JPG', 'photo20.JPG', 'photo21.JPG', 'photo22.JPG', 'photo23.JPG', 'photo24.JPG', 'photo25.JPG', 'photo26.JPG', 'photo27.JPG', 'photo28.JPG', 'photo29.JPG', 'photo30.JPG', 'photo31.JPG', 'photo32.JPG', 'photo33.JPG', 'photo34.JPG', 'photo35.JPG', 'photo36.JPG', 'photo37.JPG', 'photo38.JPG', 'photo39.JPG', 'photo40.JPG', 'photo41.JPG', 'photo42.JPG', 'photo43.JPG', 'photo44.JPG', 'photo45.JPG', 'photo46.JPG', 'photo47.JPG', 'photo48.JPG', 'photo49.JPG', 'photo50.JPG', 'photo51.JPG', 'photo52.JPG', 'photo53.JPG', 'photo54.JPG', 'photo55.JPG', 'photo56.JPG', 'photo57.JPG', 'photo58.JPG', 'photo59.JPG', 'photo60.JPG', 'photo61.JPG', 'photo62.JPG', 'photo63.JPG', 'photo64.JPG', 'photo65.JPG', 'photo66.JPG', 'photo67.JPG', 'photo68.JPG', 'photo69.JPG', 'photo70.JPG', 'photo71.JPG', 'photo72.JPG', 'photo73.JPG']
@@ -237,6 +238,7 @@
       title: 'Inaugural Academic Workshop',
       date: '18 May 2026',
       description: 'ALSA's first academic skills workshop. Facilitated by Mingze Sun. Over 40 attendees and sold out within 24 hours of registration opening.',
+      basePath: 'images/gallery/inaugural academic workshop',
       folder: 'inaugural academic workshop',
       photos: [
         'photo1.JPG', 'photo2.JPG', 'photo3.JPG', 'photo4.JPG', 'photo5.JPG', 'photo6.JPG', 'photo7.JPG', 'photo8.JPG', 'photo9.JPG', 'photo10.JPG', 'photo11.JPG', 'photo12.JPG', 'photo13.JPG', 'photo14.JPG', 'photo15.JPG', 'photo16.JPG', 'photo17.JPG', 'photo18.JPG', 'photo19.JPG', 'photo20.JPG', 'photo21.JPG', 'photo22.JPG', 'photo23.JPG', 'photo24.JPG', 'photo25.JPG', 'photo26.JPG', 'photo27.JPG', 'photo28.JPG', 'photo29.JPG', 'photo30.JPG', 'photo31.JPG', 'photo32.JPG', 'photo33.JPG', 'photo34.JPG', 'photo35.JPG', 'photo36.JPG', 'photo37.JPG', 'photo38.JPG', 'photo39.JPG', 'photo40.JPG', 'photo41.JPG', 'photo42.JPG', 'photo43.JPG', 'photo44.JPG', 'photo45.JPG', 'photo46.JPG', 'photo47.JPG', 'photo48.JPG', 'photo49.JPG', 'photo50.JPG', 'photo51.JPG', 'photo52.JPG', 'photo53.JPG', 'photo54.JPG', 'photo55.JPG', 'photo56.JPG', 'photo57.JPG', 'photo58.JPG', 'photo59.JPG', 'photo60.JPG', 'photo61.JPG', 'photo62.JPG', 'photo63.JPG', 'photo64.JPG', 'photo65.JPG', 'photo66.JPG', 'photo67.JPG', 'photo68.JPG', 'photo69.JPG', 'photo70.JPG', 'photo71.JPG', 'photo72.JPG', 'photo73.JPG', 'photo74.JPG', 'photo75.JPG'
@@ -291,7 +293,7 @@
         showEvent(event.slug);
       });
 
-      const coverSrc = event.photos.length > 0 ? `images/gallery/${event.folder}/${event.photos[0]}` : null;
+      const coverSrc = event.photos.length > 0 ? (event.basePath ? `${event.basePath}/${event.photos[0]}` : `images/gallery/${event.folder}/${event.photos[0]}`) : null;
       card.innerHTML = `
         <div class="album-cover-wrap">
           ${coverSrc
@@ -346,7 +348,7 @@
 
     event.photos.forEach((photo, index) => {
       const globalIndex = allPhotos.length;
-      const src = `images/gallery/${event.folder}/${photo}`;
+      const src = event.basePath ? `${event.basePath}/${photo}` : `images/gallery/${event.folder}/${photo}`;
       allPhotos.push(src);
 
       const tile = document.createElement('div');
