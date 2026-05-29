@@ -96,6 +96,32 @@
     .hamburger{display:flex;}
     .nav{position:sticky;}
   }
+
+  /* ABOUT STATS BAR */
+  .about-stats-bar{background:#1a1a1a;padding:28px 40px;}
+  .about-stats-inner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;}
+  .about-stat{padding:8px 0;}
+  .about-stat+.about-stat{border-left:0.5px solid rgba(255,255,255,0.1);padding-left:20px;}
+  .about-stat-num{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:#C9A84C;line-height:1;}
+  .about-stat-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:6px;}
+
+  /* FAQ ACCORDION */
+  .faq-item{border-bottom:0.5px solid rgba(0,0,0,0.1);}
+  .faq-btn{width:100%;display:flex;justify-content:space-between;align-items:center;padding:22px 0;background:none;border:none;cursor:pointer;text-align:left;font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#1a1a1a;line-height:1.35;}
+  .faq-icon{font-size:22px;font-weight:300;color:#5b0f0f;flex-shrink:0;margin-left:20px;transition:transform 0.2s;line-height:1;}
+  .faq-item.open .faq-icon{transform:rotate(45deg);}
+  .faq-answer{display:none;padding-bottom:22px;font-size:14px;color:#555;line-height:1.75;}
+  .faq-item.open .faq-answer{display:block;}
+
+  /* CHAPTER TAGS */
+  .chapter-tags{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0;}
+  .chapter-tag{background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.35);color:#C9A84C;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;font-weight:600;}
+
+  @media(max-width:600px){
+    .about-stats-inner{grid-template-columns:repeat(2,1fr);}
+    .about-stat+.about-stat{border-left:none;}
+    .about-stat:nth-child(3),.about-stat:nth-child(4){border-top:0.5px solid rgba(255,255,255,0.1);padding-top:16px;}
+  }
 </style>
 </head>
 <body>
@@ -130,17 +156,38 @@
   </div>
 </section>
 
+<div class="about-stats-bar">
+  <div class="about-stats-inner">
+    <div class="about-stat">
+      <div class="about-stat-num">200+</div>
+      <div class="about-stat-label">Members</div>
+    </div>
+    <div class="about-stat">
+      <div class="about-stat-num">17</div>
+      <div class="about-stat-label">Executive Team</div>
+    </div>
+    <div class="about-stat">
+      <div class="about-stat-num">500+</div>
+      <div class="about-stat-label">Social Following</div>
+    </div>
+    <div class="about-stat">
+      <div class="about-stat-num">May 2026</div>
+      <div class="about-stat-label">Founded</div>
+    </div>
+  </div>
+</div>
+
 <section class="section" style="padding-bottom:40px;">
   <div class="container">
     <div class="eyebrow">The Founding Story</div>
     <h2>You should not have to <em>shrink to succeed</em>.</h2>
-    <p class="body">ALSA Auckland was founded in 2026 after the same pattern kept emerging. New Zealand is one of the most diverse countries in the world. Auckland is one of the most diverse cities. And yet the further up the legal profession you look, the less that diversity is reflected. The pipeline narrows at every stage. It is a structural outcome that accumulates over years, and one the profession itself has begun to name. ALSA was built to address it from the student end.</p>
-    <p class="body">The students Jayden saw were capable. Many were exceptional. What they were missing was not ability, but infrastructure. Visible pathways into the profession. Mentors who had walked the same road. A professional community that understood where they had come from and where they were trying to go. ALSA was built to provide exactly that: the visibility, the relationships, and the professional structure that turns capability into career.</p>
-    <p class="body">What those students needed was a platform. A community that showed them they could stand in the same rooms as anyone else in the profession, not despite who they are, but because of it. A place where their background was not something to manage around, but a genuine professional asset. Where they could see that others had walked the same path and made it through.</p>
+    <p class="body">ALSA Auckland began as an idea in December 2025, and by May 2026 it had become a reality. The same pattern had kept emerging. New Zealand is one of the most diverse countries in the world. Auckland is one of the most diverse cities. And yet the further up the legal profession you look, the less that diversity is reflected. The pipeline narrows at every stage. It is a structural outcome that accumulates over years, and one the profession itself has begun to name. ALSA was built to address it from the student end.</p>
+    <p class="body">Many students are exceptional. What they are missing is not ability, but infrastructure: visible pathways into the profession, mentors who have walked the same road, a professional community that understands where they have come from and where they are trying to go. ALSA was built to provide exactly that: the visibility, the relationships, and the professional structure that turns capability into career.</p>
+    <p class="body">What students need is a platform. A community that shows them they can stand in the same rooms as anyone else in the profession, not despite who they are, but because of it. A place where their background is not something to manage around, but a genuine professional asset. Where they can see that others have walked the same path and made it through.</p>
     <p class="body">ALSA was built to change those conditions directly. It is an independent incorporated society, not a cultural club. It exists as a professional platform: structured, credible, and anchored in the skills and relationships that actually move people forward in the profession.</p>
     <p class="body">Within three months of launching, ALSA had gathered 200 members, built a social media following of over 500, and run its first events to capacity.</p>
     <div class="pull-quote">
-      <p>"We live in one of the most diverse societies in the world, and the legal profession is only stronger when it reflects that. But that only happens if people start building those connections early, before they graduate, before they enter firms, before they are too busy to invest in each other. ALSA is not about separation. It is about creating a community that learns from each other, understands each other, and carries each other forward. Because the lawyers we are building relationships with today are the colleagues, the mentors, and the advocates we will rely on for the rest of our careers."</p>
+      <p>"The lawyers we are building relationships with today are the colleagues, the mentors, and the advocates we will rely on for the rest of our careers."</p>
       <cite>Jayden Lin, Founding President</cite>
     </div>
   </div>
@@ -150,8 +197,14 @@
   <div class="container">
     <div class="eyebrow">The Founding</div>
     <h2>Built from <em>the ground up</em>.</h2>
-    <p class="body">ALSA did not arrive fully formed. It was built by people who committed to the vision before there was anything to show for it. Two of them deserve particular mention.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:40px;">
+    <p class="body">ALSA did not arrive fully formed. It was built by three people who committed to the vision before there was anything to show for it.</p>
+    <div style="border-top:3px solid #C9A84C;padding-top:28px;margin-top:40px;margin-bottom:32px;">
+      <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#5b0f0f;font-weight:600;margin-bottom:10px;">Founding President</div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#1a1a1a;margin-bottom:12px;">Jayden Lin</h3>
+      <p style="font-size:15px;color:#555;line-height:1.8;">ALSA began as an idea in December 2025. Jayden had noticed something unspoken: there was no platform connecting Asian law students to each other or to the profession. The more he looked, the more he saw capable students held back not by ability, but by the absence of visibility and access. So he built something.</p>
+      <p style="font-size:15px;color:#555;line-height:1.8;margin-top:14px;">Within months, ALSA had a constitution, a 17-person executive, government incorporation, over 200 members, and sponsorship partnerships with major brands including Anytime Fitness. In April 2026, ALSA held its Inaugural Launch Event with Mai Chen as headline speaker.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
       <div style="border-top:2px solid #5b0f0f;padding-top:24px;">
         <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#5b0f0f;font-weight:600;margin-bottom:10px;">Founding Vice President</div>
         <h3 style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#1a1a1a;margin-bottom:12px;">Gabriel Gerente</h3>
@@ -210,7 +263,7 @@
   <div class="container">
     <div class="eyebrow-light">The Vision</div>
     <h2 class="light">One chapter is only the <em>beginning</em>.</h2>
-    <p class="body-light">ALSA Auckland is just the beginning. The vision does not stop here. The immediate goal is to build a unified national network across New Zealand. ALSA chapters at Canterbury, Otago, and Waikato have already agreed to support national coordination. The goal is shared resources, shared speaker relationships, shared standards, and a professional community that extends well beyond any single university.</p>
+    <p class="body-light">ALSA Auckland is just the beginning. The vision does not stop here. The goal is to build a unified national network across New Zealand, with shared resources, shared speaker relationships, shared standards, and a professional community that extends well beyond any single university.</p>
     <p class="body-light">The longer-term ambition is to establish New Zealand as a national chapter of <a href="https://alsainternational.org/" target="_blank" style="color:#C9A84C;font-weight:600;">ALSA International</a>. That connection would open direct pathways for New Zealand's Asian law students: international competitions held across Asia, exposure to how law is practised in different Asian jurisdictions, direct engagement with Asian law firms operating internationally, and the kind of cross-border relationships that are increasingly relevant in a legal market becoming more globally connected every year.</p>
     <p class="body-light">New Zealand's legal profession has an opportunity to be genuinely fluent in the legal and commercial cultures of its largest trading partners and fastest-growing communities. ALSA is building the students who will make that possible for the next generation.</p>
   </div>
@@ -222,64 +275,69 @@
     <h2>Common <em>questions</em>.</h2>
     <div style="max-width:740px;margin-top:40px;">
 
-
-      <div style="border-bottom:0.5px solid rgba(0,0,0,0.1);padding:24px 0;">
-        <h4 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#1a1a1a;margin-bottom:10px;">Is ALSA a cultural club?</h4>
-        <p style="font-size:14px;color:#555;line-height:1.75;">No. ALSA is not built around shared heritage or social identity. It is built around professional development and career access. Culture and identity matter to the community, but ALSA’s core focus is helping students build confidence, competence, and professional connections within the legal profession.</p>
+      <div class="faq-item">
+        <button class="faq-btn">Is ALSA a cultural club?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">No. ALSA is not built around shared heritage or social identity. It is built around professional development and career access. Culture and identity matter to the community, but ALSA’s core focus is helping students build confidence, competence, and professional connections within the legal profession.</div>
       </div>
 
-      <div style="border-bottom:0.5px solid rgba(0,0,0,0.1);padding:24px 0;">
-        <h4 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#1a1a1a;margin-bottom:10px;">How is ALSA different from CLC, KLSA, SALSA, or other Asian clubs?</h4>
-        <p style="font-size:14px;color:#555;line-height:1.75;">Those clubs serve important cultural and community roles. ALSA is different because it is pan-Asian and profession-focused, with a specific emphasis on professional development, mentoring, academic skills, and career pathways. ALSA does not compete with those clubs, many ALSA members are also involved in them. The difference is purpose: cultural clubs are built around shared identity, ALSA is built around shared professional ambition.</p>
+      <div class="faq-item">
+        <button class="faq-btn">How is ALSA different from CLC, KLSA, SALSA, or other Asian clubs?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">Those clubs serve important cultural and community roles. ALSA is different because it is pan-Asian and profession-focused, with a specific emphasis on professional development, mentoring, academic skills, and career pathways. ALSA does not compete with those clubs, and many ALSA members are also involved in them. The difference is purpose: cultural clubs are built around shared identity, ALSA is built around shared professional ambition.</div>
       </div>
 
-      <div style="border-bottom:0.5px solid rgba(0,0,0,0.1);padding:24px 0;">
-        <h4 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#1a1a1a;margin-bottom:10px;">Who can join ALSA?</h4>
-        <p style="font-size:14px;color:#555;line-height:1.75;">Membership is open to law students at the University of Auckland and AUT, as well as anyone actively working toward a career in law, including students completing conjoint or prerequisite degrees, and high school students with a genuine interest in the legal profession. ALSA is centred on Asian law students, but welcomes anyone who supports the mission. Legal professionals, practitioners, and organisations interested in mentoring, partnerships, or supporting ALSA’s mission are also encouraged to get involved. Every lawyer practising in New Zealand will work alongside, for, and on behalf of people from Asian backgrounds. Cultural fluency is a professional skill the whole profession benefits from.</p>
+      <div class="faq-item">
+        <button class="faq-btn">Who can join ALSA?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">Membership is open to law students at the University of Auckland and AUT, as well as anyone actively working toward a career in law, including students completing conjoint or prerequisite degrees, and high school students with a genuine interest in the legal profession. ALSA is centred on Asian law students, but welcomes anyone who supports the mission. Legal professionals, practitioners, and organisations interested in mentoring, partnerships, or supporting ALSA’s mission are also encouraged to get involved. Every lawyer practising in New Zealand will work alongside, for, and on behalf of people from Asian backgrounds. Cultural fluency is a professional skill the whole profession benefits from.</div>
       </div>
 
-      <div style="border-bottom:0.5px solid rgba(0,0,0,0.1);padding:24px 0;">
-        <h4 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#1a1a1a;margin-bottom:10px;">Do I have to be studying at the University of Auckland?</h4>
-        <p style="font-size:14px;color:#555;line-height:1.75;">No. ALSA Auckland is an initiative that began with UoA students. However, we are building a wider platform for Asian law students across Auckland.</p>
+      <div class="faq-item">
+        <button class="faq-btn">Do I have to be studying at the University of Auckland?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">No. ALSA Auckland is an initiative that began with UoA students. However, we are building a wider platform for Asian law students across Auckland.</div>
       </div>
 
-      <div style="border-bottom:0.5px solid rgba(0,0,0,0.1);padding:24px 0;">
-        <h4 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#1a1a1a;margin-bottom:10px;">What does membership give me?</h4>
-        <p style="font-size:14px;color:#555;line-height:1.75;">Access to all ALSA events, academic workshops, mentoring programme eligibility, the ALSA newsletter, networking opportunities, and updates from partner firms and organisations. Premium members receive additional benefits including retail partner discounts and priority access to capped events.</p>
+      <div class="faq-item">
+        <button class="faq-btn">What does membership give me?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">Access to all ALSA events, academic workshops, mentoring programme eligibility, the ALSA newsletter, networking opportunities, and updates from partner firms and organisations. Premium members receive additional benefits including retail partner discounts and priority access to capped events.</div>
       </div>
 
-      <div style="border-bottom:0.5px solid rgba(0,0,0,0.1);padding:24px 0;">
-        <h4 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#1a1a1a;margin-bottom:10px;">What is Premium Membership?</h4>
-        <p style="font-size:14px;color:#555;line-height:1.75;">Premium Membership is a $10 annual contribution that supports ALSA's operations and gives members additional benefits: priority access to capped events and workshops, exclusive retail partner discounts, and recognition as a Premium Member in the ALSA newsletter. General membership remains free.</p>
-      </div>
-      <div style="border-bottom:0.5px solid rgba(0,0,0,0.1);padding:24px 0;">
-        <h4 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#1a1a1a;margin-bottom:10px;">Is ALSA affiliated with the University of Auckland?</h4>
-        <p style="font-size:14px;color:#555;line-height:1.75;">No. ALSA Auckland is an independent incorporated society. It is not a university student club governed by the Auckland University Students’ Association. That independence is intentional: it gives ALSA the freedom to operate in the interests of its members without institutional constraints.</p>
-      </div>
-      <div style="border-bottom:0.5px solid rgba(0,0,0,0.1);padding:24px 0;">
-        <h4 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#1a1a1a;margin-bottom:10px;">Is ALSA part of an established international organisation?</h4>
-        <p style="font-size:14px;color:#555;line-height:1.75;">ALSA Auckland is working toward a founding New Zealand chapter of ALSA International, an established network with approximately 12,000 student members across 18 national chapters globally. ALSA International's President has confirmed in writing that a New Zealand Associate Chapter is welcome. That affiliation is not yet official. ALSA Auckland is the first step in a national coordination effort, and the shape of that relationship will be determined in consultation with Asian law student organisations at other New Zealand universities before any formal structure is agreed.</p>
+      <div class="faq-item">
+        <button class="faq-btn">What is Premium Membership?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">Premium Membership is a $10 annual contribution that supports ALSA’s operations and gives members additional benefits: priority access to capped events and workshops, exclusive retail partner discounts, and recognition as a Premium Member in the ALSA newsletter. General membership remains free.</div>
       </div>
 
-      <div style="border-bottom:0.5px solid rgba(0,0,0,0.1);padding:24px 0;">
-        <h4 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#1a1a1a;margin-bottom:10px;">This sounds ambitious. How will ALSA deliver on it?</h4>
-        <p style="font-size:14px;color:#555;line-height:1.75;">ALSA already has. Within three months of launching, ALSA gathered over 200 members, secured five figures in partnership value, ran its first events to capacity, and built an executive team of 17. The ambition is large because the problem is large. This is just the beginning.</p>
+      <div class="faq-item">
+        <button class="faq-btn">Is ALSA affiliated with the University of Auckland?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">No. ALSA Auckland is an independent incorporated society. It is not a university student club governed by the Auckland University Students’ Association. That independence is intentional: it gives ALSA the freedom to operate in the interests of its members without institutional constraints.</div>
       </div>
-      <div style="border-bottom:0.5px solid rgba(0,0,0,0.1);padding:24px 0;">
-        <h4 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#1a1a1a;margin-bottom:10px;">Why does the profession need more Asian lawyers specifically?</h4>
-        <p style="font-size:14px;color:#555;line-height:1.75;">Because the clients need them. A significant and growing proportion of cases in New Zealand courts involve parties from Asian backgrounds. When the profession does not reflect that reality, it creates a direct barrier to equal access to justice. Lawyers who share a cultural background, language, or understanding of the communities they serve are better placed to represent those clients effectively. This is not about representation for its own sake. It is about the profession's ability to do its job well in an increasingly diverse society.</p>
+
+      <div class="faq-item">
+        <button class="faq-btn">Is ALSA part of an established international organisation?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">ALSA Auckland is working toward a founding New Zealand chapter of ALSA International, an established network with approximately 12,000 student members across 18 national chapters globally. ALSA International’s President has confirmed in writing that a New Zealand Associate Chapter is welcome. That affiliation is not yet official. ALSA Auckland is the first step in a national coordination effort, and the shape of that relationship will be determined in consultation with Asian law student organisations at other New Zealand universities before any formal structure is agreed.</div>
       </div>
-      <div style="border-bottom:0.5px solid rgba(0,0,0,0.1);padding:24px 0;">
-        <h4 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#1a1a1a;margin-bottom:10px;">Does ALSA welcome non-Asian students?</h4>
-        <p style="font-size:14px;color:#555;line-height:1.75;">Yes. Every lawyer practising in New Zealand will work alongside, for, and on behalf of people from Asian backgrounds. Cultural fluency is not an Asian issue. It is a professional skill the whole profession needs. ALSA builds that fluency, and non-Asian students who want to be genuinely prepared for practice are welcome.</p>
+
+      <div class="faq-item">
+        <button class="faq-btn">This sounds ambitious. How will ALSA deliver on it?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">ALSA already has. Within three months of launching, ALSA gathered over 200 members, secured five figures in partnership value, ran its first events to capacity, and built an executive team of 17. The ambition is large because the problem is large. This is just the beginning.</div>
       </div>
-      <div style="border-bottom:0.5px solid rgba(0,0,0,0.1);padding:24px 0;">
-        <h4 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#1a1a1a;margin-bottom:10px;">Is ALSA's mentoring programme just senior students helping juniors?</h4>
-        <p style="font-size:14px;color:#555;line-height:1.75;">No. Most student mentoring programmes pair first and second-year students with senior students. ALSA's programme is built differently. It targets students in their final years approaching graduation and pairs them with graduates and junior lawyers who have recently navigated exactly the transition those students are about to make. It is a transition-to-practice model, not a peer support model. It addresses the critical gap between the final years of a law degree and entry into the profession.</p>
+
+      <div class="faq-item">
+        <button class="faq-btn">Why does the profession need more Asian lawyers specifically?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">Because the clients need them. A significant and growing proportion of cases in New Zealand courts involve parties from Asian backgrounds. When the profession does not reflect that reality, it creates a direct barrier to equal access to justice. Lawyers who share a cultural background, language, or understanding of the communities they serve are better placed to represent those clients effectively. This is not about representation for its own sake. It is about the profession’s ability to do its job well in an increasingly diverse society.</div>
       </div>
-      <div style="padding:24px 0;">
-        <h4 style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#1a1a1a;margin-bottom:10px;">Does ALSA open up international opportunities?</h4>
-        <p style="font-size:14px;color:#555;line-height:1.75;">That is part of the longer-term vision. Through ALSA's affiliation process with ALSA International, members will have access to cross-border competitions and engagement with Asian legal markets. ALSA also aims to establish direct pathways into Asian law firms, giving New Zealand graduates the ability to enter Asian legal markets without the traditional requirement of several years of domestic practice first. New Zealand lawyers with cross-border capability are increasingly valuable. ALSA is building the foundation for that from the degree onwards.</p>
+
+      <div class="faq-item">
+        <button class="faq-btn">Does ALSA welcome non-Asian students?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">Yes. Every lawyer practising in New Zealand will work alongside, for, and on behalf of people from Asian backgrounds. Cultural fluency is not an Asian issue. It is a professional skill the whole profession needs. ALSA builds that fluency, and non-Asian students who want to be genuinely prepared for practice are welcome.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">Is ALSA’s mentoring programme just senior students helping juniors?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">No. Most student mentoring programmes pair first and second-year students with senior students. ALSA’s programme is built differently. It targets students in their final years approaching graduation and pairs them with graduates and junior lawyers who have recently navigated exactly the transition those students are about to make. It is a transition-to-practice model, not a peer support model. It addresses the critical gap between the final years of a law degree and entry into the profession.</div>
+      </div>
+
+      <div class="faq-item" style="border-bottom:none;">
+        <button class="faq-btn">Does ALSA open up international opportunities?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">That is part of the longer-term vision. Through ALSA’s affiliation process with ALSA International, members will have access to cross-border competitions and engagement with Asian legal markets. ALSA also aims to establish direct pathways into Asian law firms, giving New Zealand graduates the ability to enter Asian legal markets without the traditional requirement of several years of domestic practice first. New Zealand lawyers with cross-border capability are increasingly valuable. ALSA is building the foundation for that from the degree onwards.</div>
       </div>
 
     </div>
@@ -353,6 +411,17 @@
       }
     });
   }
+
+  document.querySelectorAll('.faq-btn').forEach(function(faqBtn){
+    faqBtn.addEventListener('click', function(){
+      var item = faqBtn.closest('.faq-item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(openItem){
+        openItem.classList.remove('open');
+      });
+      if(!isOpen) item.classList.add('open');
+    });
+  });
 })();
 </script>
 </body>

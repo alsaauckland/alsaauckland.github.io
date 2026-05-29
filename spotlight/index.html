@@ -80,6 +80,18 @@
     .hamburger{display:flex;}
     .nav{position:sticky;}
   }
+
+  /* TOGGLE */
+  .toggle-section{background:#f5f0e8;padding:24px 40px;text-align:center;border-bottom:0.5px solid rgba(0,0,0,0.07);}
+  .toggle-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#888;margin-bottom:14px;font-weight:600;}
+  .toggle-btns{display:inline-flex;border:1.5px solid #5b0f0f;}
+  .toggle-btn{padding:12px 36px;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;font-family:'Lora',serif;cursor:pointer;border:none;background:transparent;color:#5b0f0f;transition:all 0.2s;}
+  .toggle-btn.active{background:#5b0f0f;color:#fff;}
+  .toggle-btn:hover:not(.active){background:#f0ebe0;}
+  .form-panel{display:none;}
+  .form-panel.active{display:block;}
+  .category-desc{background:#fff;border-left:3px solid #C9A84C;padding:16px 20px;margin-bottom:32px;}
+  .category-desc p{font-size:14px;color:#555;line-height:1.7;margin:0;}
 </style>
 </head>
 <body>
@@ -108,79 +120,157 @@
 <section class="hero">
   <div class="hero-eyebrow">Development</div>
   <h1>Professional <em>Spotlight</em>.</h1>
-  <p class="hero-lead">Every issue of the ALSA newsletter features a current student and a graduate lawyer doing excellent work. Nominate someone worth recognising.</p>
+  <p class="hero-lead">Every issue of the ALSA newsletter features a current student and a graduate lawyer doing work worth recognising. Put someone forward.</p>
 </section>
+
+<div class="toggle-section">
+  <div class="toggle-label">I am nominating a</div>
+  <div class="toggle-btns">
+    <button class="toggle-btn active" data-type="student" onclick="showPanel('student', this)">Current Student</button>
+    <button class="toggle-btn" data-type="lawyer" onclick="showPanel('lawyer', this)">Graduate Lawyer</button>
+  </div>
+</div>
 
 <section class="form-section">
   <div class="form-container">
-    <div class="form-intro">
-      <h2>Submit a Nomination</h2>
-      <p>The Professional Spotlight runs in every issue of the ALSA newsletter. We feature two people each time: a current student contributing to their community or showing leadership outside the classroom, and a graduate lawyer whose early career work is worth recognising. Nominations are reviewed by Kevin and Daniel, our Development Officers.</p>
+
+    <!-- STUDENT PANEL -->
+    <div class="form-panel active" id="panel-student">
+      <div class="form-intro">
+        <h2>Nominate a Student</h2>
+        <p>We are looking for a current Auckland law student who is contributing to their community or showing leadership outside the classroom. Nominations are reviewed by Kevin and Daniel, our Development Officers, and approved by the ALSA cabinet before we reach out to the nominee.</p>
+      </div>
+      <div class="category-desc">
+        <p>A current student who is doing something that deserves more visibility. Community work, leadership, academic achievement, or something the profession should know about.</p>
+      </div>
+      <form id="studentForm" onsubmit="submitSpotlight(event,'student')">
+        <div class="form-section-label" style="margin-top:0;padding-top:0;border-top:none;">About the Nominee</div>
+        <div class="form-row-2">
+          <div class="form-group">
+            <label>First Name <span class="req">*</span></label>
+            <input type="text" name="st-first" required placeholder="First name">
+          </div>
+          <div class="form-group">
+            <label>Last Name <span class="req">*</span></label>
+            <input type="text" name="st-last" required placeholder="Last name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Year of Study <span class="req">*</span></label>
+          <select name="st-year" required>
+            <option value="">Select year</option>
+            <option>Part I</option>
+            <option>Part II</option>
+            <option>Part II.5</option>
+            <option>Part III</option>
+            <option>Part IV+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>LinkedIn Profile</label>
+          <input type="url" name="st-linkedin" placeholder="https://linkedin.com/in/theirname">
+          <p class="hint">Optional but helpful for us to learn more about them.</p>
+        </div>
+        <div class="form-group">
+          <label>Nominee Email</label>
+          <input type="email" name="st-email" placeholder="their@email.com">
+          <p class="hint">Optional. If provided, we may reach out to them directly to gather their story.</p>
+        </div>
+        <div class="form-section-label">The Nomination</div>
+        <div class="form-group">
+          <label>Why are you nominating this person? <span class="req">*</span></label>
+          <p class="hint">What have they contributed, achieved, or demonstrated that deserves to be seen?</p>
+          <textarea name="st-reason" required placeholder="Tell us what makes them worth spotlighting..." style="min-height:140px;"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Supporting context</label>
+          <textarea name="st-context" placeholder="Optional. Any additional background, links, or context that would help us understand their work."></textarea>
+        </div>
+        <div class="form-section-label">About You</div>
+        <div class="form-row-2">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" name="st-nom-name" placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label>Your Email</label>
+            <input type="email" name="st-nom-email" placeholder="your@email.com">
+          </div>
+        </div>
+        <p class="hint" style="margin-top:-16px;margin-bottom:24px;">Optional. We may follow up to gather more detail before featuring the nominee.</p>
+        <button type="submit" class="submit-btn">Submit Nomination</button>
+        <div class="form-status" id="studentStatus"></div>
+      </form>
     </div>
 
-    <form id="spotlightForm" onsubmit="submitSpotlight(event)">
-
-      <div class="form-section-label" style="margin-top:0;padding-top:0;border-top:none;">About the Nominee</div>
-
-      <div class="form-row-2">
-        <div class="form-group">
-          <label>Nominee First Name <span class="req">*</span></label>
-          <input type="text" name="Nominee First Name" required placeholder="First name">
+    <!-- LAWYER PANEL -->
+    <div class="form-panel" id="panel-lawyer">
+      <div class="form-intro">
+        <h2>Nominate a Graduate Lawyer</h2>
+        <p>We are looking for a graduate lawyer whose early career work deserves recognition. Nominations are reviewed by Kevin and Daniel, our Development Officers, and approved by the ALSA cabinet before we reach out to the nominee.</p>
+      </div>
+      <div class="category-desc">
+        <p>A graduate lawyer doing excellent work in their early career. Could be a recent admission, someone building something, or someone whose contribution to the profession is worth highlighting.</p>
+      </div>
+      <form id="lawyerForm" onsubmit="submitSpotlight(event,'lawyer')">
+        <div class="form-section-label" style="margin-top:0;padding-top:0;border-top:none;">About the Nominee</div>
+        <div class="form-row-2">
+          <div class="form-group">
+            <label>First Name <span class="req">*</span></label>
+            <input type="text" name="lw-first" required placeholder="First name">
+          </div>
+          <div class="form-group">
+            <label>Last Name <span class="req">*</span></label>
+            <input type="text" name="lw-last" required placeholder="Last name">
+          </div>
+        </div>
+        <div class="form-row-2">
+          <div class="form-group">
+            <label>Current Role <span class="req">*</span></label>
+            <input type="text" name="lw-role" required placeholder="e.g. Solicitor, Junior Barrister">
+          </div>
+          <div class="form-group">
+            <label>Firm or Organisation <span class="req">*</span></label>
+            <input type="text" name="lw-org" required placeholder="Firm or organisation name">
+          </div>
         </div>
         <div class="form-group">
-          <label>Nominee Last Name <span class="req">*</span></label>
-          <input type="text" name="Nominee Last Name" required placeholder="Last name">
+          <label>LinkedIn Profile</label>
+          <input type="url" name="lw-linkedin" placeholder="https://linkedin.com/in/theirname">
+          <p class="hint">Optional but helpful for us to learn more about them.</p>
         </div>
-      </div>
-
-      <div class="form-group">
-        <label>Category <span class="req">*</span></label>
-        <div class="radio-group">
-          <label><input type="radio" name="Category" value="Current Student" required> Current Student</label>
-          <label><input type="radio" name="Category" value="Graduate Lawyer"> Graduate Lawyer</label>
+        <div class="form-group">
+          <label>Nominee Email</label>
+          <input type="email" name="lw-email" placeholder="their@email.com">
+          <p class="hint">Optional. If provided, we may reach out to them directly to gather their story.</p>
         </div>
-      </div>
+        <div class="form-section-label">The Nomination</div>
+        <div class="form-group">
+          <label>Why are you nominating this person? <span class="req">*</span></label>
+          <p class="hint">What makes their early career work worth recognising?</p>
+          <textarea name="lw-reason" required placeholder="Tell us what makes them worth spotlighting..." style="min-height:140px;"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Supporting context</label>
+          <textarea name="lw-context" placeholder="Optional. Any additional background, links, or context that would help us understand their work."></textarea>
+        </div>
+        <div class="form-section-label">About You</div>
+        <div class="form-row-2">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" name="lw-nom-name" placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label>Your Email</label>
+            <input type="email" name="lw-nom-email" placeholder="your@email.com">
+          </div>
+        </div>
+        <p class="hint" style="margin-top:-16px;margin-bottom:24px;">Optional. We may follow up to gather more detail before featuring the nominee.</p>
+        <button type="submit" class="submit-btn">Submit Nomination</button>
+        <div class="form-status" id="lawyerStatus"></div>
+      </form>
+    </div>
 
-      <div class="form-group">
-        <label>Nominee Email (if known)</label>
-        <input type="email" name="Nominee Email" placeholder="nominee@email.com">
-        <p class="hint">Optional. If provided, we may reach out to them directly to gather their story.</p>
-      </div>
-
-      <div class="form-group">
-        <label>Current role or year of study</label>
-        <input type="text" name="Nominee Role" placeholder="e.g. Part III LLB student, Solicitor at X firm">
-      </div>
-
-      <div class="form-section-label">The Nomination</div>
-
-      <div class="form-group">
-        <label>Why are you nominating this person? <span class="req">*</span></label>
-        <p class="hint">Tell us what makes them worth spotlighting. What have they achieved, contributed, or demonstrated that stands out?</p>
-        <textarea name="Reason" required placeholder="Describe why this person deserves to be featured..." style="min-height:140px;"></textarea>
-      </div>
-
-      <div class="form-group">
-        <label>Any supporting context</label>
-        <textarea name="Context" placeholder="Optional. Any additional background, links, or context that would help us understand their work."></textarea>
-      </div>
-
-      <div class="form-section-label">About You</div>
-
-      <div class="form-group">
-        <label>Your Name (optional)</label>
-        <input type="text" name="Nominator Name" placeholder="Your name">
-      </div>
-
-      <div class="form-group">
-        <label>Your Email (optional)</label>
-        <input type="email" name="Nominator Email" placeholder="your@email.com">
-        <p class="hint">If you would like us to follow up with you about the nomination.</p>
-      </div>
-
-      <button type="submit" class="submit-btn">Submit Nomination</button>
-      <div class="form-status" id="spotlightStatus"></div>
-    </form>
   </div>
 </section>
 
@@ -233,26 +323,68 @@
 <script>
   const SPOTLIGHT_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwvdRWo3121N7T3WFHxe2xg_du3Tjp1Zt62v7kNyx4UlnBUYn0VOoqrX8XICkeb4qTx/exec';
 
-  async function submitSpotlight(event) {
-    event.preventDefault();
-    const btn = document.querySelector('.submit-btn');
-    const status = document.getElementById('spotlightStatus');
-    const form = document.getElementById('spotlightForm');
+  function showPanel(type, btn) {
+    document.querySelectorAll('.form-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('panel-' + type).classList.add('active');
+    var activeBtn = btn || document.querySelector('.toggle-btn[data-type="' + type + '"]');
+    if (activeBtn) activeBtn.classList.add('active');
+  }
 
-    const data = {
-      'Nominee First Name': form.querySelector('[name="Nominee First Name"]').value.trim(),
-      'Nominee Last Name':  form.querySelector('[name="Nominee Last Name"]').value.trim(),
-      'Category':           form.querySelector('[name="Category"]:checked')?.value || '',
-      'Nominee Email':      form.querySelector('[name="Nominee Email"]').value.trim(),
-      'Nominee Role':       form.querySelector('[name="Nominee Role"]').value.trim(),
-      'Reason':             form.querySelector('[name="Reason"]').value.trim(),
-      'Context':            form.querySelector('[name="Context"]').value.trim(),
-      'Nominator Name':     form.querySelector('[name="Nominator Name"]').value.trim(),
-      'Nominator Email':    form.querySelector('[name="Nominator Email"]').value.trim(),
-    };
+  document.addEventListener('DOMContentLoaded', function() {
+    var hash = window.location.hash;
+    if (hash === '#lawyer') showPanel('lawyer');
+    else showPanel('student');
+  });
+
+  function val(form, name) {
+    var el = form.querySelector('[name="' + name + '"]');
+    return el ? el.value.trim() : '';
+  }
+
+  async function submitSpotlight(event, type) {
+    event.preventDefault();
+    var formId = type === 'student' ? 'studentForm' : 'lawyerForm';
+    var statusId = type === 'student' ? 'studentStatus' : 'lawyerStatus';
+    var form = document.getElementById(formId);
+    var status = document.getElementById(statusId);
+    var btn = form.querySelector('.submit-btn');
+
+    var data = { type: type };
+
+    if (type === 'student') {
+      data = {
+        type: 'student',
+        'First Name':      val(form, 'st-first'),
+        'Last Name':       val(form, 'st-last'),
+        'Year of Study':   val(form, 'st-year'),
+        'LinkedIn':        val(form, 'st-linkedin'),
+        'Nominee Email':   val(form, 'st-email'),
+        'Reason':          val(form, 'st-reason'),
+        'Context':         val(form, 'st-context'),
+        'Nominator Name':  val(form, 'st-nom-name'),
+        'Nominator Email': val(form, 'st-nom-email')
+      };
+    } else {
+      data = {
+        type: 'lawyer',
+        'First Name':      val(form, 'lw-first'),
+        'Last Name':       val(form, 'lw-last'),
+        'Role':            val(form, 'lw-role'),
+        'Organisation':    val(form, 'lw-org'),
+        'LinkedIn':        val(form, 'lw-linkedin'),
+        'Nominee Email':   val(form, 'lw-email'),
+        'Reason':          val(form, 'lw-reason'),
+        'Context':         val(form, 'lw-context'),
+        'Nominator Name':  val(form, 'lw-nom-name'),
+        'Nominator Email': val(form, 'lw-nom-email')
+      };
+    }
 
     btn.disabled = true;
     btn.textContent = 'Submitting...';
+    status.className = 'form-status';
+    status.style.display = 'none';
 
     try {
       await fetch(SPOTLIGHT_ENDPOINT, {
@@ -262,11 +394,13 @@
         body: JSON.stringify(data)
       });
       status.className = 'form-status success';
-      status.innerHTML = '<strong>Nomination received.</strong> Kevin and Daniel will review it for an upcoming issue.';
+      status.style.display = 'block';
+      status.innerHTML = '<strong>Nomination received.</strong> Kevin and Daniel will review it and bring it to cabinet ahead of the next issue.';
       form.reset();
       window.scrollTo({top: status.offsetTop - 100, behavior: 'smooth'});
     } catch(err) {
       status.className = 'form-status error';
+      status.style.display = 'block';
       status.innerHTML = 'Something went wrong. Please email us at alsaauckland@gmail.com.';
       btn.disabled = false;
       btn.textContent = 'Submit Nomination';

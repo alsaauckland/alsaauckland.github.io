@@ -132,7 +132,7 @@
     </div>
     <div class="hero-meta-item">
       <div class="hero-meta-label">Mentee eligibility</div>
-      <div class="hero-meta-value">Part II onwards</div>
+      <div class="hero-meta-value">Third year and above</div>
     </div>
     <div class="hero-meta-item">
       <div class="hero-meta-label">Mentees per mentor</div>
@@ -144,8 +144,8 @@
 <div class="toggle-section">
   <div class="toggle-label">I am applying as a</div>
   <div class="toggle-btns">
-    <button class="toggle-btn active" onclick="showPanel('mentee')">Mentee</button>
-    <button class="toggle-btn" onclick="showPanel('mentor')">Mentor</button>
+    <button class="toggle-btn active" data-type="mentee" onclick="showPanel('mentee', this)">Mentee</button>
+    <button class="toggle-btn" data-type="mentor" onclick="showPanel('mentor', this)">Mentor</button>
   </div>
 </div>
 
@@ -156,7 +156,7 @@
     <div class="form-panel active" id="panel-mentee">
       <div class="form-intro">
         <h2>Mentee Application</h2>
-        <p>Applications are open to Part II students and above. Part II students are welcome to apply and will be considered for selection if their following year is their penultimate year of study. Tell us about yourself and what you are hoping to get out of the programme. We match mentees and mentors based on shared interests, background, and career direction.</p>
+        <p>Applications are open to students in their third year and above. Tell us about yourself and what you are hoping to get out of the programme. We match mentees and mentors based on shared interests, background, and career direction.</p>
       </div>
       <form id="menteeForm" onsubmit="submitForm(event,'mentee')">
         <div class="form-section-label" style="margin-top:0;padding-top:0;border-top:none;">Personal Details</div>
@@ -180,13 +180,16 @@
             <input type="email" name="ee-uni-email" required placeholder="abc123@aucklanduni.ac.nz">
           </div>
         </div>
+        <div class="form-group">
+          <label>LinkedIn Profile (optional)</label>
+          <p class="hint">Helps your mentor prepare before your first meeting.</p>
+          <input type="url" name="ee-linkedin" placeholder="https://linkedin.com/in/yourname">
+        </div>
         <div class="form-row-2">
           <div class="form-group">
             <label>Year Level in 2026 <span class="req">*</span></label>
             <select name="ee-year" required>
               <option value="">Select year</option>
-              <option>Part II</option>
-              <option>Part II.5</option>
               <option>Part III</option>
               <option>Part IV+</option>
             </select>
@@ -207,6 +210,15 @@
             </select>
           </div>
         </div>
+        <div class="form-group">
+          <label>ALSA Membership <span class="req">*</span></label>
+          <select name="ee-membership" required>
+            <option value="">Select</option>
+            <option>Premium Member</option>
+            <option>General Member</option>
+            <option>Not yet a member</option>
+          </select>
+        </div>
         <div class="form-section-label">Career Interests</div>
         <div class="form-group">
           <label>Areas of law you are interested in <span class="req">*</span></label>
@@ -222,6 +234,7 @@
             <label><input type="checkbox" name="ee-interest" value="Immigration"> Immigration</label>
             <label><input type="checkbox" name="ee-interest" value="Intellectual Property"> Intellectual Property</label>
             <label><input type="checkbox" name="ee-interest" value="Banking / Finance"> Banking / Finance</label>
+            <label><input type="checkbox" name="ee-interest" value="Tax"> Tax</label>
             <label><input type="checkbox" name="ee-interest" value="Environment / Resource Management"> Environment / Resource Management</label>
             <label><input type="checkbox" name="ee-interest" value="Not sure yet"> Not sure yet</label>
           </div>
@@ -237,6 +250,16 @@
             <label><input type="checkbox" name="ee-org" value="Not sure yet"> Not sure yet</label>
           </div>
         </div>
+        <div class="form-group">
+          <label>Where are you in your career planning? <span class="req">*</span></label>
+          <select name="ee-stage" required>
+            <option value="">Select</option>
+            <option>Exploring areas of law</option>
+            <option>Targeting specific firms or areas</option>
+            <option>Actively applying for clerkships</option>
+            <option>Already have a clerkship</option>
+          </select>
+        </div>
         <div class="form-section-label">About You</div>
         <div class="form-group">
           <label>What are you hoping to get out of the programme? <span class="req">*</span></label>
@@ -248,8 +271,49 @@
           <input type="text" name="ee-heritage" placeholder="e.g. Chinese, Korean, Indian">
         </div>
         <div class="form-group">
+          <label>Where are you based in Auckland?</label>
+          <p class="hint">Used to support matching for in-person meetings.</p>
+          <select name="ee-location">
+            <option value="">Select area</option>
+            <option>CBD / City Centre</option>
+            <option>North Shore</option>
+            <option>East Auckland</option>
+            <option>South Auckland</option>
+            <option>West Auckland</option>
+            <option>Other / Outside Auckland</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Preferred meeting format</label>
+          <div class="checkbox-group" style="margin-top:8px;">
+            <label><input type="checkbox" name="ee-format" value="In person"> In person</label>
+            <label><input type="checkbox" name="ee-format" value="Video call"> Video call</label>
+            <label><input type="checkbox" name="ee-format" value="Phone call"> Phone call</label>
+            <label><input type="checkbox" name="ee-format" value="No preference"> No preference</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>How often would you like to meet?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="ee-frequency" value="Once a month"> Once a month</label>
+            <label><input type="radio" name="ee-frequency" value="Twice a month"> Twice a month</label>
+            <label><input type="radio" name="ee-frequency" value="As needed / flexible"> As needed / flexible</label>
+          </div>
+        </div>
+        <div class="form-group">
           <label>Any preferences for your mentor?</label>
           <textarea name="ee-prefs" placeholder="Optional. For example, a preference for a mentor at a particular type of firm, in a specific practice area, or with a particular cultural background."></textarea>
+        </div>
+        <div class="form-group">
+          <label>How did you hear about the ALSA Mentoring Programme?</label>
+          <select name="ee-heard">
+            <option value="">Select</option>
+            <option>ALSA events</option>
+            <option>Social media</option>
+            <option>A friend or classmate</option>
+            <option>University</option>
+            <option>Other</option>
+          </select>
         </div>
         <div class="form-group">
           <div style="background:#f5f0e8;padding:20px 24px;border-left:3px solid #C9A84C;">
@@ -296,6 +360,11 @@
             <input type="text" name="or-org" required placeholder="Firm or organisation name">
           </div>
         </div>
+        <div class="form-group">
+          <label>LinkedIn Profile (optional)</label>
+          <p class="hint">Helps us verify your profile and share with matched mentees ahead of your first meeting.</p>
+          <input type="url" name="or-linkedin" placeholder="https://linkedin.com/in/yourname">
+        </div>
         <div class="form-row-2">
           <div class="form-group">
             <label>Years of experience in legal practice <span class="req">*</span></label>
@@ -337,6 +406,7 @@
             <label><input type="checkbox" name="or-practice" value="Immigration"> Immigration</label>
             <label><input type="checkbox" name="or-practice" value="Intellectual Property"> Intellectual Property</label>
             <label><input type="checkbox" name="or-practice" value="Banking / Finance"> Banking / Finance</label>
+            <label><input type="checkbox" name="or-practice" value="Tax"> Tax</label>
             <label><input type="checkbox" name="or-practice" value="Environment / Resource Management"> Environment / Resource Management</label>
             <label><input type="checkbox" name="or-practice" value="Community / Voluntary"> Community / Voluntary</label>
           </div>
@@ -352,7 +422,6 @@
         <div class="form-group">
           <label>Preferred mentee year level</label>
           <div class="checkbox-group" style="margin-top:8px;">
-            <label><input type="checkbox" name="or-pref-year" value="Part II"> Part II</label>
             <label><input type="checkbox" name="or-pref-year" value="Part III"> Part III</label>
             <label><input type="checkbox" name="or-pref-year" value="Part IV+"> Part IV+</label>
             <label><input type="checkbox" name="or-pref-year" value="No preference"> No preference</label>
@@ -366,6 +435,27 @@
             <label><input type="checkbox" name="or-format" value="Phone call"> Phone call</label>
             <label><input type="checkbox" name="or-format" value="No preference"> No preference</label>
           </div>
+        </div>
+        <div class="form-group">
+          <label>How often are you able to meet?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="or-frequency" value="Once a month"> Once a month</label>
+            <label><input type="radio" name="or-frequency" value="Twice a month"> Twice a month</label>
+            <label><input type="radio" name="or-frequency" value="As needed / flexible"> As needed / flexible</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Where are you based in Auckland?</label>
+          <p class="hint">Used to support matching for in-person meetings.</p>
+          <select name="or-location">
+            <option value="">Select area</option>
+            <option>CBD / City Centre</option>
+            <option>North Shore</option>
+            <option>East Auckland</option>
+            <option>South Auckland</option>
+            <option>West Auckland</option>
+            <option>Other / Outside Auckland</option>
+          </select>
         </div>
         <div class="form-section-label">Background</div>
         <div class="form-group">
@@ -390,6 +480,17 @@
         <div class="form-group">
           <label>Anything else we should know?</label>
           <textarea name="or-extra" placeholder="Any preferences, constraints, or context that would help us make a good match."></textarea>
+        </div>
+        <div class="form-group">
+          <label>How did you hear about the ALSA Mentoring Programme?</label>
+          <select name="or-heard">
+            <option value="">Select</option>
+            <option>ALSA events</option>
+            <option>Social media</option>
+            <option>A colleague or friend</option>
+            <option>University</option>
+            <option>Other</option>
+          </select>
         </div>
         <div class="form-group">
           <div style="background:#f5f0e8;padding:20px 24px;border-left:3px solid #C9A84C;">
@@ -456,12 +557,19 @@
 <script>
   const MENTORING_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwASjwSCO4SDeD7075yXO8M68i-Sa1K-pO-dUdCgSPN73RtWPA3sbGuww70t82EOa0eMA/exec';
 
-  function showPanel(type) {
+  function showPanel(type, btn) {
     document.querySelectorAll('.form-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
     document.getElementById('panel-' + type).classList.add('active');
-    event.target.classList.add('active');
+    var activeBtn = btn || document.querySelector('.toggle-btn[data-type="' + type + '"]');
+    if (activeBtn) activeBtn.classList.add('active');
   }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var hash = window.location.hash;
+    if (hash === '#mentor') showPanel('mentor');
+    else showPanel('mentee');
+  });
 
   function getChecked(name) {
     return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`))
@@ -490,11 +598,18 @@
         'University Email':  val('ee-uni-email'),
         'Year Level':        val('ee-year'),
         'Degree':            val('ee-degree'),
+        'ALSA Membership':   val('ee-membership'),
         'Areas of Interest': getChecked('ee-interest'),
         'Org Preference':    getChecked('ee-org'),
+        'Career Stage':      val('ee-stage'),
+        'Meeting Format':    getChecked('ee-format'),
+        'Meeting Frequency': document.querySelector('[name="ee-frequency"]:checked')?.value || '',
+        'Location':          val('ee-location'),
         'Goals':             val('ee-goals'),
         'Heritage':          val('ee-heritage'),
         'Preferences':       val('ee-prefs'),
+        'LinkedIn':          val('ee-linkedin'),
+        'How Did You Hear':  val('ee-heard'),
         'Consent':           'Yes'
       };
     } else {
@@ -503,6 +618,7 @@
         'First Name':        val('or-first'),
         'Last Name':         val('or-last'),
         'Email':             val('or-email'),
+        'LinkedIn':          val('or-linkedin'),
         'Role':              val('or-role'),
         'Organisation':      val('or-org'),
         'Experience':        val('or-experience'),
@@ -511,11 +627,14 @@
         'Mentee Count':      document.querySelector('[name="or-count"]:checked')?.value || '',
         'Preferred Year':    getChecked('or-pref-year'),
         'Meeting Format':    getChecked('or-format'),
+        'Meeting Frequency': document.querySelector('[name="or-frequency"]:checked')?.value || '',
+        'Location':          val('or-location'),
         'Heritage':          val('or-heritage'),
         'Languages':         val('or-languages'),
         'What You Offer':    val('or-offer'),
         'Why Mentor':        val('or-why'),
         'Additional Info':   val('or-extra'),
+        'How Did You Hear':  val('or-heard'),
         'Consent':           'Yes'
       };
     }
