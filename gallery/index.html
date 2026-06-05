@@ -113,10 +113,10 @@
   .album-cover-wrap { aspect-ratio: 4/3; overflow: hidden; }
   .album-cover { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; display: block; }
   .album-cover-placeholder { width: 100%; aspect-ratio: 4/3; background: #2a2a2a; display: flex; align-items: center; justify-content: center; }
-  .album-info { padding: 18px 20px 20px; }
+  .album-info { padding: 18px 20px 20px; display: flex; flex-direction: column; height: 160px; }
   .album-event-date { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #C9A84C; margin-bottom: 8px; font-weight: 600; }
-  .album-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 6px; overflow: visible; white-space: normal; }
-  .album-count { font-size: 12px; color: rgba(255,255,255,0.4); }
+  .album-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 6px; overflow: visible; white-space: normal; flex: 1; }
+  .album-count { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: auto; }
   .back-btn { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #C9A84C; cursor: pointer; background: none; border: none; padding: 0; margin-bottom: 32px; font-family: 'Lora', serif; font-weight: 600; }
   .back-btn:hover { color: #fff; }
   @media(max-width:900px){ .albums-grid{ grid-template-columns:1fr 1fr; } }
@@ -248,11 +248,34 @@
       slug: 'launch-night',
       title: 'Inaugural Launch Night',
       date: '30 April 2026',
+      dateISO: '2026-04-30',
       description: 'The first ALSA event. Motivated law students, sponsors, and the start of everything we are building together.',
       basePath: '/images/gallery/launch-night',
       folder: 'launch-night',
       photos: [
         'photo1.JPG', 'photo2.JPG', 'photo3.JPG', 'photo4.JPG', 'photo5.JPG', 'photo6.JPG', 'photo7.JPG', 'photo8.JPG', 'photo9.JPG', 'photo10.JPG', 'photo11.JPG', 'photo12.JPG', 'photo13.JPG', 'photo14.JPG', 'photo15.JPG', 'photo16.JPG', 'photo17.JPG', 'photo18.JPG', 'photo19.JPG', 'photo20.JPG', 'photo21.JPG', 'photo22.JPG', 'photo23.JPG', 'photo24.JPG', 'photo25.JPG', 'photo26.JPG', 'photo27.JPG', 'photo28.JPG', 'photo29.JPG', 'photo30.JPG', 'photo31.JPG', 'photo32.JPG', 'photo33.JPG', 'photo34.JPG', 'photo35.JPG', 'photo36.JPG', 'photo37.JPG', 'photo38.JPG', 'photo39.JPG', 'photo40.JPG', 'photo41.JPG', 'photo42.JPG', 'photo43.JPG', 'photo44.JPG', 'photo45.JPG', 'photo46.JPG', 'photo47.JPG', 'photo48.JPG', 'photo49.JPG', 'photo50.JPG', 'photo51.JPG', 'photo52.JPG', 'photo53.JPG', 'photo54.JPG', 'photo55.JPG', 'photo56.JPG', 'photo57.JPG', 'photo58.JPG', 'photo59.JPG', 'photo60.JPG', 'photo61.JPG', 'photo62.JPG', 'photo63.JPG', 'photo64.JPG', 'photo65.JPG', 'photo66.JPG', 'photo67.JPG', 'photo68.JPG', 'photo69.JPG', 'photo70.JPG', 'photo71.JPG', 'photo72.JPG', 'photo73.JPG']
+    },
+    {
+      slug: 'networking-night',
+      title: 'Inaugural Networking Night: Criminal & Family Law',
+      date: '3 June 2026',
+      dateISO: '2026-06-03',
+      description: 'An evening connecting aspiring Asian law students with professionals, mentors, and each other.',
+      basePath: '/images/gallery/Inaugural networking night',
+      folder: 'Inaugural networking night',
+      photos: [
+        ' photo1.JPG', ' photo2.JPG', ' photo3.JPG', ' photo4.JPG', ' photo5.JPG', ' photo6.JPG', ' photo7.JPG', ' photo8.JPG', ' photo9.JPG', ' photo10.JPG', ' photo11.JPG', ' photo12.JPG', ' photo13.JPG', ' photo14.JPG', ' photo15.JPG', ' photo16.JPG', ' photo17.JPG', ' photo18.JPG', ' photo19.JPG', ' photo20.JPG', ' photo21.JPG', ' photo22.JPG', ' photo23.JPG', ' photo24.JPG', ' photo25.JPG', ' photo26.JPG', ' photo27.JPG', ' photo28.JPG', ' photo29.JPG', ' photo30.JPG', ' photo31.JPG', ' photo32.JPG', ' photo33.JPG', ' photo34.JPG', ' photo35.JPG', ' photo36.JPG', ' photo37.JPG', ' photo38.JPG', ' photo39.JPG', ' photo40.JPG', ' photo41.JPG', ' photo42.JPG', ' photo43.JPG', ' photo44.JPG', ' photo45.JPG', ' photo46.JPG', ' photo47.JPG', ' photo48.JPG', ' photo49.JPG', ' photo50.JPG', ' photo51.JPG', ' photo52.JPG', ' photo53.JPG', ' photo54.JPG', ' photo55.JPG', ' photo56.JPG', ' photo57.JPG', ' photo58.JPG', ' photo59.JPG']
+    },
+    {
+      slug: 'academic-workshop',
+      title: 'Inaugural Workshop: Learning to Learn',
+      date: '18 May 2026',
+      dateISO: '2026-05-18',
+      description: 'A hands-on academic session to help ALSA members build the skills and knowledge needed to succeed in law.',
+      basePath: '/images/gallery/inaugural academic workshop',
+      folder: 'inaugural academic workshop',
+      photos: [
+        'photo1.JPG', 'photo2.JPG', 'photo3.JPG', 'photo4.JPG', 'photo5.JPG', 'photo6.JPG', 'photo7.JPG', 'photo8.JPG', 'photo9.JPG', 'photo10.JPG', 'photo11.JPG', 'photo12.JPG', 'photo13.JPG', 'photo14.JPG', 'photo15.JPG', 'photo16.JPG', 'photo17.JPG', 'photo18.JPG', 'photo19.JPG', 'photo20.JPG', 'photo21.JPG', 'photo22.JPG', 'photo23.JPG', 'photo24.JPG', 'photo25.JPG', 'photo26.JPG', 'photo27.JPG', 'photo28.JPG', 'photo29.JPG', 'photo30.JPG', 'photo31.JPG', 'photo32.JPG', 'photo33.JPG', 'photo34.JPG', 'photo35.JPG', 'photo36.JPG', 'photo37.JPG', 'photo38.JPG', 'photo39.JPG', 'photo40.JPG']
     }
     ];
 
@@ -286,7 +309,9 @@
     const grid = document.createElement('div');
     grid.className = 'albums-grid';
 
-    events.forEach(event => {
+    const sortedEvents = [...events].sort((a, b) => (b.dateISO || '').localeCompare(a.dateISO || ''));
+
+    sortedEvents.forEach(event => {
       const card = document.createElement('div');
       card.className = 'album-card';
       card.addEventListener('click', () => {
