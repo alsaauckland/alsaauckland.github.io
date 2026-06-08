@@ -268,7 +268,7 @@
 <!-- PARALLAX -->
 <section id="parallaxSection" style="position:relative;height:620px;overflow:hidden;background:#1a1a1a;">
   <img src="/images/portraits/The Committee.png" id="parallaxImg" alt="The 2026 ALSA Executive"
-       style="width:100%;position:absolute;left:0;top:0;transform:translateY(0);will-change:transform;">
+       style="width:100%;min-height:100%;position:absolute;left:0;top:0;transform:translateY(0);will-change:transform;object-fit:cover;">
   <div style="position:absolute;inset:0;background:rgba(26,10,10,0.62);"></div>
   <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 40px;z-index:1;">
     <div style="max-width:700px;">
@@ -293,7 +293,8 @@
     var imgH     = img.offsetHeight;
     var sectionH = section.offsetHeight;
     var maxShift = imgH - sectionH;
-    var shift    = Math.min(Math.max(progress * maxShift, 0), maxShift);
+    if (maxShift <= 0) { img.style.transform = 'translateY(0)'; return; }
+    var shift = Math.min(Math.max(progress * maxShift, 0), maxShift);
     img.style.transform = 'translateY(-' + shift + 'px)';
   }
 
