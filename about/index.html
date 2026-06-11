@@ -97,6 +97,24 @@
     .nav{position:sticky;}
   }
 
+  /* TIMELINE */
+  .timeline{display:grid;grid-template-columns:repeat(6,1fr);gap:0 16px;margin:48px 0 12px;}
+  .tl-item{position:relative;padding-top:24px;border-top:1px solid rgba(201,168,76,0.55);}
+  .tl-item::before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;background:#C9A84C;border-radius:50%;}
+  .tl-date{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#5b0f0f;font-weight:700;margin-bottom:8px;}
+  .tl-text{font-size:13.5px;color:#555;line-height:1.65;}
+  @media(max-width:900px){
+    .timeline{grid-template-columns:1fr;gap:0;border-left:1px solid rgba(201,168,76,0.55);margin-left:4px;}
+    .tl-item{border-top:none;padding:0 0 26px 22px;}
+    .tl-item:last-child{padding-bottom:0;}
+    .tl-item::before{top:4px;left:-5px;}
+  }
+
+  /* STORY PHOTOS */
+  .story-photo{margin:44px 0 8px;}
+  .story-photo img{width:100%;height:auto;display:block;}
+  .story-photo figcaption{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#888;margin-top:12px;}
+
   /* ABOUT STATS BAR */
   .about-stats-bar{background:#1a1a1a;padding:28px 40px;}
   .about-stats-inner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;}
@@ -168,11 +186,11 @@
     </div>
     <div class="about-stat">
       <div class="about-stat-num">500+</div>
-      <div class="about-stat-label">Social Following</div>
+      <div class="about-stat-label">Followers</div>
     </div>
     <div class="about-stat">
       <div class="about-stat-num">May 2026</div>
-      <div class="about-stat-label">Founded</div>
+      <div class="about-stat-label">Incorporated</div>
     </div>
   </div>
 </div>
@@ -181,15 +199,18 @@
   <div class="container">
     <div class="eyebrow">The Founding Story</div>
     <h2>You should not have to <em>shrink to succeed</em>.</h2>
-    <p class="body">ALSA Auckland began as an idea in December 2025, and by May 2026 it had become a reality. The same pattern had kept emerging. New Zealand is one of the most diverse countries in the world. Auckland is one of the most diverse cities. And yet the further up the legal profession you look, the less that diversity is reflected. The pipeline narrows at every stage. It is a structural outcome that accumulates over years, and one the profession itself has begun to name. ALSA was built to address it from the student end.</p>
+    <p class="body">The same pattern keeps emerging. New Zealand is one of the most diverse countries in the world. Auckland is one of the most diverse cities. And yet the further up the legal profession you look, the less that diversity is reflected. The pipeline narrows at every stage. It is a structural outcome that accumulates over years, and one the profession itself has begun to name. ALSA was built to address it from the student end.</p>
     <p class="body">Many students are exceptional. What they are missing is not ability, but infrastructure: visible pathways into the profession, mentors who have walked the same road, a professional community that understands where they have come from and where they are trying to go. ALSA was built to provide exactly that: the visibility, the relationships, and the professional structure that turns capability into career.</p>
     <p class="body">What students need is a platform. A community that shows them they can stand in the same rooms as anyone else in the profession, not despite who they are, but because of it. A place where their background is not something to manage around, but a genuine professional asset. Where they can see that others have walked the same path and made it through.</p>
     <p class="body">ALSA was built to change those conditions directly. It is an independent incorporated society, not a cultural club. It exists as a professional platform: structured, credible, and anchored in the skills and relationships that actually move people forward in the profession.</p>
-    <p class="body">Within three months of launching, ALSA had gathered 200 members, built a social media following of over 500, and run its first events to capacity.</p>
     <div class="pull-quote">
       <p>"The lawyers we are building relationships with today are the colleagues, the mentors, and the advocates we will rely on for the rest of our careers."</p>
       <cite>Jayden Lin, Founding President</cite>
     </div>
+    <figure class="story-photo">
+      <img src="/images/about/launch-crowd.jpg" alt="A full room at ALSA's Inaugural Launch Night" loading="lazy">
+      <figcaption>Inaugural Launch Night · 30 April 2026</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -197,7 +218,33 @@
   <div class="container">
     <div class="eyebrow">The Founding</div>
     <h2>Built from <em>the ground up</em>.</h2>
-    <p class="body">ALSA did not arrive fully formed. It was built by three people who committed to the vision before there was anything to show for it.</p>
+    <p class="body">ALSA did not arrive fully formed. It was built by 17 people who committed to the vision before there was anything to show for it, from a standing start: no university funding, no club room, no inherited membership. Every member, sponsor, and speaker was earned.</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">Dec 2025</div>
+        <div class="tl-text">An idea: no platform connects Asian law students to the profession.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Jan 2026</div>
+        <div class="tl-text">A 17-person founding executive signs on.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Mar 2026</div>
+        <div class="tl-text">200+ members, before a single public event.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Apr 2026</div>
+        <div class="tl-text">Inaugural Launch Night. Dr Mai Chen gives the keynote.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">May 2026</div>
+        <div class="tl-text">Incorporated. First academic workshop fills within 24 hours.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Jun 2026</div>
+        <div class="tl-text">Networking Night at capacity. Issue 1 published.</div>
+      </div>
+    </div>
     <div style="border-top:3px solid #C9A84C;padding-top:28px;margin-top:40px;margin-bottom:32px;">
       <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#5b0f0f;font-weight:600;margin-bottom:10px;">Founding President</div>
       <h3 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#1a1a1a;margin-bottom:12px;">Jayden Lin</h3>
@@ -317,7 +364,7 @@
 
       <div class="faq-item">
         <button class="faq-btn">This sounds ambitious. How will ALSA deliver on it?<span class="faq-icon">+</span></button>
-        <div class="faq-answer">ALSA already has. Within three months of launching, ALSA gathered over 200 members, secured five figures in partnership value, ran its first events to capacity, and built an executive team of 17. The ambition is large because the problem is large. This is just the beginning.</div>
+        <div class="faq-answer">ALSA already has. Before its first public event, ALSA had gathered over 200 members and built an executive team of 17. Within three months of launching, it secured five figures in partnership value and ran its first events to capacity. The ambition is large because the problem is large. This is just the beginning.</div>
       </div>
 
       <div class="faq-item">
@@ -381,11 +428,6 @@
           <a href="/privacy/">Privacy Policy</a>
           <a href="/conduct/">Code of Conduct</a>
         </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
       </div>
     </div>
     <div class="footer-bottom">
