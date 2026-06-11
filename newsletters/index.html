@@ -28,7 +28,10 @@
   .nav-cta{background:#5b0f0f;color:#fff;padding:9px 20px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;font-weight:600;}
 
   /* HERO */
-  .hero{background:#1a1a1a;padding:80px 40px 70px;text-align:center;}
+  .hero{background:#2b0e0e;padding:120px 40px 110px;text-align:center;position:relative;overflow:hidden;}
+  .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 58%;}
+  .hero-overlay{position:absolute;inset:0;background:rgba(40,9,9,0.8);}
+  .hero-content{position:relative;z-index:1;}
   .hero-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:18px;font-weight:600;}
   .hero h1{font-family:'Playfair Display',serif;font-size:52px;font-weight:700;color:#fff;letter-spacing:-0.5px;margin-bottom:18px;}
   .hero h1 em{font-style:italic;color:#C9A84C;font-weight:400;}
@@ -120,9 +123,13 @@
 </nav>
 
 <section class="hero">
-  <div class="hero-eyebrow">Published Monthly</div>
-  <h1>The ALSA <em>Newsletter</em>.</h1>
-  <p class="hero-lead">Updates from across the ALSA programme. Engagement, mentoring, academic initiatives, and spotlights from the profession, every month.</p>
+  <img src="/images/newsletters/hero.jpg" alt="Members and practitioners at ALSA's Inaugural Networking Night" class="hero-bg">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Published Monthly</div>
+    <h1>The ALSA <em>Newsletter</em>.</h1>
+    <p class="hero-lead">Updates from across the ALSA programme. Engagement, mentoring, academic initiatives, and spotlights from the profession, every month.</p>
+  </div>
 </section>
 
 <section class="issues-section">
@@ -229,7 +236,7 @@
     const topicsHTML = issue.topics.map(t => `<div class="issue-topic">${t}</div>`).join('');
 
     card.innerHTML = `
-      <div class="issue-card-top" ${issue.number === 1 ? 'style="background-image:url(images/gallery/launch-night/photo73.JPG);background-size:cover;background-position:center;"' : ''}>
+      <div class="issue-card-top" ${issue.number === 1 ? 'style="background-image:url(/images/newsletters/issue-1-card.jpg);background-size:cover;background-position:center 22%;"' : ''}>
         <div class="issue-number">Issue ${String(issue.number).padStart(2, '0')}</div>
         <div class="issue-title">${issue.title}</div>
         <div class="issue-date">${issue.date}</div>
