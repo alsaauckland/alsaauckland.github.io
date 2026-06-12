@@ -704,7 +704,7 @@
 (function(){
   if (!('IntersectionObserver' in window)) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var targets = document.querySelectorAll('.pillar, .prog-card, .quote-block, .moment, .cabinet-card, .partner-card, .section-title');
+  var targets = document.querySelectorAll('.pillar, .prog-card, .quote-block, .cabinet-card, .partner-card, .section-title');
   targets.forEach(function(el){
     el.classList.add('reveal');
     var siblings = el.parentNode.children;

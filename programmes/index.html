@@ -36,7 +36,10 @@
   .footer-col a:hover{color:#fff;}
   .footer-bottom{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.7;text-align:center;}
   @media(max-width:900px){.nav-links{display:none;}.nav-inner,.footer-inner{padding-left:24px;padding-right:24px;}}
-  .hero{background:#5b0f0f;padding:80px 40px 70px;text-align:center;}
+  .hero{background:#2b0e0e;padding:60px 40px;min-height:640px;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;}
+  .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;}
+  .hero-overlay{position:absolute;inset:0;background:rgba(40,9,9,0.78);}
+  .hero-content{position:relative;z-index:1;}
   .hero-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:18px;font-weight:600;}
   .hero h1{font-family:'Playfair Display',serif;font-size:52px;font-weight:700;color:#fff;letter-spacing:-0.5px;margin-bottom:18px;}
   .hero h1 em{font-style:italic;color:#C9A84C;font-weight:400;}
@@ -101,6 +104,12 @@
     .hamburger{display:flex;}
     .nav{position:sticky;}
   }
+
+  /* SCROLL REVEAL */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity 0.7s ease,transform 0.7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+  @media(max-width:900px){.hero{min-height:460px;}}
 </style>
 </head>
 <body>
@@ -128,9 +137,13 @@
 </nav>
 
 <section class="hero">
-  <div class="hero-eyebrow">What We Run</div>
-  <h1>Five programmes, one <em>mission</em>.</h1>
-  <p class="hero-lead">Academic skills, professional connections, mentoring, community, and visibility. Each programme is built around a specific part of the distance between law school and the profession.</p>
+  <img src="/images/programmes/hero.jpg" alt="The Learning to Learn workshop in session" class="hero-bg">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">What We Run</div>
+    <h1>Five programmes, one <em>mission</em>.</h1>
+    <p class="hero-lead">Academic skills, professional connections, mentoring, community, and visibility. Each programme is built around a specific part of the distance between law school and the profession.</p>
+  </div>
 </section>
 
 <!-- 1. ACADEMIC -->
@@ -323,8 +336,10 @@
   <h2>Programmes are <em>accessible</em> for members.</h2>
   <p>Membership is open to law students at the University of Auckland and AUT. Join General for free or upgrade to Premium for priority access.</p>
   <p style="margin-top:16px;font-size:15px;color:rgba(255,255,255,0.65);">If you are a practising lawyer, professional, academic, or organisation and want to get involved with ALSA, we would love to hear from you.</p>
-  <a href="/join/">Join Us</a>
-  <a href="/contact/?topic=Collaboration+with+ALSA" style="display:inline-block;background:transparent;border:1.5px solid #C9A84C;color:#C9A84C;padding:14px 36px;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;font-weight:700;margin-left:16px;">Collaborate with ALSA &rarr;</a>
+  <div style="display:flex;gap:14px;justify-content:center;align-items:center;flex-wrap:wrap;">
+    <a href="/join/">Join Us</a>
+    <a href="/contact/?topic=Collaboration+with+ALSA" style="display:inline-block;background:transparent;border:1.5px solid #C9A84C;color:#C9A84C;padding:14px 36px;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;font-weight:700;">Collaborate with ALSA &rarr;</a>
+  </div>
 </section>
 
 <footer>
@@ -384,6 +399,26 @@
       }
     });
   }
+})();
+</script>
+
+<script>
+(function(){
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var targets = document.querySelectorAll('.programme-inner > *, .join-cta h2');
+  targets.forEach(function(el){
+    el.classList.add('reveal');
+    var siblings = el.parentNode.children;
+    var i = Array.prototype.indexOf.call(siblings, el);
+    el.style.transitionDelay = Math.min(i * 70, 350) + 'ms';
+  });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
+  targets.forEach(function(el){ io.observe(el); });
 })();
 </script>
 </body>

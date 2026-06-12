@@ -24,8 +24,10 @@
   .nav-links a{font-size:13px;color:#555;text-decoration:none;letter-spacing:0.5px;}
   .nav-links a:hover{color:#5b0f0f;}
   .nav-cta{background:#5b0f0f;color:#fff;padding:9px 20px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;font-weight:600;}
-  .hero{background:#5b0f0f;padding:90px 40px 80px;}
-  .hero-inner{max-width:860px;margin:0 auto;}
+  .hero{background:#2b0e0e;padding:60px 40px;min-height:640px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+  .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;}
+  .hero-overlay{position:absolute;inset:0;background:rgba(40,9,9,0.78);}
+  .hero-inner{max-width:860px;margin:0 auto;position:relative;z-index:1;width:100%;}
   .hero-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:20px;font-weight:600;}
   .hero h1{font-family:'Playfair Display',serif;font-size:58px;font-weight:700;color:#fff;line-height:1.05;letter-spacing:-0.5px;margin-bottom:24px;}
   .hero h1 em{font-style:italic;color:#C9A84C;font-weight:400;}
@@ -81,7 +83,7 @@
     .hero h1{font-size:38px;}
     h2{font-size:30px;}
     .data-grid{grid-template-columns:1fr;}
-    .nav-inner,.container,.footer-inner,.programmes-cta,.hero{padding-left:24px;padding-right:24px;}
+    .nav-inner,.container,.footer-inner,.programmes-cta,.hero,.about-stats-bar{padding-left:24px;padding-right:24px;}
   }
 
   /* MOBILE NAV */
@@ -137,9 +139,15 @@
 
   @media(max-width:600px){
     .about-stats-inner{grid-template-columns:repeat(2,1fr);}
-    .about-stat+.about-stat{border-left:none;}
+    .about-stat+.about-stat{border-left:none;padding-left:0;}
     .about-stat:nth-child(3),.about-stat:nth-child(4){border-top:0.5px solid rgba(255,255,255,0.1);padding-top:16px;}
   }
+
+  /* SCROLL REVEAL */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity 0.7s ease,transform 0.7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+  @media(max-width:900px){.hero{min-height:460px;}}
 </style>
 </head>
 <body>
@@ -167,6 +175,8 @@
 </nav>
 
 <section class="hero">
+  <img src="/images/about/hero.jpg" alt="Students arriving at ALSA's Inaugural Launch Night" class="hero-bg">
+  <div class="hero-overlay"></div>
   <div class="hero-inner">
     <div class="hero-eyebrow">About ALSA Auckland</div>
     <h1>Building a profession <em>ready for the future</em>.</h1>
@@ -222,7 +232,7 @@
     <div class="timeline">
       <div class="tl-item">
         <div class="tl-date">Dec 2025</div>
-        <div class="tl-text">An idea: no platform connects Asian law students to the profession.</div>
+        <div class="tl-text">An idea: no organisation focused on carrying Asian law students into the profession.</div>
       </div>
       <div class="tl-item">
         <div class="tl-date">Jan 2026</div>
@@ -248,7 +258,7 @@
     <div style="border-top:3px solid #C9A84C;padding-top:28px;margin-top:40px;margin-bottom:32px;">
       <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#5b0f0f;font-weight:600;margin-bottom:10px;">Founding President</div>
       <h3 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#1a1a1a;margin-bottom:12px;">Jayden Lin</h3>
-      <p style="font-size:15px;color:#555;line-height:1.8;">ALSA began as an idea in December 2025. Jayden had noticed something unspoken: there was no platform connecting Asian law students to each other or to the profession. The more he looked, the more he saw capable students held back not by ability, but by the absence of visibility and access. So he built something.</p>
+      <p style="font-size:15px;color:#555;line-height:1.8;">ALSA began as an idea in December 2025. Jayden had noticed something unspoken: for all the communities Asian students had built, none were focused on the transition into the legal profession. The more he looked, the more he saw capable students held back not by ability, but by the absence of visibility and access. So he built something.</p>
       <p style="font-size:15px;color:#555;line-height:1.8;margin-top:14px;">Within months, ALSA had a constitution, a 17-person executive, government incorporation, over 200 members, and sponsorship partnerships with major brands including Anytime Fitness. In April 2026, ALSA held its Inaugural Launch Event with Mai Chen as headline speaker.</p>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
@@ -464,6 +474,26 @@
       if(!isOpen) item.classList.add('open');
     });
   });
+})();
+</script>
+
+<script>
+(function(){
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var targets = document.querySelectorAll('h2, .data-card, .pull-quote, .tl-item, .story-photo');
+  targets.forEach(function(el){
+    el.classList.add('reveal');
+    var siblings = el.parentNode.children;
+    var i = Array.prototype.indexOf.call(siblings, el);
+    el.style.transitionDelay = Math.min(i * 70, 350) + 'ms';
+  });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
+  targets.forEach(function(el){ io.observe(el); });
 })();
 </script>
 </body>

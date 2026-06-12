@@ -26,7 +26,10 @@
   .nav-cta{background:#5b0f0f;color:#fff;padding:9px 20px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;font-weight:600;}
 
   /* HERO */
-  .hero{background:#5b0f0f;padding:80px 40px 70px;text-align:center;}
+  .hero{background:#2b0e0e;padding:60px 40px;min-height:640px;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;}
+  .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%;}
+  .hero-overlay{position:absolute;inset:0;background:rgba(40,9,9,0.78);}
+  .hero-content{position:relative;z-index:1;}
   .hero-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:18px;font-weight:600;}
   .hero h1{font-family:'Playfair Display',serif;font-size:52px;font-weight:700;color:#fff;letter-spacing:-0.5px;margin-bottom:18px;}
   .hero h1 em{font-style:italic;color:#C9A84C;font-weight:400;}
@@ -96,6 +99,12 @@
     .hamburger{display:flex;}
     .nav{position:sticky;}
   }
+
+  /* SCROLL REVEAL */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity 0.7s ease,transform 0.7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+  @media(max-width:900px){.hero{min-height:460px;}}
 </style>
 </head>
 <body>
@@ -123,9 +132,13 @@
 </nav>
 
 <section class="hero">
-  <div class="hero-eyebrow">The People Behind ALSA</div>
-  <h1>Meet <em>The Founding Committee</em>.</h1>
-  <p class="hero-lead">ALSA is run by law students who believe in building something that outlasts their degree. Here is who they are.</p>
+  <img src="/images/team/hero.jpg" alt="The ALSA founding committee at the Inaugural Launch Night" class="hero-bg">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">The People Behind ALSA</div>
+    <h1>Meet <em>The Founding Committee</em>.</h1>
+    <p class="hero-lead">ALSA is run by law students who believe in building something that outlasts their degree. Here is who they are.</p>
+  </div>
 </section>
 
 <section class="section">
@@ -321,6 +334,26 @@
       }
     });
   }
+})();
+</script>
+
+<script>
+(function(){
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var targets = document.querySelectorAll('.cabinet-card, .officer-card, .section-header');
+  targets.forEach(function(el){
+    el.classList.add('reveal');
+    var siblings = el.parentNode.children;
+    var i = Array.prototype.indexOf.call(siblings, el);
+    el.style.transitionDelay = Math.min(i * 70, 350) + 'ms';
+  });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
+  targets.forEach(function(el){ io.observe(el); });
 })();
 </script>
 </body>
