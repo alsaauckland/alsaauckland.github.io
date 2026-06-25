@@ -26,7 +26,8 @@
   .nav-links{display:flex;gap:32px;}
   .nav-links a{font-size:13px;color:#555;text-decoration:none;letter-spacing:0.5px;transition:color 0.2s;}
   .nav-links a:hover{color:#5b0f0f;}
-  .nav-cta{background:#5b0f0f;color:#fff;padding:9px 20px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;font-weight:600;}
+  .nav-cta{background:#5b0f0f;color:#fff;padding:9px 20px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;font-weight:600;white-space:nowrap;flex-shrink:0;}
+  @media(max-width:1120px) and (min-width:901px){.nav-links{gap:14px;}.nav-inner{padding-left:20px;padding-right:20px;}}
   
   /* HERO */
   .hero{background:#5b0f0f;color:#fff;padding:100px 40px 80px;text-align:center;}
@@ -103,7 +104,7 @@
   label{display:block;font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:8px;letter-spacing:0.3px;}
   label .req{color:#5b0f0f;margin-left:3px;}
   label .hint{display:block;font-size:11px;color:#888;font-weight:400;margin-top:2px;font-style:italic;}
-  input[type="text"],input[type="email"],input[type="tel"],select,textarea{width:100%;padding:11px 14px;border:1px solid #d8d3c8;background:#fff;font-family:'Lora',serif;font-size:14px;color:#1a1a1a;border-radius:0;transition:border-color 0.2s;}
+  input[type="text"],input[type="email"],input[type="tel"],input[type="url"],select,textarea{width:100%;padding:11px 14px;border:1px solid #d8d3c8;background:#fff;font-family:'Lora',serif;font-size:14px;color:#1a1a1a;border-radius:0;transition:border-color 0.2s;}
   input:focus,select:focus,textarea:focus{outline:none;border-color:#5b0f0f;}
   textarea{resize:vertical;min-height:90px;font-family:'Lora',serif;}
   .checkbox-group{display:grid;grid-template-columns:1fr 1fr;gap:8px 16px;margin-top:6px;}
@@ -227,6 +228,7 @@
       <a href="/newsletters/">Newsletter</a>
       <a href="/gallery/">Gallery</a>
       <a href="/team/">Team</a>
+      <a href="/team/apply/" style="color:#C9A84C;font-weight:600;">Apply</a>
       <a href="/contact/">Contact</a>
     </div>
     <a href="#signup" class="nav-cta">Join Us</a>
@@ -589,7 +591,7 @@
               <input type="text" id="involvementOther" class="other-input" placeholder="Please specify">
             </div>
             <div class="form-row">
-              <label>Membership Tier<span class="hint">General membership is free. Premium membership is a one-off $10 contribution that supports ALSA's programme and unlocks priority access and your exclusive gold membership card.</span></label>
+              <label>Membership Tier<span class="hint">General membership is free. Premium membership is a one-off $10 contribution that directly supports the next generation of Asian lawyers entering the profession, and unlocks priority access and your exclusive gold membership card.</span></label>
               <div class="radio-group">
                 <label><input type="radio" name="Membership Tier" value="General ALSA Member" onclick="togglePayment(false)" checked> General ALSA Member — Free</label>
                 <label><input type="radio" name="Membership Tier" value="Premium ALSA Member" onclick="togglePayment(true)"> Premium ALSA Member — $10</label>
@@ -821,7 +823,7 @@
       window.scrollTo({top: status.offsetTop - 100, behavior: 'smooth'});
     } catch (err) {
       status.className = 'form-status error';
-      status.innerHTML = '<h3>Something went wrong</h3><p>Please try again, or email us directly at alsaauckland@gmail.com.</p>';
+      status.innerHTML = '<h3>Something went wrong</h3><p>Please try again, or email us directly at Enquiries@alsaauckland.org.</p>';
       btn.disabled = false;
       btn.textContent = 'Submit Membership Application';
     }

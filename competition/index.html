@@ -26,7 +26,8 @@
   .nav-links{display:flex;gap:28px;}
   .nav-links a{font-size:13px;color:#555;text-decoration:none;letter-spacing:0.5px;transition:color 0.2s;}
   .nav-links a:hover{color:#5b0f0f;}
-  .nav-cta{background:#5b0f0f;color:#fff;padding:9px 20px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;font-weight:600;}
+  .nav-cta{background:#5b0f0f;color:#fff;padding:9px 20px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;font-weight:600;white-space:nowrap;flex-shrink:0;}
+  @media(max-width:1120px) and (min-width:901px){.nav-links{gap:14px;}.nav-inner{padding-left:20px;padding-right:20px;}}
 
   /* HERO */
   .hero{background:#5b0f0f;color:#fff;padding:100px 40px 80px;text-align:center;}
@@ -187,6 +188,7 @@
       <a href="/newsletters/">Newsletter</a>
       <a href="/gallery/">Gallery</a>
       <a href="/team/">Team</a>
+      <a href="/team/apply/" style="color:#C9A84C;font-weight:600;">Apply</a>
       <a href="/contact/">Contact</a>
     </div>
     <a href="/join/" class="nav-cta">Join Us</a>
@@ -462,7 +464,7 @@
       Your submission has been received. A confirmation has been sent to the email you provided. Feedback to all entrants by 15 August 2026.
     </div>
     <div class="form-msg error" id="comp-error">
-      Something went wrong. Please try again or email your submission directly to <a href="mailto:alsaacademia@gmail.com">alsaacademia@gmail.com</a>.
+      Something went wrong. Please try again or email your submission directly to <a href="mailto:Enquiries@alsaauckland.org">Enquiries@alsaauckland.org</a>.
     </div>
   </div>
 </div>

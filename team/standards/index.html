@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/images/logo.png" sizes="196x196">
+<link rel="apple-touch-icon" href="/images/logo.png">
+<title>Executive Standards | ALSA Auckland</title>
+<meta name="description" content="What ALSA Auckland expects from every member of the executive team. High standards, shared accountability, and a culture of follow-through.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=optional" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;overflow-y:scroll;}
+  body{font-family:'Lora',Georgia,serif;color:#2a2a2a;background:#fdfaf4;line-height:1.7;}
+  .nav{position:sticky;top:0;background:rgba(253,250,244,0.96);backdrop-filter:blur(10px);border-bottom:0.5px solid rgba(0,0,0,0.06);z-index:100;}
+  .nav-inner{max-width:1200px;margin:0 auto;padding:8px 40px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#1a1a1a;}
+  .nav-logo{width:100px;height:100px;object-fit:contain;}
+  .nav-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;letter-spacing:2px;}
+  .nav-name span{color:#5b0f0f;}
+  .nav-links{display:flex;gap:32px;}
+  .nav-links a{font-size:13px;color:#555;text-decoration:none;letter-spacing:0.5px;}
+  .nav-links a:hover{color:#5b0f0f;}
+  .nav-cta{background:#5b0f0f;color:#fff;padding:9px 20px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;font-weight:600;white-space:nowrap;flex-shrink:0;}
+  @media(max-width:1120px) and (min-width:901px){.nav-links{gap:14px;}.nav-inner{padding-left:20px;padding-right:20px;}}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+  .hamburger span{display:block;width:22px;height:2px;background:#5b0f0f;transition:all 0.3s;}
+
+  .role-hero{background:#2b0e0e;padding:80px 40px 72px;}
+  .role-hero-inner{max-width:760px;margin:0 auto;}
+  .hero-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:18px;font-weight:600;}
+  .role-hero h1{font-family:'Playfair Display',serif;font-size:48px;font-weight:700;color:#fff;line-height:1.08;letter-spacing:-0.5px;}
+  .role-hero h1 em{font-style:italic;color:#C9A84C;font-weight:400;}
+
+  .doc-body{padding:70px 0 90px;}
+  .doc-inner{max-width:760px;margin:0 auto;padding:0 40px;}
+  .doc-intro{font-size:18px;color:#333;line-height:1.85;margin-bottom:36px;padding-bottom:32px;border-bottom:0.5px solid rgba(0,0,0,0.1);}
+
+  .doc-section{margin-bottom:52px;}
+  .section-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#5b0f0f;font-weight:700;margin-bottom:18px;}
+  .doc-section h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#1a1a1a;margin-bottom:16px;line-height:1.2;}
+
+  .standard-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
+  .standard-list li{font-size:15.5px;color:#444;line-height:1.75;padding-left:22px;position:relative;}
+  .standard-list li::before{content:'';position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:#5b0f0f;}
+
+  .principle-block{border-left:3px solid #5b0f0f;padding:20px 24px;background:#fff;margin-bottom:16px;}
+  .principle-block h3{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#1a1a1a;margin-bottom:8px;}
+  .principle-block p{font-size:14.5px;color:#555;line-height:1.75;}
+
+  .callout{background:#f5f0e8;border-left:3px solid #C9A84C;padding:22px 26px;margin-bottom:0;}
+  .callout p{font-size:15px;color:#444;line-height:1.8;font-style:italic;}
+
+  .dark-block{background:#2b0e0e;padding:28px 30px;margin-bottom:16px;}
+  .dark-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#C9A84C;font-weight:700;margin-bottom:10px;}
+  .dark-block p{font-size:15px;color:rgba(255,255,255,0.82);line-height:1.8;}
+
+  .buddy-table{width:100%;border-collapse:collapse;}
+  .buddy-table th{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#888;font-weight:600;text-align:left;padding:10px 16px;border-bottom:1.5px solid rgba(0,0,0,0.1);}
+  .buddy-table td{font-size:14px;color:#444;padding:12px 16px;border-bottom:0.5px solid rgba(0,0,0,0.07);line-height:1.6;}
+  .buddy-table tr:last-child td{border-bottom:none;}
+  .buddy-table tr:nth-child(even) td{background:#f9f6ef;}
+
+  .role-cta-bar{margin-top:60px;padding-top:48px;border-top:0.5px solid rgba(0,0,0,0.1);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+  .apply-btn{background:#5b0f0f;color:#fff;padding:14px 36px;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;font-weight:700;display:inline-block;}
+  .apply-btn:hover{background:#3d0a0a;}
+  .back-link{font-size:13px;color:#5b0f0f;text-decoration:none;}
+  .back-link:hover{text-decoration:underline;}
+
+  footer{background:#1a1a1a;color:rgba(255,255,255,0.5);padding:50px 0 30px;}
+  .footer-inner{max-width:1100px;margin:0 auto;padding:0 40px;}
+  .footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:36px;padding-bottom:36px;border-bottom:0.5px solid rgba(255,255,255,0.1);flex-wrap:wrap;gap:30px;}
+  .footer-brand{font-family:'Playfair Display',serif;font-size:24px;color:#fff;letter-spacing:3px;font-weight:700;}
+  .footer-brand span{color:#C9A84C;}
+  .footer-tagline{font-size:13px;font-style:italic;color:rgba(255,255,255,0.4);margin-top:6px;}
+  .footer-cols{display:flex;gap:50px;flex-wrap:wrap;}
+  .footer-col h4{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:14px;font-weight:600;font-family:'Lora',serif;}
+  .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;padding:4px 0;}
+  .footer-col a:hover{color:#fff;}
+  .footer-bottom{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.7;text-align:center;}
+
+  @media(max-width:900px){
+    .nav-links{display:none;}
+    .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;background:rgba(253,250,244,0.98);padding:16px 24px;flex-direction:column;gap:0;border-bottom:0.5px solid rgba(0,0,0,0.08);z-index:200;}
+    .nav-links.open a{padding:12px 0;border-bottom:0.5px solid rgba(0,0,0,0.06);font-size:14px;}
+    .nav-links.open a:last-child{border-bottom:none;}
+    .nav-cta{display:none;}
+    .hamburger{display:flex;}
+    .nav{position:sticky;}
+    .role-hero h1{font-size:34px;}
+    .doc-inner{padding:0 24px;}
+    .footer-inner,.nav-inner{padding-left:24px;padding-right:24px;}
+    .role-hero{padding:60px 24px 56px;}
+    .buddy-table th,.buddy-table td{padding:10px 12px;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      <img src="/images/logo-nav.png" alt="ALSA" class="nav-logo">
+      <span class="nav-name">ALSA <span>AUCKLAND</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/programmes/">Programmes</a>
+      <a href="/newsletters/">Newsletter</a>
+      <a href="/gallery/">Gallery</a>
+      <a href="/team/" style="color:#5b0f0f;font-weight:600;">Team</a>
+      <a href="/team/apply/" style="color:#C9A84C;font-weight:600;">Apply</a>
+      <a href="/contact/">Contact</a>
+    </div>
+    <a href="/join/" class="nav-cta">Join Us</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section class="role-hero">
+  <div class="role-hero-inner">
+    <div class="hero-eyebrow">Executive Team &middot; Executive Standards</div>
+    <h1>The work here is real. <em>So are the expectations.</em></h1>
+    <p style="font-size:16px;color:rgba(255,255,255,0.6);margin-top:20px;line-height:1.7;">What we expect from everyone on the executive team, and what we offer in return.</p>
+  </div>
+</section>
+
+<main class="doc-body">
+  <div class="doc-inner">
+
+    <p class="doc-intro">ALSA is a real organisation with real outputs. Behind every event, every programme, and every member interaction is someone on this team who made it happen. That work is visible: to members, to law firms, and to the people who shape careers in the legal profession. The people who do well here are not the most experienced. They are the ones who take ownership without being asked.</p>
+
+    <div class="doc-section">
+      <div class="section-label">Baseline</div>
+      <ul class="standard-list">
+        <li><strong>Attend all executive meetings.</strong> If you cannot make one, give notice in advance, not after. The meeting continues without you — the team should not have to wonder why you are absent.</li>
+        <li><strong>Respond to messages within 24 hours.</strong> Silence is not a neutral act when the team is depending on you. A slow response on something time-sensitive can block the work of everyone waiting on your input.</li>
+        <li><strong>Deliver your role outputs on time.</strong> If you are behind, say so before the deadline, not after. Late work without warning is harder to absorb than early notice with a revised timeline.</li>
+        <li><strong>Represent ALSA professionally in all external contexts.</strong> You are the organisation when members and partners see you. How you conduct yourself reflects on every other person on this team.</li>
+        <li><strong>Bring problems to the team early.</strong> No one is expected to be perfect. Everyone is expected to be honest. A problem raised early can be solved. A problem hidden until it is too late cannot.</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <div class="section-label">What Competence Looks Like</div>
+      <p style="font-size:15.5px;color:#444;line-height:1.75;margin-bottom:20px;">Meeting the baseline gets you through the door. What distinguishes the people who make this team exceptional is simpler than it sounds.</p>
+      <ul class="standard-list">
+        <li><strong>You deliver before being asked, not when reminded.</strong> The people above you should not have to track your progress. If something is due, it is done. If it is not, they hear from you first.</li>
+        <li><strong>When something goes wrong, you raise it early and come with a proposed solution, not just the problem.</strong> Problems are easier to fix the sooner they surface. Bringing a situation to the team late, or without a suggested way forward, puts the burden on everyone else.</li>
+        <li><strong>You make the people around you better, not just your own outputs stronger.</strong> This team runs on shared information and mutual support. Someone who protects their own work at the expense of the team's is not operating at the right level.</li>
+        <li><strong>You take ownership of your area without needing to be chased.</strong> Cabinet should not have to ask for updates on your portfolio. You know what needs doing and when, and you get it done.</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <div class="section-label">How We Bring People In</div>
+
+      <div class="principle-block">
+        <h3>A deliberate process</h3>
+        <p>The application process is deliberately thorough. A CV, a video, written questions, and an interview is a significant ask. We ask it because the wrong person in a role costs the team far more than leaving the role empty for one more semester. We would rather wait for the right person than fill a seat.</p>
+      </div>
+
+      <div class="principle-block">
+        <h3>Two-week onboarding period</h3>
+        <p>Every new exec member begins with a two-week onboarding period at the start of their first semester. This is mutual: ALSA assesses whether the person can operate at the required standard, and the new member decides whether this is right for them. At the end of the two weeks, cabinet votes to confirm the new member. This is not a formality: it is how we maintain accountability for who is on the team.</p>
+        <p>During the two weeks, every new member sends a brief daily update to their director or officer: what they worked on, what is next, and anything they are stuck on. This is not a bureaucratic check-in. It is how you show you can be trusted to operate independently. Officers report to their director. Interns report to their officer. Once you are confirmed, the daily cadence drops and you manage your own rhythm.</p>
+      </div>
+
+      <div class="principle-block">
+        <h3>Buddy system</h3>
+        <p>Every new exec member is paired with a more experienced member of the team for their first semester. The buddy is the first point of contact for questions, guidance, and accountability. Interns are paired with their corresponding officer. Officers are paired with a founding exec member. The buddy relationship ends when the new member is operating independently and the buddy signs off on that transition.</p>
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <div class="section-label">Continuity</div>
+      <p style="font-size:15.5px;color:#444;line-height:1.75;">Continuation into the following semester is not automatic. Exec members are renewed based on their performance and the team's needs. Strong members are encouraged to step up into more senior roles. Roles that were not filled well are re-opened. If a standard consistently is not being met, the conversation happens immediately, not at the end of semester.</p>
+    </div>
+
+    <div class="doc-section">
+      <div class="section-label">What You Get In Return</div>
+      <ul class="standard-list">
+        <li><strong>You will work with law firms, practitioners, and their HR teams as a professional, not a student.</strong> The work you produce is visible to the people who make hiring decisions. That exposure opens recruitment opportunities most students only access after they graduate.</li>
+        <li><strong>You will run things that actually happen.</strong> Events, programmes, and communications that real members experience. Not mock projects or hypotheticals — real outputs with real consequences.</li>
+        <li><strong>You will not be figuring it out alone.</strong> The buddy system pairs you with someone who has done your role before. They are accountable for your transition, not just available for questions.</li>
+        <li><strong>A semester here gives you something specific to say in any interview.</strong> Not "I was involved in a student association" but a concrete account of what you built, ran, or fixed, and what it took.</li>
+        <li><strong>You will grow in ways you can point to.</strong> People leave this team more capable, more self-aware, and clearer on the kind of professional they want to become. The work has a way of showing you who you are, and who you are capable of being.</li>
+      </ul>
+    </div>
+
+    <div class="role-cta-bar">
+      <a href="/team/apply/" class="back-link">&larr; Back to applications</a>
+      <a href="/team/apply/" class="apply-btn">Apply now</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">ALSA <span>AUCKLAND</span></div>
+        <div class="footer-tagline">Confidence. Competence. Community.</div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>About</h4>
+          <a href="/about/">About ALSA</a>
+          <a href="/programmes/">Programmes</a>
+          <a href="/team/">Team</a>
+        </div>
+        <div class="footer-col">
+          <h4>Engage</h4>
+          <a href="/newsletters/">Newsletter</a>
+          <a href="/gallery/">Gallery</a>
+          <a href="/events/">Events</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://instagram.com/alsa.akl" target="_blank">Instagram</a>
+          <a href="https://www.linkedin.com/company/alsa-akl/" target="_blank">LinkedIn</a>
+          <a href="/partners/">Partners</a>
+        </div>
+        <div class="footer-col">
+          <h4>Policies</h4>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/conduct/">Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      ALSA Auckland &middot; Incorporated Society<br>
+      &copy; 2026 Asian Law Students&#39; Association. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn = document.getElementById('hamburger');
+  var links = document.querySelector('.nav-links');
+  if(btn && links){
+    btn.addEventListener('click', function(){ links.classList.toggle('open'); });
+    document.addEventListener('click', function(e){
+      if(!btn.contains(e.target) && !links.contains(e.target)){
+        links.classList.remove('open');
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

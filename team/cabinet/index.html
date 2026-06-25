@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/images/logo.png" sizes="196x196">
+<link rel="apple-touch-icon" href="/images/logo.png">
+<title>The Cabinet | ALSA Auckland</title>
+<meta name="description" content="Meet the ALSA Auckland Cabinet. Six roles responsible for leading the organisation, its portfolios, and its governance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=optional" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;overflow-y:scroll;}
+  body{font-family:'Lora',Georgia,serif;color:#2a2a2a;background:#fdfaf4;line-height:1.7;}
+  .nav{position:sticky;top:0;background:rgba(253,250,244,0.96);backdrop-filter:blur(10px);border-bottom:0.5px solid rgba(0,0,0,0.06);z-index:100;}
+  .nav-inner{max-width:1200px;margin:0 auto;padding:8px 40px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#1a1a1a;}
+  .nav-logo{width:100px;height:100px;object-fit:contain;}
+  .nav-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;letter-spacing:2px;}
+  .nav-name span{color:#5b0f0f;}
+  .nav-links{display:flex;gap:32px;}
+  .nav-links a{font-size:13px;color:#555;text-decoration:none;letter-spacing:0.5px;}
+  .nav-links a:hover{color:#5b0f0f;}
+  .nav-cta{background:#5b0f0f;color:#fff;padding:9px 20px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;font-weight:600;white-space:nowrap;flex-shrink:0;}
+  @media(max-width:1120px) and (min-width:901px){.nav-links{gap:14px;}.nav-inner{padding-left:20px;padding-right:20px;}}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+  .hamburger span{display:block;width:22px;height:2px;background:#5b0f0f;transition:all 0.3s;}
+
+  .page-hero{background:#2b0e0e;padding:80px 40px 72px;}
+  .page-hero-inner{max-width:860px;margin:0 auto;}
+  .hero-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:18px;font-weight:600;}
+  .page-hero h1{font-family:'Playfair Display',serif;font-size:52px;font-weight:700;color:#fff;line-height:1.08;letter-spacing:-0.5px;margin-bottom:20px;}
+  .page-hero h1 em{font-style:italic;color:#C9A84C;font-weight:400;}
+  .page-hero-lead{font-size:17px;color:rgba(255,255,255,0.7);line-height:1.8;max-width:600px;}
+
+  .section{padding:70px 0;}
+  .container{max-width:860px;margin:0 auto;padding:0 40px;}
+  .eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;font-weight:600;margin-bottom:14px;}
+  .section-title{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:#1a1a1a;margin-bottom:10px;letter-spacing:-0.3px;}
+  .section-lead{font-size:15px;color:#666;line-height:1.8;margin-bottom:40px;}
+
+  .appointment-bar{background:#f5f0e8;border-left:3px solid #C9A84C;padding:18px 22px;margin-bottom:48px;}
+  .appointment-bar p{font-size:14px;color:#555;line-height:1.75;}
+
+  .role-group-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;font-weight:700;margin:40px 0 18px;padding-bottom:12px;border-bottom:0.5px solid rgba(201,168,76,0.25);color:#C9A84C;}
+  .role-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .role-card{background:#fff;border-top:3px solid #C9A84C;padding:24px 24px 20px;display:block;text-decoration:none;transition:transform 0.15s ease,box-shadow 0.15s ease;}
+  .role-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.10);}
+  .role-tag{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;font-weight:600;margin-bottom:10px;}
+  .role-card h4{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:8px;}
+  .role-card p{font-size:13.5px;color:#666;line-height:1.65;}
+  .role-card-arrow{margin-top:16px;font-size:15px;color:#ddd;transition:color 0.15s,transform 0.15s;display:inline-block;}
+  .role-card:hover .role-card-arrow{color:#C9A84C;transform:translateX(5px);}
+  .card-holder{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:14px;border-bottom:0.5px solid rgba(201,168,76,0.2);}
+  .card-holder-avatar{width:36px;height:44px;object-fit:cover;object-position:top;flex-shrink:0;background:#f0ebe0;}
+  .card-holder-name{font-family:'Playfair Display',serif;font-size:13.5px;font-weight:700;color:#1a1a1a;}
+
+  .how-it-works-cta{background:#2b0e0e;padding:60px 40px;margin-top:70px;}
+  .how-it-works-inner{max-width:860px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+  .how-it-works-text .cta-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;font-weight:600;margin-bottom:12px;}
+  .how-it-works-text h2{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:#fff;margin-bottom:10px;}
+  .how-it-works-text p{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.8;max-width:480px;}
+  .how-it-works-btn{display:inline-block;background:#C9A84C;color:#1a1a1a;padding:14px 36px;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;font-weight:700;white-space:nowrap;flex-shrink:0;}
+  .how-it-works-btn:hover{background:#b8973d;}
+
+  footer{background:#1a1a1a;color:rgba(255,255,255,0.5);padding:50px 0 30px;}
+  .footer-inner{max-width:1100px;margin:0 auto;padding:0 40px;}
+  .footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:36px;padding-bottom:36px;border-bottom:0.5px solid rgba(255,255,255,0.1);flex-wrap:wrap;gap:30px;}
+  .footer-brand{font-family:'Playfair Display',serif;font-size:24px;color:#fff;letter-spacing:3px;font-weight:700;}
+  .footer-brand span{color:#C9A84C;}
+  .footer-tagline{font-size:13px;font-style:italic;color:rgba(255,255,255,0.4);margin-top:6px;}
+  .footer-cols{display:flex;gap:50px;flex-wrap:wrap;}
+  .footer-col h4{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:14px;font-weight:600;font-family:'Lora',serif;}
+  .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;padding:4px 0;}
+  .footer-col a:hover{color:#fff;}
+  .footer-bottom{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.7;text-align:center;}
+
+  @media(max-width:900px){
+    .nav-links{display:none;}
+    .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;background:rgba(253,250,244,0.98);padding:16px 24px;flex-direction:column;gap:0;border-bottom:0.5px solid rgba(0,0,0,0.08);z-index:200;}
+    .nav-links.open a{padding:12px 0;border-bottom:0.5px solid rgba(0,0,0,0.06);font-size:14px;}
+    .nav-links.open a:last-child{border-bottom:none;}
+    .nav-cta{display:none;}
+    .hamburger{display:flex;}
+    .nav{position:sticky;}
+    .page-hero h1{font-size:36px;}
+    .page-hero{padding:60px 24px 56px;}
+    .role-grid{grid-template-columns:1fr;}
+    .container,.footer-inner,.nav-inner{padding-left:24px;padding-right:24px;}
+    .how-it-works-cta{padding:48px 24px;}
+    .how-it-works-inner{flex-direction:column;gap:24px;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      <img src="/images/logo-nav.png" alt="ALSA" class="nav-logo">
+      <span class="nav-name">ALSA <span>AUCKLAND</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/programmes/">Programmes</a>
+      <a href="/newsletters/">Newsletter</a>
+      <a href="/gallery/">Gallery</a>
+      <a href="/team/" style="color:#5b0f0f;font-weight:600;">Team</a>
+      <a href="/team/apply/" style="color:#C9A84C;font-weight:600;">Apply</a>
+      <a href="/contact/">Contact</a>
+    </div>
+    <a href="/join/" class="nav-cta">Join Us</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="hero-eyebrow">ALSA Auckland</div>
+    <h1>The <em>Cabinet</em>.</h1>
+    <p class="page-hero-lead">Six roles responsible for the strategic direction, governance, and day-to-day leadership of ALSA. Cabinet is appointed from within the existing executive team at the end of each academic year.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="appointment-bar">
+      <p>Cabinet roles are not open for external application. They are appointed internally from the existing officer and intern cohort at the end of each academic year, based on performance, fit, and the best interests of ALSA. The path to cabinet starts with joining as an officer or intern.</p>
+    </div>
+
+    <div class="eyebrow">Leadership</div>
+    <h2 class="section-title">Cabinet Roles</h2>
+    <p class="section-lead">Each cabinet role carries specific responsibilities to the organisation. Click any role to read the full obligations.</p>
+
+    <div class="role-group-label">Executive Leadership</div>
+    <div class="role-grid">
+      <a href="/team/roles/president/" class="role-card">
+        <div class="card-holder">
+          <img src="/images/portraits/jayden-portrait.png" alt="Jayden Lin" class="card-holder-avatar">
+          <span class="card-holder-name">Jayden Lin</span>
+        </div>
+        <div class="role-tag">Cabinet</div>
+        <h4>President</h4>
+        <p>Lead the organisation, chair cabinet, represent ALSA externally, and hold final accountability for everything ALSA does.</p>
+        <span class="role-card-arrow">&rarr;</span>
+      </a>
+      <a href="/team/roles/vice-president/" class="role-card">
+        <div class="card-holder">
+          <img src="/images/portraits/gabriel-portrait.png" alt="Gabriel Gerente" class="card-holder-avatar">
+          <span class="card-holder-name">Gabriel Gerente</span>
+        </div>
+        <div class="role-tag">Cabinet</div>
+        <h4>Vice President</h4>
+        <p>Support the President, step in when needed, and lead specific cross-portfolio initiatives as directed by cabinet.</p>
+        <span class="role-card-arrow">&rarr;</span>
+      </a>
+      <a href="/team/roles/secretary/" class="role-card">
+        <div class="card-holder">
+          <img src="/images/portraits/maggie-portrait.png" alt="Maggie Xie" class="card-holder-avatar">
+          <span class="card-holder-name">Maggie Xie</span>
+        </div>
+        <div class="role-tag">Cabinet</div>
+        <h4>Secretary</h4>
+        <p>Own ALSA's records, minutes, and internal communications. Keep governance in order: documentation, correspondence, and meeting records handled accurately and on time.</p>
+        <span class="role-card-arrow">&rarr;</span>
+      </a>
+      <a href="/team/roles/treasurer/" class="role-card">
+        <div class="card-holder">
+          <img src="/images/portraits/anthony-portrait.png" alt="Anthony Huang" class="card-holder-avatar">
+          <span class="card-holder-name">Anthony Huang</span>
+        </div>
+        <div class="role-tag">Cabinet</div>
+        <h4>Treasurer</h4>
+        <p>Manage ALSA's finances: budget, expenditure, and accounts. Keep the books accurate and ensure the organisation remains financially sound.</p>
+        <span class="role-card-arrow">&rarr;</span>
+      </a>
+    </div>
+
+    <div class="role-group-label">Portfolio Directors</div>
+    <div class="role-grid">
+      <a href="/team/roles/operations-director/" class="role-card">
+        <div class="card-holder">
+          <img src="/images/portraits/cayla-portrait.png" alt="Cayla Huang" class="card-holder-avatar">
+          <span class="card-holder-name">Cayla Huang</span>
+        </div>
+        <div class="role-tag">Cabinet</div>
+        <h4>Operations Director</h4>
+        <p>Lead the operations portfolio: events, mentoring, academic programming, and member engagement. Chair the weekly operations team meeting.</p>
+        <span class="role-card-arrow">&rarr;</span>
+      </a>
+      <a href="/team/roles/marketing-director/" class="role-card">
+        <div class="card-holder">
+          <img src="/images/portraits/nora-portrait.png" alt="Nora He" class="card-holder-avatar" onerror="this.style.display='none'">
+          <span class="card-holder-name">Nora He</span>
+        </div>
+        <div class="role-tag">Cabinet</div>
+        <h4>Marketing Director</h4>
+        <p>Own ALSA's brand, content strategy, and all marketing output. Lead the marketing team and set the standard for everything ALSA puts out.</p>
+        <span class="role-card-arrow">&rarr;</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<div class="how-it-works-cta">
+  <div class="how-it-works-inner">
+    <div class="how-it-works-text">
+      <div class="cta-eyebrow">Want to understand more?</div>
+      <h2>How Cabinet Works</h2>
+      <p>How cabinet is appointed, how it operates, and what it means to lead ALSA at the highest level.</p>
+    </div>
+    <a href="/team/cabinet/how-it-works/" class="how-it-works-btn">Read More &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">ALSA <span>AUCKLAND</span></div>
+        <div class="footer-tagline">Confidence. Competence. Community.</div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>About</h4>
+          <a href="/about/">About ALSA</a>
+          <a href="/programmes/">Programmes</a>
+          <a href="/team/">Team</a>
+        </div>
+        <div class="footer-col">
+          <h4>Engage</h4>
+          <a href="/newsletters/">Newsletter</a>
+          <a href="/gallery/">Gallery</a>
+          <a href="/events/">Events</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://instagram.com/alsa.akl" target="_blank">Instagram</a>
+          <a href="https://www.linkedin.com/company/alsa-akl/" target="_blank">LinkedIn</a>
+          <a href="/partners/">Partners</a>
+        </div>
+        <div class="footer-col">
+          <h4>Policies</h4>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/conduct/">Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      ALSA Auckland &middot; Incorporated Society<br>
+      &copy; 2026 Asian Law Students&#39; Association. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn = document.getElementById('hamburger');
+  var links = document.querySelector('.nav-links');
+  if(btn && links){
+    btn.addEventListener('click', function(){ links.classList.toggle('open'); });
+    document.addEventListener('click', function(e){
+      if(!btn.contains(e.target) && !links.contains(e.target)){
+        links.classList.remove('open');
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

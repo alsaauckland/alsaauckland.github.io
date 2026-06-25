@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/images/logo.png" sizes="196x196">
+<link rel="apple-touch-icon" href="/images/logo.png">
+<title>How Cabinet Works | ALSA Auckland</title>
+<meta name="description" content="How the ALSA Auckland The Cabinet operates, how members are appointed, and what it means to lead the organisation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=optional" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;overflow-y:scroll;}
+  body{font-family:'Lora',Georgia,serif;color:#2a2a2a;background:#fdfaf4;line-height:1.7;}
+  .nav{position:sticky;top:0;background:rgba(253,250,244,0.96);backdrop-filter:blur(10px);border-bottom:0.5px solid rgba(0,0,0,0.06);z-index:100;}
+  .nav-inner{max-width:1200px;margin:0 auto;padding:8px 40px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#1a1a1a;}
+  .nav-logo{width:100px;height:100px;object-fit:contain;}
+  .nav-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;letter-spacing:2px;}
+  .nav-name span{color:#5b0f0f;}
+  .nav-links{display:flex;gap:32px;}
+  .nav-links a{font-size:13px;color:#555;text-decoration:none;letter-spacing:0.5px;}
+  .nav-links a:hover{color:#5b0f0f;}
+  .nav-cta{background:#5b0f0f;color:#fff;padding:9px 20px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;font-weight:600;white-space:nowrap;flex-shrink:0;}
+  @media(max-width:1120px) and (min-width:901px){.nav-links{gap:14px;}.nav-inner{padding-left:20px;padding-right:20px;}}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+  .hamburger span{display:block;width:22px;height:2px;background:#5b0f0f;transition:all 0.3s;}
+
+  .page-hero{background:#2b0e0e;padding:80px 40px 72px;}
+  .page-hero-inner{max-width:760px;margin:0 auto;}
+  .hero-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;margin-bottom:18px;font-weight:600;}
+  .page-hero h1{font-family:'Playfair Display',serif;font-size:48px;font-weight:700;color:#fff;line-height:1.08;letter-spacing:-0.5px;margin-bottom:20px;}
+  .page-hero h1 em{font-style:italic;color:#C9A84C;font-weight:400;}
+  .page-hero-lead{font-size:17px;color:rgba(255,255,255,0.7);line-height:1.8;}
+  .hero-back{display:inline-block;font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none;margin-top:20px;transition:color 0.15s;}
+  .hero-back:hover{color:rgba(255,255,255,0.75);}
+
+  .doc-body{padding:70px 0 90px;}
+  .doc-inner{max-width:760px;margin:0 auto;padding:0 40px;}
+
+  .doc-section{margin-bottom:56px;}
+  .section-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;font-weight:700;margin-bottom:18px;}
+  .doc-section h2{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:#1a1a1a;margin-bottom:18px;line-height:1.2;}
+  .doc-section p{font-size:16px;color:#444;line-height:1.85;margin-bottom:16px;}
+  .doc-section p:last-child{margin-bottom:0;}
+
+  .process-steps{margin-top:8px;}
+  .process-step{display:flex;gap:24px;padding:18px 0;border-bottom:0.5px solid rgba(0,0,0,0.08);}
+  .process-step:last-child{border-bottom:none;}
+  .step-num{font-family:'Playfair Display',serif;font-size:12px;font-weight:700;color:#C9A84C;letter-spacing:1px;flex-shrink:0;width:26px;padding-top:3px;}
+  .step-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:4px;}
+  .step-desc{font-size:13.5px;color:#666;line-height:1.7;}
+
+  .principles-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:8px;}
+  .principles-list li{font-size:15px;color:#444;line-height:1.75;padding:14px 18px;background:#fff;border-left:3px solid #C9A84C;}
+  .principles-list li strong{color:#1a1a1a;}
+
+  .callout{background:#f5f0e8;border-left:3px solid #C9A84C;padding:22px 24px;margin:32px 0;}
+  .callout p{font-size:15px;color:#444;line-height:1.8;font-style:italic;}
+
+  .cabinet-members{padding:70px 0;background:#f5f0e8;}
+  .cabinet-members-inner{max-width:760px;margin:0 auto;padding:0 40px;}
+  .cabinet-members-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#5b0f0f;font-weight:700;margin-bottom:14px;}
+  .cabinet-members-title{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#1a1a1a;margin-bottom:36px;}
+  .cabinet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .cabinet-member-card{background:#fff;padding:20px;text-align:center;border-top:2px solid #C9A84C;}
+  .cabinet-member-avatar{width:100px;height:122px;background:#f0ebe0;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;overflow:hidden;}
+  .cabinet-member-avatar img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
+  .cabinet-member-name{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:#1a1a1a;margin-bottom:4px;}
+  .cabinet-member-role{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#C9A84C;}
+  @media(max-width:900px){.cabinet-grid{grid-template-columns:repeat(2,1fr);}.cabinet-members-inner{padding:0 24px;}}
+
+  footer{background:#1a1a1a;color:rgba(255,255,255,0.5);padding:50px 0 30px;}
+  .footer-inner{max-width:1100px;margin:0 auto;padding:0 40px;}
+  .footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:36px;padding-bottom:36px;border-bottom:0.5px solid rgba(255,255,255,0.1);flex-wrap:wrap;gap:30px;}
+  .footer-brand{font-family:'Playfair Display',serif;font-size:24px;color:#fff;letter-spacing:3px;font-weight:700;}
+  .footer-brand span{color:#C9A84C;}
+  .footer-tagline{font-size:13px;font-style:italic;color:rgba(255,255,255,0.4);margin-top:6px;}
+  .footer-cols{display:flex;gap:50px;flex-wrap:wrap;}
+  .footer-col h4{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:14px;font-weight:600;font-family:'Lora',serif;}
+  .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;padding:4px 0;}
+  .footer-col a:hover{color:#fff;}
+  .footer-bottom{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.7;text-align:center;}
+
+  @media(max-width:900px){
+    .nav-links{display:none;}
+    .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;background:rgba(253,250,244,0.98);padding:16px 24px;flex-direction:column;gap:0;border-bottom:0.5px solid rgba(0,0,0,0.08);z-index:200;}
+    .nav-links.open a{padding:12px 0;border-bottom:0.5px solid rgba(0,0,0,0.06);font-size:14px;}
+    .nav-links.open a:last-child{border-bottom:none;}
+    .nav-cta{display:none;}
+    .hamburger{display:flex;}
+    .nav{position:sticky;}
+    .page-hero h1{font-size:34px;}
+    .page-hero{padding:60px 24px 56px;}
+    .doc-inner{padding:0 24px;}
+    .footer-inner,.nav-inner{padding-left:24px;padding-right:24px;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      <img src="/images/logo-nav.png" alt="ALSA" class="nav-logo">
+      <span class="nav-name">ALSA <span>AUCKLAND</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/programmes/">Programmes</a>
+      <a href="/newsletters/">Newsletter</a>
+      <a href="/gallery/">Gallery</a>
+      <a href="/team/" style="color:#5b0f0f;font-weight:600;">Team</a>
+      <a href="/team/apply/" style="color:#C9A84C;font-weight:600;">Apply</a>
+      <a href="/contact/">Contact</a>
+    </div>
+    <a href="/join/" class="nav-cta">Join Us</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="hero-eyebrow"><a href="/team/" style="color:rgba(255,255,255,0.35);text-decoration:none;">Team</a> &middot; <a href="/team/cabinet/" style="color:rgba(255,255,255,0.35);text-decoration:none;">The Cabinet</a> &middot; <span style="color:rgba(255,255,255,0.6);">How It Works</span></div>
+    <h1>How <em>Cabinet</em> Works.</h1>
+    <p class="page-hero-lead">Cabinet is the leadership body of ALSA. This page explains what it does, how it operates, and how members get there.</p>
+  </div>
+</section>
+
+<main class="doc-body">
+  <div class="doc-inner">
+
+    <div class="doc-section">
+      <div class="section-label">What Cabinet Is</div>
+      <h2>The leadership body of ALSA.</h2>
+      <p>Cabinet is the six-person leadership team responsible for running ALSA as an organisation. It consists of the President, Vice President, Secretary, Treasurer, Operations Director, and Marketing Director. Together, cabinet is accountable for everything ALSA does: its programmes, its finances, its governance, and its reputation.</p>
+      <p>Cabinet is not a committee that approves things. It is a working leadership team. Every cabinet member holds a distinct function and is responsible for executing it, not just overseeing it. The President chairs cabinet and holds ultimate accountability, but every member is expected to lead independently within their role.</p>
+    </div>
+
+    <div class="doc-section">
+      <div class="section-label">How Cabinet Operates</div>
+      <h2>Weekly meetings. Collective decisions.</h2>
+      <p>Cabinet meets weekly. These meetings cover the organisation's operational status, upcoming events, strategic decisions, and any governance or financial matters that require cabinet input. Once a month, the cabinet meeting is replaced by a full-team session where every portfolio and cabinet member meets together.</p>
+      <p>Decisions that affect the organisation as a whole are made collectively by cabinet. Decisions within a specific portfolio or function are made by the relevant cabinet member. The President has final say where cabinet cannot reach agreement.</p>
+
+      <div class="callout">
+        <p>Cabinet operates transparently with the executive team. Decisions and meeting outcomes are shared with officers and interns so the full team understands the direction of the organisation.</p>
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <div class="section-label">How You Get There</div>
+      <h2>Appointed from within. Every academic year.</h2>
+      <p>Cabinet roles are not open for external application. At the end of each academic year, around October, the outgoing cabinet appoints the incoming cabinet from within the existing officer and intern cohort. Appointments are based on performance, demonstrated leadership, and the best interests of ALSA going into the next term.</p>
+      <p>The process is structured. Officers and interns who want a cabinet role put their hand up, and the outgoing cabinet conducts interviews. The decision sits with the people who have spent a full year inside the organisation and understand what each role actually requires. New cabinet members are officially announced at the AGM. Being an officer or intern does not guarantee a cabinet role, but it is the only path to one.</p>
+
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-num">01</div>
+          <div>
+            <div class="step-title">Join as an Officer or Intern</div>
+            <div class="step-desc">All cabinet members started as officers or interns. There is no other entry point.</div>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">02</div>
+          <div>
+            <div class="step-title">Perform in Your Role</div>
+            <div class="step-desc">Do the job you were given, meet the standards, and show you can lead without being managed.</div>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">03</div>
+          <div>
+            <div class="step-title">Express Interest and Interview</div>
+            <div class="step-desc">Officers and interns who want a cabinet role put their hand up. The outgoing cabinet conducts interviews and makes the call — people who know the organisation and have its best interests in mind.</div>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">04</div>
+          <div>
+            <div class="step-title">Announced at the AGM</div>
+            <div class="step-desc">New cabinet members are officially announced at the Annual General Meeting. Appointments are confirmed before the new year begins.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <div class="section-label">What Cabinet Expects of Itself</div>
+      <h2>Higher standard. Full accountability.</h2>
+      <ul class="principles-list">
+        <li><strong>Accountability:</strong> Cabinet members are responsible for the outcomes of their portfolios, not just the effort they put in. If something under your watch fails, you own it.</li>
+        <li><strong>Availability:</strong> Cabinet carries a higher time commitment than officer roles. Weekly cabinet meetings, portfolio meetings, and individual responsibilities mean this is a genuine part-time leadership role.</li>
+        <li><strong>Transparency:</strong> Cabinet decisions are communicated to the full executive team. The organisation cannot function if the people doing the work do not understand the direction.</li>
+        <li><strong>Handover:</strong> Every cabinet member is responsible for leaving their role in better shape than they found it. Comprehensive handover documentation is non-negotiable.</li>
+      </ul>
+    </div>
+
+
+  </div>
+</main>
+
+<section class="cabinet-members">
+  <div class="cabinet-members-inner">
+    <div class="cabinet-members-eyebrow">Founding Cabinet</div>
+    <div class="cabinet-members-title">The Cabinet &middot; Semester 1, 2026</div>
+    <div class="cabinet-grid">
+      <a href="/team/roles/president/" class="cabinet-member-card" style="text-decoration:none;">
+        <div class="cabinet-member-avatar"><img src="/images/portraits/jayden-portrait.png" alt="Jayden Lin"></div>
+        <div class="cabinet-member-name">Jayden Lin</div>
+        <div class="cabinet-member-role">President</div>
+      </a>
+      <a href="/team/roles/vice-president/" class="cabinet-member-card" style="text-decoration:none;">
+        <div class="cabinet-member-avatar"><img src="/images/portraits/gabriel-portrait.png" alt="Gabriel Gerente"></div>
+        <div class="cabinet-member-name">Gabriel Gerente</div>
+        <div class="cabinet-member-role">Vice President</div>
+      </a>
+      <a href="/team/roles/secretary/" class="cabinet-member-card" style="text-decoration:none;">
+        <div class="cabinet-member-avatar"><img src="/images/portraits/maggie-portrait.png" alt="Maggie Xie"></div>
+        <div class="cabinet-member-name">Maggie Xie</div>
+        <div class="cabinet-member-role">Secretary</div>
+      </a>
+      <a href="/team/roles/treasurer/" class="cabinet-member-card" style="text-decoration:none;">
+        <div class="cabinet-member-avatar"><img src="/images/portraits/anthony-portrait.png" alt="Anthony Huang"></div>
+        <div class="cabinet-member-name">Anthony Huang</div>
+        <div class="cabinet-member-role">Treasurer</div>
+      </a>
+      <a href="/team/roles/operations-director/" class="cabinet-member-card" style="text-decoration:none;">
+        <div class="cabinet-member-avatar"><img src="/images/portraits/cayla-portrait.png" alt="Cayla Huang"></div>
+        <div class="cabinet-member-name">Cayla Huang</div>
+        <div class="cabinet-member-role">Operations Director</div>
+      </a>
+      <a href="/team/roles/marketing-director/" class="cabinet-member-card" style="text-decoration:none;">
+        <div class="cabinet-member-avatar"><img src="/images/portraits/nora-portrait.png" alt="Nora He" onerror="this.style.display='none'"></div>
+        <div class="cabinet-member-name">Nora He</div>
+        <div class="cabinet-member-role">Marketing Director</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">ALSA <span>AUCKLAND</span></div>
+        <div class="footer-tagline">Confidence. Competence. Community.</div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>About</h4>
+          <a href="/about/">About ALSA</a>
+          <a href="/programmes/">Programmes</a>
+          <a href="/team/">Team</a>
+        </div>
+        <div class="footer-col">
+          <h4>Engage</h4>
+          <a href="/newsletters/">Newsletter</a>
+          <a href="/gallery/">Gallery</a>
+          <a href="/events/">Events</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://instagram.com/alsa.akl" target="_blank">Instagram</a>
+          <a href="https://www.linkedin.com/company/alsa-akl/" target="_blank">LinkedIn</a>
+          <a href="/partners/">Partners</a>
+        </div>
+        <div class="footer-col">
+          <h4>Policies</h4>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/conduct/">Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      ALSA Auckland &middot; Incorporated Society<br>
+      &copy; 2026 Asian Law Students&#39; Association. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn = document.getElementById('hamburger');
+  var links = document.querySelector('.nav-links');
+  if(btn && links){
+    btn.addEventListener('click', function(){ links.classList.toggle('open'); });
+    document.addEventListener('click', function(e){
+      if(!btn.contains(e.target) && !links.contains(e.target)){
+        links.classList.remove('open');
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

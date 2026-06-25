@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/images/logo.png" sizes="196x196">
+<link rel="apple-touch-icon" href="/images/logo.png">
+<title>Secretary | ALSA Auckland</title>
+<meta name="description" content="The Secretary owns ALSA's records, communications, and internal coordination. Minutes, registers, newsletters, and the website: everything that keeps the organisation running.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=optional" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;overflow-y:scroll;}
+  body{font-family:'Lora',Georgia,serif;color:#2a2a2a;background:#fdfaf4;line-height:1.7;}
+  .nav{position:sticky;top:0;background:rgba(253,250,244,0.96);backdrop-filter:blur(10px);border-bottom:0.5px solid rgba(0,0,0,0.06);z-index:100;}
+  .nav-inner{max-width:1200px;margin:0 auto;padding:8px 40px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#1a1a1a;}
+  .nav-logo{width:100px;height:100px;object-fit:contain;}
+  .nav-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;letter-spacing:2px;}
+  .nav-name span{color:#5b0f0f;}
+  .nav-links{display:flex;gap:32px;}
+  .nav-links a{font-size:13px;color:#555;text-decoration:none;letter-spacing:0.5px;}
+  .nav-links a:hover{color:#5b0f0f;}
+  .nav-cta{background:#5b0f0f;color:#fff;padding:9px 20px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;font-weight:600;white-space:nowrap;flex-shrink:0;}
+  @media(max-width:1120px) and (min-width:901px){.nav-links{gap:14px;}.nav-inner{padding-left:20px;padding-right:20px;}}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+  .hamburger span{display:block;width:22px;height:2px;background:#5b0f0f;transition:all 0.3s;}
+
+  .role-hero{background:#2b0e0e;padding:80px 40px 72px;}
+  .role-hero-inner{max-width:760px;margin:0 auto;}
+  .hero-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:18px;font-weight:600;}
+  .role-type-badge{font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;display:inline-block;margin-bottom:14px;}
+  .role-hero h1{font-family:'Playfair Display',serif;font-size:48px;font-weight:700;color:#fff;line-height:1.08;letter-spacing:-0.5px;}
+  .role-hero h1 em{font-style:italic;color:#C9A84C;font-weight:400;}
+
+  .doc-body{padding:70px 0 90px;}
+  .doc-inner{max-width:760px;margin:0 auto;padding:0 40px;}
+  .doc-intro{font-size:18px;color:#333;line-height:1.85;margin-bottom:56px;padding-bottom:48px;border-bottom:0.5px solid rgba(0,0,0,0.1);}
+
+  .doc-section{margin-bottom:52px;}
+  .doc-section:last-of-type{margin-bottom:0;}
+  .section-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#5b0f0f;font-weight:700;margin-bottom:18px;}
+  .doc-section h2{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#1a1a1a;margin-bottom:20px;line-height:1.2;}
+
+  .resp-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .resp-list li{font-size:15.5px;color:#444;line-height:1.75;padding-left:22px;position:relative;}
+  .resp-list li::before{content:'';position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:#5b0f0f;}
+
+  .expect-list{list-style:none;display:flex;flex-direction:column;gap:14px;}
+  .expect-list li{font-size:15px;color:#444;line-height:1.75;padding:14px 18px;background:#fff;border-left:3px solid #5b0f0f;}
+  .expect-list li strong{color:#1a1a1a;}
+
+  .success-block{background:#f5f0e8;border-left:3px solid #C9A84C;padding:22px 24px;margin-bottom:0;}
+  .success-block p{font-size:15.5px;color:#444;line-height:1.8;font-style:italic;}
+
+  .role-cta-bar{margin-top:60px;padding-top:48px;border-top:0.5px solid rgba(0,0,0,0.1);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+  .role-cta-bar p{font-size:14px;color:#888;}
+  .apply-btn-gold{background:#C9A84C;color:#1a1a1a;padding:14px 36px;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;font-weight:700;display:inline-block;}
+  .apply-btn-gold:hover{background:#b8973d;}
+  .back-link{font-size:13px;color:#5b0f0f;text-decoration:none;letter-spacing:0.3px;}
+  .back-link:hover{text-decoration:underline;}
+
+  footer{background:#1a1a1a;color:rgba(255,255,255,0.5);padding:50px 0 30px;}
+  .footer-inner{max-width:1100px;margin:0 auto;padding:0 40px;}
+  .footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:36px;padding-bottom:36px;border-bottom:0.5px solid rgba(255,255,255,0.1);flex-wrap:wrap;gap:30px;}
+  .footer-brand{font-family:'Playfair Display',serif;font-size:24px;color:#fff;letter-spacing:3px;font-weight:700;}
+  .footer-brand span{color:#C9A84C;}
+  .footer-tagline{font-size:13px;font-style:italic;color:rgba(255,255,255,0.4);margin-top:6px;}
+  .footer-cols{display:flex;gap:50px;flex-wrap:wrap;}
+  .footer-col h4{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:14px;font-weight:600;font-family:'Lora',serif;}
+  .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;padding:4px 0;}
+  .footer-col a:hover{color:#fff;}
+  .footer-bottom{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.7;text-align:center;}
+
+  @media(max-width:900px){
+    .nav-links{display:none;}
+    .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;background:rgba(253,250,244,0.98);padding:16px 24px;flex-direction:column;gap:0;border-bottom:0.5px solid rgba(0,0,0,0.08);z-index:200;}
+    .nav-links.open a{padding:12px 0;border-bottom:0.5px solid rgba(0,0,0,0.06);font-size:14px;}
+    .nav-links.open a:last-child{border-bottom:none;}
+    .nav-cta{display:none;}
+    .hamburger{display:flex;}
+    .nav{position:sticky;}
+    .role-hero h1{font-size:34px;}
+    .doc-inner{padding:0 24px;}
+    .footer-inner,.nav-inner{padding-left:24px;padding-right:24px;}
+    .role-hero{padding:60px 24px 56px;}
+  }
+  .alumni-list{display:flex;flex-direction:column;gap:0;}
+  .alumni-entry{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:0.5px solid rgba(0,0,0,0.08);}
+  .alumni-entry:last-child{border-bottom:none;}
+  .alumni-avatar{width:44px;height:54px;object-fit:cover;object-position:top;flex-shrink:0;background:#f0ebe0;}
+  .alumni-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:2px;}
+  .alumni-meta{font-size:12.5px;color:#999;letter-spacing:0.3px;}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      <img src="/images/logo-nav.png" alt="ALSA" class="nav-logo">
+      <span class="nav-name">ALSA <span>AUCKLAND</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/programmes/">Programmes</a>
+      <a href="/newsletters/">Newsletter</a>
+      <a href="/gallery/">Gallery</a>
+      <a href="/team/" style="color:#5b0f0f;font-weight:600;">Team</a>
+      <a href="/team/apply/" style="color:#C9A84C;font-weight:600;">Apply</a>
+      <a href="/contact/">Contact</a>
+    </div>
+    <a href="/join/" class="nav-cta">Join Us</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section class="role-hero">
+  <div class="role-hero-inner">
+    <div class="hero-eyebrow">The Cabinet &middot; ALSA Auckland</div>
+    <span class="role-type-badge" style="color:#C9A84C">Cabinet</span>
+    <h1><em>Secretary</em></h1>
+  </div>
+</section>
+
+<main class="doc-body">
+  <div class="doc-inner">
+
+    <p class="doc-intro">The Secretary owns ALSA's records, internal communications, and organisational infrastructure. Minutes, member registers, newsletters, and the website: if it keeps the organisation running and documented, it sits with you. This is not a passive admin role. Accurate records and clear communications are what allow the rest of the executive to focus on their work.</p>
+
+
+    <div class="doc-section">
+      <div class="section-label">What You Will Do</div>
+      <ul class="resp-list">
+        <li><strong>Record and circulate minutes for all executive meetings within 48 hours.</strong> Minutes are the organisation's institutional memory. A team that does not know what was decided last week cannot build on it this week.</li>
+        <li><strong>Maintain the register of members and officers as required by the Incorporated Societies Act 2022.</strong> These records are legal obligations that protect the organisation and the people in it. They need to be accurate and up to date.</li>
+        <li><strong>Coordinate the ALSA newsletter each issue.</strong> Work with the Operations Director to collect updates from each officer, compile the content, and get it out on schedule. The newsletter is how members stay connected to what ALSA is doing.</li>
+        <li><strong>Own the internal communications calendar: what goes out, when, and to whom.</strong> The executive team should never be surprised by something ALSA is sending. You coordinate what goes out so everyone stays aligned.</li>
+        <li><strong>Manage the ALSA website for operational updates.</strong> When there is a new event, a new programme, or content that needs to go live, you build and update the relevant pages. The website should reflect what ALSA is actually doing.</li>
+        <li><strong>Manage the ALSA inbox and triage correspondence to the right cabinet member.</strong> Nothing sits unanswered. Correspondence that reaches ALSA should reach the right person the same day it arrives.</li>
+        <li><strong>Schedule meetings, set agendas in advance, and chase outstanding action items.</strong> An agenda circulated the day before is better than one written in the meeting. Action items that are not chased do not get done.</li>
+        <li><strong>Maintain constitutional documents and flag any governance issues to the President.</strong> You are often the first to notice when something does not align with the constitution. Raise it early, not after the fact.</li>
+        <li><strong>Maintain comprehensive records and handover documentation throughout your tenure.</strong> Your successor should be able to pick up every ongoing obligation, communication thread, and deadline without needing to reconstruct them.</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <div class="section-label">What We Expect</div>
+      <ul class="expect-list">
+        <li><strong>Time commitment:</strong> Roughly 8–12 hours per week; expect more in event weeks and newsletter periods</li>
+        <li><strong>Meetings:</strong> Attend the weekly cabinet meeting and the monthly all-team session. Once a month, the cabinet meeting is replaced by a full-team session where every portfolio and cabinet come together.</li>
+        <li><strong>Minutes:</strong> Circulated within 48 hours of every meeting. Non-negotiable.</li>
+        <li><strong>Compliance:</strong> Member register and constitutional documents current and accurate under the Incorporated Societies Act 2022 at all times.</li>
+        <li><strong>Newsletter:</strong> Coordinated and delivered on schedule each issue. Officers provide content; you compile and publish it.</li>
+        <li><strong>Website:</strong> Updated promptly when new events or content go live. Pages are accurate and not out of date.</li>
+        <li><strong>Communications:</strong> Every executive should know what is happening and when. That is your job.</li>
+        <li><strong>Records:</strong> Organised, accessible, and up to date at all times.</li>
+        <li><strong>Inbox:</strong> Checked at least once per working day and actioned within 24 hours.</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <div class="section-label">What Success Looks Like</div>
+      <div class="success-block">
+        <p>By end of semester, every meeting has a full set of minutes, the newsletter has gone out on time each issue, the website reflects everything ALSA has done, and the executive team has never had to wonder what was decided, who was responsible, or when something was due.</p>
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <div class="section-label">Current</div>
+      <div class="alumni-list">
+        <div class="alumni-entry">
+          <img src="/images/portraits/maggie-portrait.png" alt="Maggie Xie" class="alumni-avatar">
+          <div>
+            <div class="alumni-name">Maggie Xie</div>
+            <div class="alumni-meta">Founding Secretary &middot; Semester 1, 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="role-cta-bar">
+      <a href="/team/apply/" class="back-link">&larr; Back to all roles</a>
+      <p style="font-size:13px;color:#888;line-height:1.7;">Cabinet roles are appointed internally from the existing executive team at the end of each academic year. Join as an officer or intern to be considered.</p>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">ALSA <span>AUCKLAND</span></div>
+        <div class="footer-tagline">Confidence. Competence. Community.</div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>About</h4>
+          <a href="/about/">About ALSA</a>
+          <a href="/programmes/">Programmes</a>
+          <a href="/team/">Team</a>
+        </div>
+        <div class="footer-col">
+          <h4>Engage</h4>
+          <a href="/newsletters/">Newsletter</a>
+          <a href="/gallery/">Gallery</a>
+          <a href="/events/">Events</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://instagram.com/alsa.akl" target="_blank">Instagram</a>
+          <a href="https://www.linkedin.com/company/alsa-akl/" target="_blank">LinkedIn</a>
+          <a href="/partners/">Partners</a>
+        </div>
+        <div class="footer-col">
+          <h4>Policies</h4>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/conduct/">Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      ALSA Auckland &middot; Incorporated Society<br>
+      &copy; 2026 Asian Law Students&#39; Association. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn = document.getElementById('hamburger');
+  var links = document.querySelector('.nav-links');
+  if(btn && links){
+    btn.addEventListener('click', function(){ links.classList.toggle('open'); });
+    document.addEventListener('click', function(e){
+      if(!btn.contains(e.target) && !links.contains(e.target)){
+        links.classList.remove('open');
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

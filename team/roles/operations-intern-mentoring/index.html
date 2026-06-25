@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/images/logo.png" sizes="196x196">
+<link rel="apple-touch-icon" href="/images/logo.png">
+<title>Operations Intern: Mentoring and Engagement | ALSA Auckland</title>
+<meta name="description" content="Apply to join ALSA Auckland as Operations Intern (Mentoring and Engagement). Support the mentoring programme and make members feel known.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=optional" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;overflow-y:scroll;}
+  body{font-family:'Lora',Georgia,serif;color:#2a2a2a;background:#fdfaf4;line-height:1.7;}
+  .nav{position:sticky;top:0;background:rgba(253,250,244,0.96);backdrop-filter:blur(10px);border-bottom:0.5px solid rgba(0,0,0,0.06);z-index:100;}
+  .nav-inner{max-width:1200px;margin:0 auto;padding:8px 40px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#1a1a1a;}
+  .nav-logo{width:100px;height:100px;object-fit:contain;}
+  .nav-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;letter-spacing:2px;}
+  .nav-name span{color:#5b0f0f;}
+  .nav-links{display:flex;gap:32px;}
+  .nav-links a{font-size:13px;color:#555;text-decoration:none;letter-spacing:0.5px;}
+  .nav-links a:hover{color:#5b0f0f;}
+  .nav-cta{background:#5b0f0f;color:#fff;padding:9px 20px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;font-weight:600;white-space:nowrap;flex-shrink:0;}
+  @media(max-width:1120px) and (min-width:901px){.nav-links{gap:14px;}.nav-inner{padding-left:20px;padding-right:20px;}}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+  .hamburger span{display:block;width:22px;height:2px;background:#5b0f0f;transition:all 0.3s;}
+
+  .role-hero{background:#2b0e0e;padding:80px 40px 72px;}
+  .role-hero-inner{max-width:760px;margin:0 auto;}
+  .hero-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:18px;font-weight:600;}
+  .role-type-badge{font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;display:inline-block;margin-bottom:14px;}
+  .role-hero h1{font-family:'Playfair Display',serif;font-size:48px;font-weight:700;color:#fff;line-height:1.08;letter-spacing:-0.5px;}
+  .role-hero h1 em{font-style:italic;color:#C9A84C;font-weight:400;}
+
+  .doc-body{padding:70px 0 90px;}
+  .doc-inner{max-width:760px;margin:0 auto;padding:0 40px;}
+  .doc-intro{font-size:18px;color:#333;line-height:1.85;margin-bottom:56px;padding-bottom:48px;border-bottom:0.5px solid rgba(0,0,0,0.1);}
+
+  .doc-section{margin-bottom:52px;}
+  .doc-section:last-of-type{margin-bottom:0;}
+  .section-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#5b0f0f;font-weight:700;margin-bottom:18px;}
+  .doc-section h2{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#1a1a1a;margin-bottom:20px;line-height:1.2;}
+
+  .resp-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .resp-list li{font-size:15.5px;color:#444;line-height:1.75;padding-left:22px;position:relative;}
+  .resp-list li::before{content:'';position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:#5b0f0f;}
+
+  .expect-list{list-style:none;display:flex;flex-direction:column;gap:14px;}
+  .expect-list li{font-size:15px;color:#444;line-height:1.75;padding:14px 18px;background:#fff;border-left:3px solid #5b0f0f;}
+  .expect-list li strong{color:#1a1a1a;}
+
+  .success-block{background:#f5f0e8;border-left:3px solid #C9A84C;padding:22px 24px;margin-bottom:0;}
+  .success-block p{font-size:15.5px;color:#444;line-height:1.8;font-style:italic;}
+
+  .onboarding-block{background:#2b0e0e;padding:28px 30px;}
+  .onboarding-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#C9A84C;font-weight:700;margin-bottom:12px;}
+  .onboarding-block p{font-size:15px;color:rgba(255,255,255,0.82);line-height:1.8;margin-bottom:14px;}
+  .onboarding-block p:last-child{margin-bottom:0;}
+
+  .fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .fit-col{padding:22px 22px 24px;}
+  .fit-yes-col{background:#f5f0e8;}
+  .fit-no-col{background:#fff;border:0.5px solid rgba(0,0,0,0.09);}
+  .fit-col h3{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;margin-bottom:14px;}
+  .fit-yes-col h3{color:#5b0f0f;}
+  .fit-no-col h3{color:#888;}
+  .fit-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+  .fit-list li{font-size:13.5px;color:#555;line-height:1.65;padding-left:20px;position:relative;}
+  .fit-yes-col .fit-list li::before{content:'\2713';position:absolute;left:0;color:#5b0f0f;font-weight:700;}
+  .fit-no-col .fit-list li::before{content:'\2715';position:absolute;left:0;color:#bbb;}
+
+  .role-cta-bar{margin-top:60px;padding-top:48px;border-top:0.5px solid rgba(0,0,0,0.1);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+  .role-cta-bar p{font-size:14px;color:#888;}
+  .apply-btn{background:#5b0f0f;color:#fff;padding:14px 36px;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;font-weight:700;display:inline-block;}
+  .apply-btn:hover{background:#3d0a0a;}
+  .back-link{font-size:13px;color:#5b0f0f;text-decoration:none;letter-spacing:0.3px;}
+  .back-link:hover{text-decoration:underline;}
+
+  footer{background:#1a1a1a;color:rgba(255,255,255,0.5);padding:50px 0 30px;}
+  .footer-inner{max-width:1100px;margin:0 auto;padding:0 40px;}
+  .footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:36px;padding-bottom:36px;border-bottom:0.5px solid rgba(255,255,255,0.1);flex-wrap:wrap;gap:30px;}
+  .footer-brand{font-family:'Playfair Display',serif;font-size:24px;color:#fff;letter-spacing:3px;font-weight:700;}
+  .footer-brand span{color:#C9A84C;}
+  .footer-tagline{font-size:13px;font-style:italic;color:rgba(255,255,255,0.4);margin-top:6px;}
+  .footer-cols{display:flex;gap:50px;flex-wrap:wrap;}
+  .footer-col h4{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:14px;font-weight:600;font-family:'Lora',serif;}
+  .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;padding:4px 0;}
+  .footer-col a:hover{color:#fff;}
+  .footer-bottom{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.7;text-align:center;}
+
+  @media(max-width:900px){
+    .nav-links{display:none;}
+    .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;background:rgba(253,250,244,0.98);padding:16px 24px;flex-direction:column;gap:0;border-bottom:0.5px solid rgba(0,0,0,0.08);z-index:200;}
+    .nav-links.open a{padding:12px 0;border-bottom:0.5px solid rgba(0,0,0,0.06);font-size:14px;}
+    .nav-links.open a:last-child{border-bottom:none;}
+    .nav-cta{display:none;}
+    .hamburger{display:flex;}
+    .nav{position:sticky;}
+    .role-hero h1{font-size:34px;}
+    .doc-inner{padding:0 24px;}
+    .fit-grid{grid-template-columns:1fr;}
+    .footer-inner,.nav-inner{padding-left:24px;padding-right:24px;}
+    .role-hero{padding:60px 24px 56px;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      <img src="/images/logo-nav.png" alt="ALSA" class="nav-logo">
+      <span class="nav-name">ALSA <span>AUCKLAND</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/programmes/">Programmes</a>
+      <a href="/newsletters/">Newsletter</a>
+      <a href="/gallery/">Gallery</a>
+      <a href="/team/" style="color:#5b0f0f;font-weight:600;">Team</a>
+      <a href="/team/apply/" style="color:#C9A84C;font-weight:600;">Apply</a>
+      <a href="/contact/">Contact</a>
+    </div>
+    <a href="/join/" class="nav-cta">Join Us</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section class="role-hero">
+  <div class="role-hero-inner">
+    <div class="hero-eyebrow">Executive Team &middot; Semester Two 2026</div>
+    <span class="role-type-badge" style="color:#2d7d74">Intern</span>
+    <h1>Operations Intern: <em>Mentoring and Engagement</em></h1>
+  </div>
+</section>
+
+<main class="doc-body">
+  <div class="doc-inner">
+
+    <p class="doc-intro">This intern role supports the ALSA mentoring programme and member engagement. You are the person who makes members feel known and ensures the mentoring programme runs without friction. It is the right role if you are people-oriented, organised, and want to build your understanding of how community is managed.</p>
+
+    <div class="doc-section">
+      <div class="section-label">What You Will Do</div>
+      <ul class="resp-list">
+        <li><strong>Assist with the administration of the mentoring programme: pairings, communications, and check-ins.</strong> Pairings that are not confirmed early fall apart. Communications that go out late leave people in the dark. This is the infrastructure the programme runs on.</li>
+        <li><strong>Support member onboarding: welcome communications, database updates, and membership card coordination.</strong> A member's first interaction with ALSA sets their expectations. Make it professional and prompt.</li>
+        <li><strong>Help plan and support member engagement events.</strong> You are not just attending. You are helping build the environment where members feel part of something.</li>
+        <li><strong>Maintain accurate member records and flag issues to cabinet promptly.</strong> An out-of-date database costs time and creates errors downstream. Keep it updated.</li>
+        <li><strong>Conduct regular member check-ins and escalate feedback to the right officer.</strong> Members tell you things they do not always say publicly. Your job is to listen, document, and pass it on.</li>
+        <li><strong>Support mentoring programme logistics from application intake through to close of semester.</strong> The programme has a lifecycle. You own the admin across all of it.</li>
+        <li><strong>Update the comprehensive handover document at the end of each semester.</strong> Record what worked in the administration process, what you would change, and anything the next intern needs to know to pick up where you left off.</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <div class="section-label">What We Expect</div>
+      <ul class="expect-list">
+        <li><strong>Time commitment:</strong> Roughly 3–5 hours per week; expect more in event weeks</li>
+        <li><strong>Meetings:</strong> Attend the weekly operations team meeting and the monthly all-team session. Once a month, the portfolio meeting is replaced by a full-team session where every portfolio and cabinet come together.</li><li><strong>Mentoring:</strong> All pairings confirmed and contacted within the first two weeks of semester</li><li><strong>Records:</strong> Member database accurate and up to date at all times</li><li><strong>Engagement:</strong> Present at all member engagement events</li><li><strong>Check-ins:</strong> Monthly check-ins with a sample of members completed and documented</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <div class="section-label">What Success Looks Like</div>
+      <div class="success-block">
+        <p>By end of semester, the mentoring programme has run without dropout, members feel known and valued, and you have a clear picture of what it takes to run a people-facing programme at scale.</p>
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <div class="section-label">Onboarding Period</div>
+      <div class="onboarding-block">
+        <div class="onboarding-label">First Two Weeks</div>
+        <p>Before anything else, read the <a href="/team/standards/" style="color:#C9A84C;">executive standards</a>. They cover what we expect from everyone on the team. In the first two weeks, you will review the existing member list, confirm contact with your mentoring pairs, and send your first member check-in communication.</p>
+      <p>Throughout the two weeks, send a brief daily update to your officer: what you worked on, what is next, and anything you are stuck on. Interns are assessed more closely during this period. Consistent, proactive communication is how you earn the team's confidence.</p>
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <div class="section-label">Is This Role Right for You</div>
+      <div class="fit-grid">
+        <div class="fit-col fit-yes-col">
+          <h3>Good fit</h3>
+          <ul class="fit-list">
+            <li>You are naturally people-oriented and good at follow-through</li><li>You are organised enough to manage a contact list without losing track of anyone</li><li>You want a role that builds both administrative and interpersonal skills</li>
+          </ul>
+        </div>
+        <div class="fit-col fit-no-col">
+          <h3>Not the right role</h3>
+          <ul class="fit-list">
+            <li>You are looking for a public-facing, design, or events-operations role</li><li>Regular communication and follow-up feels draining rather than energising</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="role-cta-bar">
+      <a href="/team/apply/" class="back-link">&larr; Back to all roles</a>
+      <a href="/team/apply/form/?track=intern" class="apply-btn">Apply for this role</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">ALSA <span>AUCKLAND</span></div>
+        <div class="footer-tagline">Confidence. Competence. Community.</div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>About</h4>
+          <a href="/about/">About ALSA</a>
+          <a href="/programmes/">Programmes</a>
+          <a href="/team/">Team</a>
+        </div>
+        <div class="footer-col">
+          <h4>Engage</h4>
+          <a href="/newsletters/">Newsletter</a>
+          <a href="/gallery/">Gallery</a>
+          <a href="/events/">Events</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://instagram.com/alsa.akl" target="_blank">Instagram</a>
+          <a href="https://www.linkedin.com/company/alsa-akl/" target="_blank">LinkedIn</a>
+          <a href="/partners/">Partners</a>
+        </div>
+        <div class="footer-col">
+          <h4>Policies</h4>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/conduct/">Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      ALSA Auckland &middot; Incorporated Society<br>
+      &copy; 2026 Asian Law Students&#39; Association. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn = document.getElementById('hamburger');
+  var links = document.querySelector('.nav-links');
+  if(btn && links){
+    btn.addEventListener('click', function(){ links.classList.toggle('open'); });
+    document.addEventListener('click', function(e){
+      if(!btn.contains(e.target) && !links.contains(e.target)){
+        links.classList.remove('open');
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

@@ -6,7 +6,7 @@
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="icon" type="image/png" href="/images/logo.png" sizes="196x196">
 <link rel="apple-touch-icon" href="/images/logo.png">
-<title>Home | ALSA Auckland</title>
+<title>ALSA Auckland | Asian Law Students' Association</title>
 <meta name="description" content="The Asian Law Students' Association. Confidence. Competence. Community.">
 <link rel="canonical" href="https://alsaauckland.org/">
 <meta property="og:type" content="website">
@@ -36,7 +36,8 @@
   .nav-links{display:flex;gap:32px;}
   .nav-links a{font-size:13px;color:#555;text-decoration:none;letter-spacing:0.5px;transition:color 0.2s;}
   .nav-links a:hover{color:#5b0f0f;}
-  .nav-cta{background:#5b0f0f;color:#fff;padding:9px 20px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;font-weight:600;}
+  .nav-cta{background:#5b0f0f;color:#fff;padding:9px 20px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;font-weight:600;white-space:nowrap;flex-shrink:0;}
+  @media(max-width:1120px) and (min-width:901px){.nav-links{gap:14px;}.nav-inner{padding-left:20px;padding-right:20px;}}
   .nav-cta:hover{background:#3d0a0a;}
   
   /* HERO */
@@ -237,6 +238,7 @@
       <a href="/newsletters/">Newsletter</a>
       <a href="/gallery/">Gallery</a>
       <a href="/team/">Team</a>
+      <a href="/team/apply/" style="color:#C9A84C;font-weight:600;">Apply</a>
       <a href="/contact/">Contact</a>
     </div>
     <a href="/join/" class="nav-cta">Join Us</a>
@@ -440,6 +442,21 @@
 })();
 </script>
 
+<!-- RECRUITMENT -->
+<section style="background:#f5f0e8;padding:84px 40px;text-align:center;border-top:3px solid #C9A84C;">
+  <div style="max-width:720px;margin:0 auto;">
+    <div style="font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#5b0f0f;font-weight:700;margin-bottom:20px;">Applications Open &middot; Semester Two 2026</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(30px,6vw,44px);font-weight:700;color:#5b0f0f;line-height:1.12;letter-spacing:-0.5px;margin-bottom:20px;">Help build ALSA. <em style="font-style:italic;font-weight:400;color:#2b0e0e;">Join the team.</em></h2>
+    <p style="font-size:17px;color:#555;line-height:1.75;max-width:580px;margin:0 auto 14px;">We are recruiting officers and interns for Semester Two. The intern programme is a genuine entry point into the executive: real responsibility, real mentorship, and the clearest path to a cabinet role.</p>
+    <p style="font-size:14px;color:#999;font-style:italic;margin-bottom:34px;">Six roles open &middot; Applications close 10 July 2026</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="/team/apply/form/" style="display:inline-block;background:#5b0f0f;color:#fff;padding:16px 42px;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;font-weight:700;">Apply Now</a>
+      <a href="/team/why-join/" style="display:inline-block;background:transparent;color:#2b0e0e;padding:15px 40px;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;font-weight:700;border:1.5px solid #2b0e0e;">Why Join the Team</a>
+    </div>
+    <a href="/team/apply/" style="display:inline-block;margin-top:22px;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#5b0f0f;text-decoration:none;font-weight:700;">Or browse the open roles &rarr;</a>
+  </div>
+</section>
+
 <!-- EVENTS -->
 <section style="background:#f7f3ee;padding:70px 0;border-top:0.5px solid rgba(0,0,0,0.05);">
   <div class="container">
@@ -633,8 +650,8 @@
 <section style="background:#2b0e0e;padding:80px 40px;text-align:center;border-top:3px solid #C9A84C;">
   <div style="max-width:620px;margin:0 auto;">
     <div style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;font-weight:600;margin-bottom:20px;">Support ALSA</div>
-    <h2 style="font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:#fff;line-height:1.15;letter-spacing:-0.3px;margin-bottom:18px;">Invest in the next generation of <em style="font-style:italic;color:#C9A84C;font-weight:400;">Asian lawyers</em>.</h2>
-    <p style="font-size:16px;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:32px;">Every contribution goes directly towards running our events, producing the newsletter, and keeping our programmes free for members. You are investing in the next generation of Asian lawyers in Aotearoa.</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:#fff;line-height:1.15;letter-spacing:-0.3px;margin-bottom:18px;">Support the next generation of <em style="font-style:italic;color:#C9A84C;font-weight:400;">Asian lawyers</em>.</h2>
+    <p style="font-size:16px;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:32px;">Every contribution goes directly towards running our events, producing the newsletter, and keeping our programmes free for members. Your support helps the next generation of Asian lawyers in Aotearoa find their footing in the profession.</p>
     <a href="https://buy.stripe.com/00w6oH6Ab3D8eCEcQpenS01" target="_blank" style="display:inline-block;background:#C9A84C;color:#1a1a1a;padding:16px 40px;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;font-weight:700;">Contribute &rarr;</a>
     <p style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:14px;font-style:italic;">Secure payment via Stripe. Any amount welcome.</p>
   </div>

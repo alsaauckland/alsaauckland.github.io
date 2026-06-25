@@ -110,7 +110,8 @@
   .nl-nav-links{display:flex;gap:32px;}
   .nl-nav-links a{font-size:13px;color:#555;text-decoration:none;letter-spacing:0.5px;transition:color 0.2s;}
   .nl-nav-links a:hover{color:#5b0f0f;}
-  .nl-nav-cta{background:#5b0f0f;color:#fff;padding:9px 20px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;font-weight:600;}
+  .nl-nav-cta{background:#5b0f0f;color:#fff;padding:9px 20px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;font-weight:600;white-space:nowrap;flex-shrink:0;}
+  @media(max-width:1120px) and (min-width:901px){.nl-nav-links{gap:14px;}.nl-nav-inner{padding-left:20px;padding-right:20px;}}
   @media(max-width:900px){.nl-nav-links{display:none;}.nl-nav-inner{padding:8px 24px;}}
 
 
@@ -118,13 +119,13 @@
   .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
   .hamburger span{display:block;width:22px;height:2px;background:#5b0f0f;transition:all 0.3s;}
   @media(max-width:768px){
-    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(253,250,244,0.98);padding:16px 24px;flex-direction:column;gap:0;border-bottom:0.5px solid rgba(0,0,0,0.08);z-index:200;}
-    .nav-links.open{display:flex;}
-    .nav-links a{padding:12px 0;border-bottom:0.5px solid rgba(0,0,0,0.06);font-size:14px;}
-    .nav-links a:last-child{border-bottom:none;}
-    .nav-cta{display:none;}
+    .nl-nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(253,250,244,0.98);padding:16px 24px;flex-direction:column;gap:0;border-bottom:0.5px solid rgba(0,0,0,0.08);z-index:200;}
+    .nl-nav-links.open{display:flex;}
+    .nl-nav-links a{padding:12px 0;border-bottom:0.5px solid rgba(0,0,0,0.06);font-size:14px;}
+    .nl-nav-links a:last-child{border-bottom:none;}
+    .nl-nav-cta{display:none;}
     .hamburger{display:flex;}
-    .nav{position:sticky;}
+    .nl-nav{position:sticky;}
   }
 </style>
 </head>
@@ -145,6 +146,9 @@
       <a href="/contact/">Contact</a>
     </div>
     <a href="/join/" class="nl-nav-cta">Join Us</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
@@ -401,7 +405,7 @@
 <script>
 (function(){
   var btn = document.getElementById('hamburger');
-  var links = document.querySelector('.nav-links');
+  var links = document.querySelector('.nl-nav-links');
   if(btn && links){
     btn.addEventListener('click', function(){
       links.classList.toggle('open');

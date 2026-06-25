@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/images/logo.png" sizes="196x196">
+<link rel="apple-touch-icon" href="/images/logo.png">
+<title>Marketing Director | ALSA Auckland</title>
+<meta name="description" content="The Marketing Director leads ALSA's brand, social presence, and member communications — everything that shapes how the world sees the organisation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=optional" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;overflow-y:scroll;}
+  body{font-family:'Lora',Georgia,serif;color:#2a2a2a;background:#fdfaf4;line-height:1.7;}
+  .nav{position:sticky;top:0;background:rgba(253,250,244,0.96);backdrop-filter:blur(10px);border-bottom:0.5px solid rgba(0,0,0,0.06);z-index:100;}
+  .nav-inner{max-width:1200px;margin:0 auto;padding:8px 40px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#1a1a1a;}
+  .nav-logo{width:100px;height:100px;object-fit:contain;}
+  .nav-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;letter-spacing:2px;}
+  .nav-name span{color:#5b0f0f;}
+  .nav-links{display:flex;gap:32px;}
+  .nav-links a{font-size:13px;color:#555;text-decoration:none;letter-spacing:0.5px;}
+  .nav-links a:hover{color:#5b0f0f;}
+  .nav-cta{background:#5b0f0f;color:#fff;padding:9px 20px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;font-weight:600;white-space:nowrap;flex-shrink:0;}
+  @media(max-width:1120px) and (min-width:901px){.nav-links{gap:14px;}.nav-inner{padding-left:20px;padding-right:20px;}}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+  .hamburger span{display:block;width:22px;height:2px;background:#5b0f0f;transition:all 0.3s;}
+
+  .role-hero{background:#2b0e0e;padding:80px 40px 72px;}
+  .role-hero-inner{max-width:760px;margin:0 auto;}
+  .hero-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:18px;font-weight:600;}
+  .role-type-badge{font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;display:inline-block;margin-bottom:14px;}
+  .role-hero h1{font-family:'Playfair Display',serif;font-size:48px;font-weight:700;color:#fff;line-height:1.08;letter-spacing:-0.5px;}
+  .role-hero h1 em{font-style:italic;color:#C9A84C;font-weight:400;}
+
+  .doc-body{padding:70px 0 90px;}
+  .doc-inner{max-width:760px;margin:0 auto;padding:0 40px;}
+  .doc-intro{font-size:18px;color:#333;line-height:1.85;margin-bottom:56px;padding-bottom:48px;border-bottom:0.5px solid rgba(0,0,0,0.1);}
+
+  .doc-section{margin-bottom:52px;}
+  .doc-section:last-of-type{margin-bottom:0;}
+  .section-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#5b0f0f;font-weight:700;margin-bottom:18px;}
+  .doc-section h2{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#1a1a1a;margin-bottom:20px;line-height:1.2;}
+
+  .resp-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .resp-list li{font-size:15.5px;color:#444;line-height:1.75;padding-left:22px;position:relative;}
+  .resp-list li::before{content:'';position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:#5b0f0f;}
+
+  .expect-list{list-style:none;display:flex;flex-direction:column;gap:14px;}
+  .expect-list li{font-size:15px;color:#444;line-height:1.75;padding:14px 18px;background:#fff;border-left:3px solid #5b0f0f;}
+  .expect-list li strong{color:#1a1a1a;}
+
+  .success-block{background:#f5f0e8;border-left:3px solid #C9A84C;padding:22px 24px;margin-bottom:0;}
+  .success-block p{font-size:15.5px;color:#444;line-height:1.8;font-style:italic;}
+
+  .role-cta-bar{margin-top:60px;padding-top:48px;border-top:0.5px solid rgba(0,0,0,0.1);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+  .role-cta-bar p{font-size:14px;color:#888;}
+  .apply-btn-gold{background:#C9A84C;color:#1a1a1a;padding:14px 36px;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;font-weight:700;display:inline-block;}
+  .apply-btn-gold:hover{background:#b8973d;}
+  .back-link{font-size:13px;color:#5b0f0f;text-decoration:none;letter-spacing:0.3px;}
+  .back-link:hover{text-decoration:underline;}
+
+  footer{background:#1a1a1a;color:rgba(255,255,255,0.5);padding:50px 0 30px;}
+  .footer-inner{max-width:1100px;margin:0 auto;padding:0 40px;}
+  .footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:36px;padding-bottom:36px;border-bottom:0.5px solid rgba(255,255,255,0.1);flex-wrap:wrap;gap:30px;}
+  .footer-brand{font-family:'Playfair Display',serif;font-size:24px;color:#fff;letter-spacing:3px;font-weight:700;}
+  .footer-brand span{color:#C9A84C;}
+  .footer-tagline{font-size:13px;font-style:italic;color:rgba(255,255,255,0.4);margin-top:6px;}
+  .footer-cols{display:flex;gap:50px;flex-wrap:wrap;}
+  .footer-col h4{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:14px;font-weight:600;font-family:'Lora',serif;}
+  .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;padding:4px 0;}
+  .footer-col a:hover{color:#fff;}
+  .footer-bottom{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.7;text-align:center;}
+
+  @media(max-width:900px){
+    .nav-links{display:none;}
+    .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;background:rgba(253,250,244,0.98);padding:16px 24px;flex-direction:column;gap:0;border-bottom:0.5px solid rgba(0,0,0,0.08);z-index:200;}
+    .nav-links.open a{padding:12px 0;border-bottom:0.5px solid rgba(0,0,0,0.06);font-size:14px;}
+    .nav-links.open a:last-child{border-bottom:none;}
+    .nav-cta{display:none;}
+    .hamburger{display:flex;}
+    .nav{position:sticky;}
+    .role-hero h1{font-size:34px;}
+    .doc-inner{padding:0 24px;}
+    .footer-inner,.nav-inner{padding-left:24px;padding-right:24px;}
+    .role-hero{padding:60px 24px 56px;}
+  }
+  .alumni-list{display:flex;flex-direction:column;gap:0;}
+  .alumni-entry{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:0.5px solid rgba(0,0,0,0.08);}
+  .alumni-entry:last-child{border-bottom:none;}
+  .alumni-avatar{width:44px;height:54px;object-fit:cover;object-position:top;flex-shrink:0;background:#f0ebe0;}
+  .alumni-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:2px;}
+  .alumni-meta{font-size:12.5px;color:#999;letter-spacing:0.3px;}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      <img src="/images/logo-nav.png" alt="ALSA" class="nav-logo">
+      <span class="nav-name">ALSA <span>AUCKLAND</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/programmes/">Programmes</a>
+      <a href="/newsletters/">Newsletter</a>
+      <a href="/gallery/">Gallery</a>
+      <a href="/team/" style="color:#5b0f0f;font-weight:600;">Team</a>
+      <a href="/team/apply/" style="color:#C9A84C;font-weight:600;">Apply</a>
+      <a href="/contact/">Contact</a>
+    </div>
+    <a href="/join/" class="nav-cta">Join Us</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section class="role-hero">
+  <div class="role-hero-inner">
+    <div class="hero-eyebrow">The Cabinet &middot; ALSA Auckland</div>
+    <span class="role-type-badge" style="color:#C9A84C">Cabinet</span>
+    <h1><em>Marketing Director</em></h1>
+  </div>
+</section>
+
+<main class="doc-body">
+  <div class="doc-inner">
+
+    <p class="doc-intro">The Marketing Director owns how ALSA presents itself to the world. You set the direction for the brand, oversee all content across social and digital channels, and ensure that every communication ALSA puts out reflects who we are and where we are going. You lead the marketing interns and are the final word on quality before anything goes live.</p>
+
+    <div class="doc-section">
+      <div class="section-label">What You Will Do</div>
+      <ul class="resp-list">
+        <li><strong>Set the marketing strategy and content calendar at the start of each semester.</strong> Everything the marketing team produces should connect back to a plan. An undirected content calendar produces output that looks busy but does not build anything.</li>
+        <li><strong>Oversee all social media output, ensuring consistency in voice, visual identity, and cadence.</strong> You are the final quality check before anything goes live. One off-brand post is easy to miss; a pattern of them is hard to recover from.</li>
+        <li><strong>Lead the Marketing Interns: set their briefs, review their work, and give them feedback before publication.</strong> They are learning while doing. Your feedback is part of their development, not just a gatekeeping step.</li>
+        <li><strong>Own ALSA's visual identity standards and ensure they are applied consistently across all materials.</strong> Brand coherence is built in the details. Every touchpoint where we look inconsistent is a missed opportunity to build recognition.</li>
+        <li><strong>Write or approve all member-facing communications, including newsletters and announcements.</strong> Nothing goes to members without a quality check. You are accountable for everything that carries ALSA's name.</li>
+        <li><strong>Collaborate with the Operations Director to ensure every event is promoted effectively and on time.</strong> Know the event calendar in advance and plan promotion accordingly. Marketing without a timeline serves no one.</li>
+        <li><strong>Report on marketing performance to cabinet at least monthly.</strong> Reach, engagement, follower growth, and what is and is not working. Cabinet needs this to make informed decisions about where to invest ALSA's effort.</li>
+        <li><strong>Update the comprehensive handover document at the end of your tenure.</strong> Record the content strategy, brand decisions, and what worked so the incoming Marketing Director can build on a solid foundation rather than starting over.</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <div class="section-label">What We Expect</div>
+      <ul class="expect-list">
+        <li><strong>Time commitment:</strong> Roughly 8–12 hours per week; expect more in event weeks</li>
+        <li><strong>Meetings:</strong> Chair the weekly marketing team meeting and attend the weekly cabinet meeting. Once a month, the marketing team meeting is replaced by a full-team session where every portfolio and cabinet come together.</li>
+        <li><strong>Content calendar:</strong> Published at the start of semester and updated fortnightly. Interns should never be waiting to know what to work on.</li>
+        <li><strong>Review:</strong> Every piece of content approved before it goes live. No exceptions.</li>
+        <li><strong>Consistency:</strong> ALSA's brand should be recognisable across every channel and every touchpoint.</li>
+        <li><strong>Leadership:</strong> Interns are briefed, supported, and given feedback. Their work reflects on you.</li>
+        <li><strong>Reporting:</strong> Monthly performance summary to cabinet covering reach, engagement, and what is working.</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <div class="section-label">What Success Looks Like</div>
+      <div class="success-block">
+        <p>By end of semester, ALSA's social presence has grown, the brand looks and sounds cohesive across every channel, every event was promoted effectively, and the marketing interns have produced work they are proud of. The organisation's external reputation is stronger than when you started.</p>
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <div class="section-label">Current</div>
+      <div class="alumni-list">
+        <div class="alumni-entry">
+          <img src="/images/portraits/nora-portrait.png" alt="Nora He" class="alumni-avatar" onerror="this.style.display='none'">
+          <div>
+            <div class="alumni-name">Nora He</div>
+            <div class="alumni-meta">Founding Marketing Director &middot; Semester 1, 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="role-cta-bar">
+      <a href="/team/apply/" class="back-link">&larr; Back to all roles</a>
+      <p style="font-size:13px;color:#888;line-height:1.7;">Cabinet roles are appointed internally from the existing executive team at the end of each academic year. Join as an officer or intern to be considered.</p>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">ALSA <span>AUCKLAND</span></div>
+        <div class="footer-tagline">Confidence. Competence. Community.</div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>About</h4>
+          <a href="/about/">About ALSA</a>
+          <a href="/programmes/">Programmes</a>
+          <a href="/team/">Team</a>
+        </div>
+        <div class="footer-col">
+          <h4>Engage</h4>
+          <a href="/newsletters/">Newsletter</a>
+          <a href="/gallery/">Gallery</a>
+          <a href="/events/">Events</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://instagram.com/alsa.akl" target="_blank">Instagram</a>
+          <a href="https://www.linkedin.com/company/alsa-akl/" target="_blank">LinkedIn</a>
+          <a href="/partners/">Partners</a>
+        </div>
+        <div class="footer-col">
+          <h4>Policies</h4>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/conduct/">Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      ALSA Auckland &middot; Incorporated Society<br>
+      &copy; 2026 Asian Law Students&#39; Association. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn = document.getElementById('hamburger');
+  var links = document.querySelector('.nav-links');
+  if(btn && links){
+    btn.addEventListener('click', function(){ links.classList.toggle('open'); });
+    document.addEventListener('click', function(e){
+      if(!btn.contains(e.target) && !links.contains(e.target)){
+        links.classList.remove('open');
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
