@@ -18,10 +18,10 @@
   .nav{position:sticky;top:0;background:rgba(253,250,244,0.96);backdrop-filter:blur(10px);border-bottom:0.5px solid rgba(0,0,0,0.06);z-index:100;}
   .nav-inner{max-width:1200px;margin:0 auto;padding:8px 40px;display:flex;align-items:center;justify-content:space-between;}
   .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#1a1a1a;}
-  .nav-logo{width:100px;height:100px;object-fit:contain;}
+  .nav-logo{width:70px;height:70px;object-fit:contain;}
   .nav-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;letter-spacing:2px;}
   .nav-name span{color:#5b0f0f;}
-  .nav-links{display:flex;gap:32px;}
+  .nav-links{display:flex;gap:22px;}
   .nav-links a{font-size:13px;color:#555;text-decoration:none;letter-spacing:0.5px;}
   .nav-links a:hover{color:#5b0f0f;}
   .nav-cta{background:#5b0f0f;color:#fff;padding:9px 20px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;font-weight:600;white-space:nowrap;flex-shrink:0;}
@@ -129,7 +129,7 @@
 
   .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
   .hamburger span{display:block;width:22px;height:2px;background:#5b0f0f;transition:all 0.3s;}
-  @media(max-width:768px){
+  @media(max-width:900px){
     .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(253,250,244,0.98);padding:16px 24px;flex-direction:column;gap:0;border-bottom:0.5px solid rgba(0,0,0,0.08);z-index:200;}
     .nav-links.open{display:flex;}
     .nav-links a{padding:12px 0;border-bottom:0.5px solid rgba(0,0,0,0.06);font-size:14px;}
