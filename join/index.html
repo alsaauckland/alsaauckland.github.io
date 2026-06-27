@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1M6M9RLGB6"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1M6M9RLGB6');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="icon" type="image/png" href="/images/logo.png" sizes="196x196">
@@ -824,6 +827,7 @@
       status.innerHTML = '<h3>Welcome to ALSA</h3><p>Your membership application has been received. We will be in touch shortly with details on upcoming events and how to get involved.</p>';
       form.reset();
       window.scrollTo({top: status.offsetTop - 100, behavior: 'smooth'});
+      if (typeof gtag === 'function') gtag('event', 'membership_signup', { form: 'membership' });
     } catch (err) {
       status.className = 'form-status error';
       status.innerHTML = '<h3>Something went wrong</h3><p>Please try again, or email us directly at Enquiries@alsaauckland.org.</p>';
