@@ -282,11 +282,6 @@
           <span class="hint">Required for Marketing Intern: Designer applicants. Show us your best work.</span>
         </div>
 
-        <div class="form-group">
-          <label for="app-video-intern">90-Second Video Introduction <span class="req">*</span></label>
-          <input type="url" id="app-video-intern" placeholder="https://loom.com/share/...">
-          <span class="hint">Record a 90-second video: who you are, which role you want, and why. Share it however is easiest: a Google Drive link (set to "anyone with the link"), YouTube unlisted, or <a href="https://loom.com" target="_blank" rel="noopener">Loom</a>. Just make sure it opens without a login. This is the most important part of your application.</span>
-        </div>
 
         <hr class="form-divider">
         <div class="form-section-label">Written Questions</div>
@@ -428,7 +423,7 @@
           <div class="step-num">02</div>
           <div>
             <div class="step-title">Review</div>
-            <div class="step-desc">We review all applications the week of 14 July. Shortlisted candidates receive a brief task via email.</div>
+            <div class="step-desc">We review applications the week of 13 July. Shortlisted candidates receive a task via email.</div>
           </div>
         </div>
         <div class="process-step">
@@ -442,14 +437,14 @@
           <div class="step-num">04</div>
           <div>
             <div class="step-title">Interview</div>
-            <div class="step-desc">45 minutes with two executive members, including a structured debrief on your task. Week of 21 July.</div>
+            <div class="step-desc">45 minutes with two executive members, including a structured debrief on your task. 16 to 18 July.</div>
           </div>
         </div>
         <div class="process-step">
           <div class="step-num">05</div>
           <div>
             <div class="step-title">Decision</div>
-            <div class="step-desc">All candidates hear back by 28 July, whether successful or not.</div>
+            <div class="step-desc">All candidates hear back the week of 20 July, whether successful or not.</div>
           </div>
         </div>
         <div class="process-step">
@@ -475,32 +470,25 @@
           <div class="step-num">02</div>
           <div>
             <div class="step-title">Review</div>
-            <div class="step-desc">We review all applications the week of 14 July. Shortlisted candidates receive a brief task via email.</div>
+            <div class="step-desc">We review applications the week of 13 July. Shortlisted candidates are invited straight to an interview, no task required.</div>
           </div>
         </div>
         <div class="process-step">
           <div class="step-num">03</div>
           <div>
-            <div class="step-title">Task</div>
-            <div class="step-desc">A short, low-stakes task to give you something to talk about. No right or wrong answer.</div>
+            <div class="step-title">Interview</div>
+            <div class="step-desc">A 20 to 30 minute conversation about your background, motivations, and fit, drawing on your written answers. 16 to 18 July.</div>
           </div>
         </div>
         <div class="process-step">
           <div class="step-num">04</div>
           <div>
-            <div class="step-title">Interview</div>
-            <div class="step-desc">A 20 to 30 minute conversation about your background, motivations, and fit. Week of 21 July.</div>
+            <div class="step-title">Decision</div>
+            <div class="step-desc">All candidates hear back the week of 20 July, whether successful or not.</div>
           </div>
         </div>
         <div class="process-step">
           <div class="step-num">05</div>
-          <div>
-            <div class="step-title">Decision</div>
-            <div class="step-desc">All candidates hear back by 28 July, whether successful or not.</div>
-          </div>
-        </div>
-        <div class="process-step">
-          <div class="step-num">06</div>
           <div>
             <div class="step-title">Onboarding and Team Vote</div>
             <div class="step-desc">Successful candidates begin a two-week onboarding period. At the end, cabinet votes to confirm your place. We assess fit, and you decide if this is right for you.</div>
@@ -746,7 +734,6 @@ async function submitApplication() {
 
   } else {
     const roles = selectedRolesIntern;
-    const video  = document.getElementById('app-video-intern').value.trim();
     const why    = document.getElementById('app-why-intern').value.trim();
     const growth = document.getElementById('app-growth').value.trim();
     const made   = document.getElementById('app-made').value.trim();
@@ -754,7 +741,7 @@ async function submitApplication() {
     const extra  = document.getElementById('app-extra-intern').value.trim();
     const needsPortfolio = roles.some(function(r){ return INTERN_DESIGN_ROLES.includes(r); });
 
-    if (!roles.length || !cvFileDataIntern || !video || !why || !growth || !made || !cap) {
+    if (!roles.length || !cvFileDataIntern || !why || !growth || !made || !cap) {
       noteEl.style.color = '#c0392b';
       noteEl.textContent = 'Please complete all required fields before submitting.';
       return;
@@ -766,7 +753,7 @@ async function submitApplication() {
     }
     subject = 'Intern Application';
     const rolesText = roles.map(function(r, i){ return (i+1) + '. ' + r; }).join(', ');
-    message = ['Year of Study: ' + year, degree ? 'Degree: ' + degree : null, 'Role of Interest: ' + rolesText, 'CV File: ' + cvFileNameIntern, 'Video Introduction: ' + video, '\nFollowed Through Without Being Asked:\n' + why, '\nWhy This Role:\n' + growth, '\nFeedback Response:\n' + made, '\nOther Commitments:\n' + cap, extra ? '\nAdditional Notes:\n' + extra : null].filter(Boolean).join('\n');
+    message = ['Year of Study: ' + year, degree ? 'Degree: ' + degree : null, 'Role of Interest: ' + rolesText, 'CV File: ' + cvFileNameIntern, '\nFollowed Through Without Being Asked:\n' + why, '\nWhy This Role:\n' + growth, '\nFeedback Response:\n' + made, '\nOther Commitments:\n' + cap, extra ? '\nAdditional Notes:\n' + extra : null].filter(Boolean).join('\n');
     cvFile = cvFileDataIntern; cvFileName = cvFileNameIntern;
     portfolioFile = portfolioFileDataIntern; portfolioFileName = portfolioFileNameIntern;
   }
@@ -785,7 +772,7 @@ async function submitApplication() {
     });
 
     var formEl = document.getElementById('applyForm');
-    formEl.innerHTML = '<div style="text-align:center;padding:60px 20px;"><div style="font-size:36px;margin-bottom:18px;color:#C9A84C;">&#10003;</div><p style="font-family:\'Playfair Display\',serif;font-size:24px;font-weight:700;color:#5b0f0f;margin-bottom:12px;">Application received.</p><p style="color:#555;font-size:15px;line-height:1.8;max-width:480px;margin:0 auto;">Thank you, ' + name + '. We will be in touch at <strong>' + email + '</strong> by 28 July.</p><p style="color:#aaa;font-size:13px;margin-top:16px;font-style:italic;">If you do not hear from us by then, email us directly at Enquiries@alsaauckland.org.</p></div>';
+    formEl.innerHTML = '<div style="text-align:center;padding:60px 20px;"><div style="font-size:36px;margin-bottom:18px;color:#C9A84C;">&#10003;</div><p style="font-family:\'Playfair Display\',serif;font-size:24px;font-weight:700;color:#5b0f0f;margin-bottom:12px;">Application received.</p><p style="color:#555;font-size:15px;line-height:1.8;max-width:480px;margin:0 auto;">Thank you, ' + name + '. We will be in touch at <strong>' + email + '</strong> the week of 20 July.</p><p style="color:#aaa;font-size:13px;margin-top:16px;font-style:italic;">If you do not hear from us by then, email us directly at Enquiries@alsaauckland.org.</p></div>';
     formEl.scrollIntoView({behavior:'smooth', block:'start'});
     if (typeof gtag === 'function') gtag('event', 'application_submit', { form: 'exec_application' });
   } catch(err) {
