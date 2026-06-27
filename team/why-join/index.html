@@ -65,6 +65,17 @@
   .reason-card h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#1a1a1a;margin-bottom:10px;line-height:1.3;}
   .reason-card p{font-size:14.5px;color:#555;line-height:1.72;}
 
+  .doorways{padding:48px 0 44px;}
+  .doorways-intro{text-align:center;font-size:15px;color:#666;line-height:1.7;max-width:560px;margin:0 auto 30px;}
+  .doorways-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .door{background:#fff;border:0.5px solid rgba(0,0,0,0.1);border-top:3px solid #C9A84C;padding:30px 30px 32px;display:flex;flex-direction:column;}
+  .door-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#5b0f0f;font-weight:700;margin-bottom:10px;}
+  .door h3{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#1a1a1a;margin-bottom:14px;line-height:1.2;}
+  .door p{font-size:14.5px;color:#555;line-height:1.72;margin-bottom:22px;flex-grow:1;}
+  .door-cta{align-self:flex-start;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#5b0f0f;font-weight:700;text-decoration:none;border-bottom:2px solid #C9A84C;padding-bottom:3px;transition:color 0.2s;}
+  .door-cta:hover{color:#2b0e0e;}
+  @media(max-width:900px){.doorways-grid{grid-template-columns:1fr;}}
+
   .process-steps{margin-top:36px;}
   .process-step{display:flex;gap:24px;padding:22px 0;border-bottom:0.5px solid rgba(0,0,0,0.08);}
   .process-step:last-child{border-bottom:none;}
@@ -160,6 +171,27 @@
     <div class="hero-ctas">
       <a href="/team/apply/form/" class="hero-cta">Apply Now</a>
       <a href="/team/apply/" class="hero-cta-2">See the Roles</a>
+    </div>
+  </div>
+</section>
+
+<!-- CHOOSE YOUR TRACK -->
+<section class="section doorways">
+  <div class="container">
+    <p class="doorways-intro">Two ways in, depending on where you are. Both put you on the same team and the same ladder.</p>
+    <div class="doorways-grid">
+      <div class="door">
+        <div class="door-label">New to law school</div>
+        <h3>Start as an intern.</h3>
+        <p>First and second years and international students, no experience needed. You do not need a CV that already impresses. You need to want it. An officer mentors you directly, you get real tasks from day one, and you see how the profession actually works from the inside.</p>
+        <a href="/team/apply/" class="door-cta">Start here &rarr;</a>
+      </div>
+      <div class="door">
+        <div class="door-label">Ready to own a portfolio</div>
+        <h3>Apply as an officer.</h3>
+        <p>Second and third years ready to lead. Run events end to end, direct an intern, and report to a director. Real stakes, a real standard, and work you can point to in an interview. Read what we hold ourselves to, then apply.</p>
+        <a href="/team/apply/" class="door-cta">See officer roles &rarr;</a>
+      </div>
     </div>
   </div>
 </section>
