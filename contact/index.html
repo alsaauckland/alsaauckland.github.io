@@ -155,6 +155,7 @@
 </div>
 
 <div class="enquiry-form">
+          <input type="text" class="alsa-hp" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute!important;left:-9999px!important;top:-9999px;width:1px;height:1px;opacity:0;">
   <div class="form-row">
     <div class="form-group">
       <label for="inq-name">Your Name <span style="color:#5b0f0f;">*</span></label>
@@ -198,6 +199,7 @@
 const CONTACT_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyazku0MvWjY9ROhbuNyOzsLGccC6UsW_PDRfQ7CfmSZ_cwMk-EbJ3s3PXSx5EAQ99s/exec';
 
 async function sendEnquiry() {
+    if (document.querySelector('.alsa-hp') && document.querySelector('.alsa-hp').value) return;
   const name    = document.getElementById('inq-name').value.trim();
   const email   = document.getElementById('inq-email').value.trim();
   const subject = document.getElementById('inq-subject').value || 'General Enquiry';

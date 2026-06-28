@@ -155,7 +155,7 @@
     <div class="ipls-card">
       <div>
         <div class="ipls-badge">Inaugural Launch Event Sponsor</div>
-        <img src="/images/sponsors/ipls.png" alt="IPLS" class="ipls-logo" style="max-height:80px;width:auto;filter:brightness(0) invert(1);" onerror="this.style.display='none'">
+        <img src="/images/sponsors/ipls.png" alt="IPLS" class="ipls-logo" style="max-height:80px;width:auto;filter:brightness(0) invert(1);" onerror="this.style.display='none'" loading="lazy">
         <div class="ipls-desc">IPLS is ALSA's inaugural institutional sponsor, supporting the 2026 Inaugural Launch Event and helping establish ALSA's presence in Auckland's legal community. We are proud to have their backing as we build something lasting.</div>
       </div>
       <div class="ipls-divider"></div>
@@ -176,7 +176,7 @@
     <div class="retail-grid">
 
       <div class="retail-card">
-        <img src="/images/sponsors/Anytime%20Fitness.png" alt="Anytime Fitness" class="retail-logo" onerror="this.classList.add('retail-logo-placeholder')">
+        <img src="/images/sponsors/Anytime%20Fitness.png" alt="Anytime Fitness" class="retail-logo" onerror="this.classList.add('retail-logo-placeholder')" loading="lazy">
         <div class="retail-name">Anytime Fitness</div>
         <div class="retail-perk">Exclusive member deal</div>
         <div class="retail-desc">ALSA members receive an exclusive offer at the Lorne St location. Present your membership card at reception to find out more.</div>
@@ -184,7 +184,7 @@
       </div>
 
       <div class="retail-card">
-        <img src="/images/sponsors/Ben%20%26%20Jerry%27s%20.png" alt="Ben &amp; Jerry&rsquo;s" class="retail-logo" onerror="this.classList.add('retail-logo-placeholder')">
+        <img src="/images/sponsors/Ben%20%26%20Jerry%27s%20.png" alt="Ben &amp; Jerry&rsquo;s" class="retail-logo" onerror="this.classList.add('retail-logo-placeholder')" loading="lazy">
         <div class="retail-name">Ben &amp; Jerry&rsquo;s</div>
         <div class="retail-perk">Up to 20% off</div>
         <div class="retail-desc">Premium members receive 20% off and General members receive 10% off at Ponsonby and CBD stores.</div>
@@ -192,7 +192,7 @@
       </div>
 
       <div class="retail-card">
-        <img src="/images/sponsors/Patch.png" alt="Patch Cafe" class="retail-logo" onerror="this.classList.add('retail-logo-placeholder')">
+        <img src="/images/sponsors/Patch.png" alt="Patch Cafe" class="retail-logo" onerror="this.classList.add('retail-logo-placeholder')" loading="lazy">
         <div class="retail-name">Patch Cafe</div>
         <div class="retail-perk">10% off all orders</div>
         <div class="retail-desc">10% off everything at Patch Cafe. Patch Cafe is also a financial contributor to ALSA.</div>
@@ -200,7 +200,7 @@
       </div>
 
       <div class="retail-card">
-        <img src="/images/sponsors/Burgerfuel.png" alt="BurgerFuel" class="retail-logo" onerror="this.classList.add('retail-logo-placeholder')">
+        <img src="/images/sponsors/Burgerfuel.png" alt="BurgerFuel" class="retail-logo" onerror="this.classList.add('retail-logo-placeholder')" loading="lazy">
         <div class="retail-name">BurgerFuel</div>
         <div class="retail-perk">Free fries</div>
         <div class="retail-desc">Free fries with every large burger purchase on presentation of your ALSA membership card.</div>
@@ -208,7 +208,7 @@
       </div>
 
       <div class="retail-card">
-        <img src="/images/sponsors/August%20Thai.png" alt="August Thai" class="retail-logo" onerror="this.classList.add('retail-logo-placeholder')">
+        <img src="/images/sponsors/August%20Thai.png" alt="August Thai" class="retail-logo" onerror="this.classList.add('retail-logo-placeholder')" loading="lazy">
         <div class="retail-name">August Thai</div>
         <div class="retail-perk">10% off everything</div>
         <div class="retail-desc">10% off all orders at August Thai for ALSA members.</div>
@@ -216,7 +216,7 @@
       </div>
 
       <div class="retail-card">
-        <img src="/images/sponsors/MexiKebab.png" alt="Mexi Kebab" class="retail-logo" onerror="this.classList.add('retail-logo-placeholder')">
+        <img src="/images/sponsors/MexiKebab.png" alt="Mexi Kebab" class="retail-logo" onerror="this.classList.add('retail-logo-placeholder')" loading="lazy">
         <div class="retail-name">Mexi Kebab</div>
         <div class="retail-perk">10% off</div>
         <div class="retail-desc">10% off all kebabs at Mexi Kebab for ALSA members.</div>
@@ -224,7 +224,7 @@
       </div>
 
       <div class="retail-card">
-        <img src="/images/sponsors/Barrel%20N%20Burger.png" alt="Barrel n Barrel" class="retail-logo" onerror="this.classList.add('retail-logo-placeholder')">
+        <img src="/images/sponsors/Barrel%20N%20Burger.png" alt="Barrel n Barrel" class="retail-logo" onerror="this.classList.add('retail-logo-placeholder')" loading="lazy">
         <div class="retail-name">Barrel n Barrel</div>
         <div class="retail-perk">Group dining discount</div>
         <div class="retail-desc">Discounts off mains for ALSA members during large group bookings.</div>
@@ -331,6 +331,7 @@
       <p style="font-size:16px;color:rgba(255,255,255,0.6);margin-bottom:32px;max-width:580px;">A 45 minute to one hour conversation is the easiest way to explore whether partnership makes sense for your firm. We will walk you through the prospectus, answer questions, and listen to what you are trying to achieve. Fill in your details below and we will be in touch.</p>
 
       <form id="partnerForm" style="max-width:580px;">
+          <input type="text" class="alsa-hp" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute!important;left:-9999px!important;top:-9999px;width:1px;height:1px;opacity:0;">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
           <div>
             <label style="display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:8px;">Name *</label>
@@ -366,6 +367,7 @@
 
       <script>
       document.getElementById('partnerForm').addEventListener('submit', function(e) {
+        if (e.target.querySelector('.alsa-hp') && e.target.querySelector('.alsa-hp').value) return;
         e.preventDefault();
         var data = {};
         new FormData(e.target).forEach(function(v,k){ data[k]=v; });

@@ -183,6 +183,7 @@
 <section style="padding:60px 0 80px;background:#f5f0e8;">
   <div class="container">
     <div class="apply-form" id="applyForm">
+          <input type="text" class="alsa-hp" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute!important;left:-9999px!important;top:-9999px;width:1px;height:1px;opacity:0;">
       <div class="form-section-label">Your Details</div>
       <div class="form-row">
         <div class="form-group">
@@ -685,6 +686,7 @@ setupPicker('officerPicker', selectedRolesOfficer, 'officer');
 setupPicker('internPicker', selectedRolesIntern, 'intern');
 
 async function submitApplication() {
+    if (document.querySelector('.alsa-hp') && document.querySelector('.alsa-hp').value) return;
   const name   = document.getElementById('app-name').value.trim();
   const email  = document.getElementById('app-email').value.trim();
   const year   = document.getElementById('app-year').value;

@@ -469,7 +469,8 @@
       <label for="ack-all">I confirm that this submission is my own work with <strong>no AI use of any kind</strong>, that <strong>track changes is enabled from the start</strong> of my writing process, that my submission does <strong>not exceed 1,500 words</strong> (excluding the question), and that I have read and agree to all competition rules on this page.</label>
     </div>
 
-    <button class="submit-btn" id="compSubmitBtn" onclick="submitCompetition()">Submit Entry</button>
+    <input type="text" class="alsa-hp" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute!important;left:-9999px!important;top:-9999px;width:1px;height:1px;opacity:0;">
+        <button class="submit-btn" id="compSubmitBtn" onclick="submitCompetition()">Submit Entry</button>
 
     <div class="form-msg success" id="comp-success">
       Your submission has been received. A confirmation has been sent to the email you provided. Feedback to all entrants by 15 August 2026.
@@ -563,6 +564,7 @@
 
   // Form submission
   async function submitCompetition() {
+    if (document.querySelector('.alsa-hp') && document.querySelector('.alsa-hp').value) return;
     const btn = document.getElementById('compSubmitBtn');
     const success = document.getElementById('comp-success');
     const error = document.getElementById('comp-error');
