@@ -229,11 +229,12 @@ async function sendEnquiry() {
       body: JSON.stringify({ name, email, subject, message })
     });
 
+    var esc = function(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); };
     document.querySelector('.enquiry-form').innerHTML = `
       <div style="text-align:center;padding:48px 20px;">
         <div style="font-size:32px;margin-bottom:16px;">&#10003;</div>
         <p style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#5b0f0f;margin-bottom:10px;">Message received.</p>
-        <p style="color:#555;font-size:15px;line-height:1.7;">We will be in touch within three working days at <strong>${email || 'the email you provided'}</strong>.</p>
+        <p style="color:#555;font-size:15px;line-height:1.7;">We will be in touch within three working days at <strong>${email ? esc(email) : 'the email you provided'}</strong>.</p>
       </div>
     `;
   } catch(err) {
@@ -249,8 +250,8 @@ async function sendEnquiry() {
   <h3>Social Media</h3>
   <p>For the latest updates, event photos, and day to day ALSA happenings, find us on:</p>
   <div class="social-row">
-    <a href="https://instagram.com/alsa.akl" target="_blank">Instagram · @alsa.akl</a>
-    <a href="https://www.linkedin.com/company/alsa-akl/" target="_blank">LinkedIn · alsa-akl</a>
+    <a href="https://instagram.com/alsa.akl" target="_blank" rel="noopener noreferrer">Instagram · @alsa.akl</a>
+    <a href="https://www.linkedin.com/company/alsa-akl/" target="_blank" rel="noopener noreferrer">LinkedIn · alsa-akl</a>
   </div>
 </div>
 
@@ -258,7 +259,7 @@ async function sendEnquiry() {
   <h3>ALSA Community</h3>
   <p>The ALSA Discord is where members stay in the loop between events. Join to get updates on upcoming events, connect with other members, and hear from the team directly.</p>
   <div class="social-row">
-    <a href="https://discord.gg/yWZpNKGXgV" target="_blank">Discord · Join the server</a>
+    <a href="https://discord.gg/yWZpNKGXgV" target="_blank" rel="noopener noreferrer">Discord · Join the server</a>
   </div>
 </div>
 </article>
@@ -285,8 +286,8 @@ async function sendEnquiry() {
         </div>
         <div class="footer-col">
           <h4>Connect</h4>
-          <a href="https://instagram.com/alsa.akl" target="_blank">Instagram</a>
-          <a href="https://www.linkedin.com/company/alsa-akl/" target="_blank">LinkedIn</a>
+          <a href="https://instagram.com/alsa.akl" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.linkedin.com/company/alsa-akl/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="/partners/">Partners</a>
         </div>
         <div class="footer-col">

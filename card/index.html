@@ -262,9 +262,15 @@
 </div>
 
 <script>
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, function(c) {
+      return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c];
+    });
+  }
+
   const p = new URLSearchParams(window.location.search);
-  const name = p.get('name') || '';
-  const year = p.get('year') || '2026';
+  const name = escapeHtml((p.get('name') || '').slice(0, 60));
+  const year = escapeHtml((p.get('year') || '2026').slice(0, 9));
   const tier = p.get('tier') || 'general';
   const root = document.getElementById('root');
 

@@ -521,8 +521,8 @@
         </div>
         <div class="footer-col">
           <h4>Connect</h4>
-          <a href="https://instagram.com/alsa.akl" target="_blank">Instagram</a>
-          <a href="https://www.linkedin.com/company/alsa-akl/" target="_blank">LinkedIn</a>
+          <a href="https://instagram.com/alsa.akl" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.linkedin.com/company/alsa-akl/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="/partners/">Partners</a>
         </div>
         <div class="footer-col">
@@ -771,8 +771,9 @@ async function submitApplication() {
       body: JSON.stringify({ name, email, subject, message, cvFile: cvFile || null, cvFileName: cvFileName || null, portfolioFile: portfolioFile || null, portfolioFileName: portfolioFileName || null })
     });
 
+    var esc = function(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); };
     var formEl = document.getElementById('applyForm');
-    formEl.innerHTML = '<div style="text-align:center;padding:60px 20px;"><div style="font-size:36px;margin-bottom:18px;color:#C9A84C;">&#10003;</div><p style="font-family:\'Playfair Display\',serif;font-size:24px;font-weight:700;color:#5b0f0f;margin-bottom:12px;">Application received.</p><p style="color:#555;font-size:15px;line-height:1.8;max-width:480px;margin:0 auto;">Thank you, ' + name + '. We will be in touch at <strong>' + email + '</strong> the week of 20 July.</p><p style="color:#aaa;font-size:13px;margin-top:16px;font-style:italic;">If you do not hear from us by then, email us directly at Enquiries@alsaauckland.org.</p></div>';
+    formEl.innerHTML = '<div style="text-align:center;padding:60px 20px;"><div style="font-size:36px;margin-bottom:18px;color:#C9A84C;">&#10003;</div><p style="font-family:\'Playfair Display\',serif;font-size:24px;font-weight:700;color:#5b0f0f;margin-bottom:12px;">Application received.</p><p style="color:#555;font-size:15px;line-height:1.8;max-width:480px;margin:0 auto;">Thank you, ' + esc(name) + '. We will be in touch at <strong>' + esc(email) + '</strong> the week of 20 July.</p><p style="color:#aaa;font-size:13px;margin-top:16px;font-style:italic;">If you do not hear from us by then, email us directly at Enquiries@alsaauckland.org.</p></div>';
     formEl.scrollIntoView({behavior:'smooth', block:'start'});
     if (typeof gtag === 'function') gtag('event', 'application_submit', { form: 'exec_application' });
   } catch(err) {
