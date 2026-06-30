@@ -208,6 +208,12 @@ async function sendEnquiry() {
   const btn     = document.getElementById('inq-btn');
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  // spam guard: real enquiries do not contain several links
+  if (((message + ' ' + subject).match(/https?:\/\//gi) || []).length >= 4) {
+    note.style.color = '#c0392b';
+    note.textContent = 'Your message looks like spam. For genuine enquiries with links, email us directly at Enquiries@alsaauckland.org.';
+    return;
+  }
   if (!name || !message) {
     note.style.color = '#c0392b';
     note.textContent = 'Please enter your name and message before sending.';

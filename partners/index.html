@@ -371,6 +371,7 @@
         e.preventDefault();
         var data = {};
         new FormData(e.target).forEach(function(v,k){ data[k]=v; });
+        if ((JSON.stringify(data).match(/https?:\/\//gi) || []).length >= 4) return;
         data.subject = 'Sponsorship and Partnership';
         fetch('https://script.google.com/macros/s/AKfycbyazku0MvWjY9ROhbuNyOzsLGccC6UsW_PDRfQ7CfmSZ_cwMk-EbJ3s3PXSx5EAQ99s/exec', {
           method: 'POST',
