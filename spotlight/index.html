@@ -367,29 +367,31 @@
     if (type === 'student') {
       data = {
         type: 'student',
-        'First Name':      val(form, 'st-first'),
-        'Last Name':       val(form, 'st-last'),
-        'Year of Study':   val(form, 'st-year'),
-        'LinkedIn':        val(form, 'st-linkedin'),
-        'Nominee Email':   val(form, 'st-email'),
-        'Reason':          val(form, 'st-reason'),
-        'Context':         val(form, 'st-context'),
-        'Nominator Name':  val(form, 'st-nom-name'),
-        'Nominator Email': val(form, 'st-nom-email')
+        'Nominee First Name': val(form, 'st-first'),
+        'Nominee Last Name':  val(form, 'st-last'),
+        'Category':           'Current Student',
+        'Nominee Role':       val(form, 'st-year'),
+        'LinkedIn':           val(form, 'st-linkedin'),
+        'Nominee Email':      val(form, 'st-email'),
+        'Reason':             val(form, 'st-reason'),
+        'Context':            val(form, 'st-context'),
+        'Nominator Name':     val(form, 'st-nom-name'),
+        'Nominator Email':    val(form, 'st-nom-email')
       };
     } else {
+      var lwRole = val(form, 'lw-role'), lwOrg = val(form, 'lw-org');
       data = {
         type: 'lawyer',
-        'First Name':      val(form, 'lw-first'),
-        'Last Name':       val(form, 'lw-last'),
-        'Role':            val(form, 'lw-role'),
-        'Organisation':    val(form, 'lw-org'),
-        'LinkedIn':        val(form, 'lw-linkedin'),
-        'Nominee Email':   val(form, 'lw-email'),
-        'Reason':          val(form, 'lw-reason'),
-        'Context':         val(form, 'lw-context'),
-        'Nominator Name':  val(form, 'lw-nom-name'),
-        'Nominator Email': val(form, 'lw-nom-email')
+        'Nominee First Name': val(form, 'lw-first'),
+        'Nominee Last Name':  val(form, 'lw-last'),
+        'Category':           'Graduate Lawyer',
+        'Nominee Role':       [lwRole, lwOrg].filter(Boolean).join(', '),
+        'LinkedIn':           val(form, 'lw-linkedin'),
+        'Nominee Email':      val(form, 'lw-email'),
+        'Reason':             val(form, 'lw-reason'),
+        'Context':            val(form, 'lw-context'),
+        'Nominator Name':     val(form, 'lw-nom-name'),
+        'Nominator Email':    val(form, 'lw-nom-email')
       };
     }
 
