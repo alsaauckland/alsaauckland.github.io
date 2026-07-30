@@ -172,7 +172,7 @@
     <p class="hero-lead">Cultural competency is a skill the profession increasingly expects and rarely teaches. This workshop, part of our cultural competency series with a focus on the Chinese community, gives you a practical grounding in working with clients and colleagues across cultures. Hosted by Mingze Sun. Open to all ALSA members.</p>
     <div class="hero-meta">
       <div class="hero-meta-item">
-        <div class="hero-meta-label">Date (provisional)</div>
+        <div class="hero-meta-label">Date</div>
         <div class="hero-meta-value">Tue 11 August</div>
       </div>
       <div class="hero-meta-item">
@@ -211,7 +211,7 @@
     <div class="details">
       <div class="details-head">Event Details</div>
       <div class="detail-row"><span class="detail-label">Host</span><span class="detail-value">Mingze Sun</span></div>
-      <div class="detail-row"><span class="detail-label">Date</span><span class="detail-value">Tuesday 11 August<small>Being confirmed</small></span></div>
+      <div class="detail-row"><span class="detail-label">Date</span><span class="detail-value">Tuesday 11 August</span></div>
       <div class="detail-row"><span class="detail-label">Time</span><span class="detail-value">5:30 to 7:00pm</span></div>
       <div class="detail-row"><span class="detail-label">Open to</span><span class="detail-value">ALSA members</span></div>
       <div class="detail-row"><span class="detail-label">Venue</span><span class="detail-value">IPLS<small>Level 7, 120 Albert Street, Auckland CBD</small></span></div>
@@ -222,12 +222,18 @@
 <!-- FORM -->
 <section class="form-section section-alt">
   <div class="form-container">
-    <div class="form-intro" style="text-align:center;">
+    <div class="form-intro" id="cc-openingsoon" style="text-align:center;">
       <div class="eyebrow">Registrations</div>
       <h2>Opening <em>soon</em>.</h2>
       <p style="max-width:540px;margin:0 auto 8px;">Registrations for this workshop are not open just yet. They will open right here shortly, so check back soon. To hear the moment they go live, follow us on Instagram.</p>
-      <p style="max-width:540px;margin:0 auto;font-size:14px;color:#888;">Premium members are prioritised when registrations open. <a href="/join/" style="color:#5b0f0f;font-weight:600;text-decoration:none;border-bottom:1px solid #C9A84C;">Join ALSA</a> to secure your priority.</p>
+      <p style="max-width:540px;margin:0 auto;font-size:14px;color:#888;">Premium members are prioritised when registrations open, and registrations will close <strong>Sunday 9 August, 9:00pm</strong>. <a href="/join/" style="color:#5b0f0f;font-weight:600;text-decoration:none;border-bottom:1px solid #C9A84C;">Join ALSA</a> to secure your priority.</p>
       <a href="https://instagram.com/alsa.akl" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:28px;background:#5b0f0f;color:#fff;padding:14px 34px;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;font-weight:700;">Follow for updates</a>
+    </div>
+
+    <div class="form-intro" id="cc-closed" style="text-align:center;display:none;">
+      <div class="eyebrow">Registrations</div>
+      <h2>Registrations <em>closed</em>.</h2>
+      <p style="max-width:540px;margin:0 auto;">Registrations for the Chinese Cultural Competency workshop closed on Sunday 9 August. Thank you to everyone who signed up. If you registered, watch your inbox for confirmation of your place and the venue details.</p>
     </div>
 
     <div class="form-status" id="cc-banner" style="display:none;"></div>
@@ -376,7 +382,7 @@
         body: JSON.stringify(data)
       });
       status.className = 'form-status success'; status.style.display = 'block';
-      status.innerHTML = '<strong>Thanks for registering.</strong> We will email you to confirm your place, or your spot on the waitlist, along with the final date and venue. Keep an eye on your inbox.';
+      status.innerHTML = '<strong>Thanks for registering.</strong> We will email you to confirm your place, or your spot on the waitlist. Keep an eye on your inbox.';
       event.target.reset();
       window.scrollTo({top: status.offsetTop - 100, behavior: 'smooth'});
     } catch(err) {
@@ -386,9 +392,26 @@
     }
   }
 
+  // Registration deadline: registrations close automatically at this time.
+  // Sunday 9 August 2026, 9:00pm NZST (UTC+12, no daylight saving in August).
+  var CC_DEADLINE = new Date('2026-08-09T21:00:00+12:00');
+  function ccPastDeadline(){ return new Date() >= CC_DEADLINE; }
+
+  // If the deadline has passed, close registrations no matter the prior state.
+  (function(){
+    if (!ccPastDeadline()) return;
+    var form = document.getElementById('ccForm');
+    var openingsoon = document.getElementById('cc-openingsoon');
+    var closed = document.getElementById('cc-closed');
+    if (form) form.style.display = 'none';
+    if (openingsoon) openingsoon.style.display = 'none';
+    if (closed) closed.style.display = 'block';
+  })();
+
   // Live capacity check. The form posts no-cors, so we read the count via JSONP on load
   // to close the form at capacity and switch to waitlist mode once confirmed places fill.
   window.__ccStatus = function(info){
+    if (ccPastDeadline()) return; // deadline close takes precedence
     try {
       var form = document.getElementById('ccForm');
       var banner = document.getElementById('cc-banner');
@@ -408,11 +431,20 @@
       }
     } catch(err) {}
   };
-  (function(){
+  if (!ccPastDeadline()) {
     var s = document.createElement('script');
     s.src = CC_ENDPOINT + '?callback=__ccStatus&t=' + Date.now();
     s.async = true;
     document.body.appendChild(s);
+  }
+
+  // Belt and braces: block the submit itself if somehow attempted past the deadline.
+  (function(){
+    var _orig = submitCcForm;
+    submitCcForm = function(event){
+      if (ccPastDeadline()) { if (event) event.preventDefault(); return; }
+      return _orig(event);
+    };
   })();
 </script>
 
