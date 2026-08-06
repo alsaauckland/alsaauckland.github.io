@@ -297,6 +297,11 @@
         <input type="text" id="cc-dietary" placeholder="e.g. vegetarian, halal, none">
       </div>
 
+      <div class="form-group">
+        <label for="cc-referral">Which executive referred you? <span style="color:#aaa;font-weight:400;text-transform:none;letter-spacing:0;">(optional)</span></label>
+        <input type="text" id="cc-referral" placeholder="Name of the ALSA executive who referred you">
+      </div>
+
       <div class="consent-row">
         <input type="checkbox" id="cc-consent" required>
         <label for="cc-consent">I am happy for ALSA Auckland to contact me at this email about this workshop, and I have read ALSA's <a href="/privacy/" target="_blank" rel="noopener noreferrer" style="color:#5b0f0f;font-weight:600;">Privacy Policy</a> and <a href="/conduct/" target="_blank" rel="noopener noreferrer" style="color:#5b0f0f;font-weight:600;">Code of Conduct</a>.</label>
@@ -370,6 +375,7 @@
       'Year Level':      ccval('cc-year'),
       'ALSA Member':     ccval('cc-member'),
       'Dietary Requirements': ccval('cc-dietary'),
+      'Referred By':     ccval('cc-referral'),
       'Consent':         'Yes'
     };
 
