@@ -289,7 +289,7 @@
           <option>General Member</option>
           <option>Not yet a member</option>
         </select>
-        <p class="hint">Premium members are prioritised for this event.</p>
+        <p class="hint">Open to ALSA members only. Premium members are prioritised.</p>
       </div>
 
       <div class="form-group">
@@ -378,6 +378,14 @@
       'Referred By':     ccval('cc-referral'),
       'Consent':         'Yes'
     };
+
+    // Members only: must be at least a General member to register.
+    if (data['ALSA Member'] !== 'Premium Member' && data['ALSA Member'] !== 'General Member') {
+      status.className = 'form-status error'; status.style.display = 'block';
+      status.innerHTML = 'This workshop is open to ALSA members. Please <a href="/join/" style="color:#5b0f0f;font-weight:600;">join ALSA</a> first, then come back and register.';
+      window.scrollTo({top: status.offsetTop - 100, behavior: 'smooth'});
+      return;
+    }
 
     btn.disabled = true; btn.textContent = 'Submitting...';
     status.className = 'form-status'; status.style.display = 'none';
