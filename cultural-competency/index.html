@@ -225,7 +225,7 @@
     <div class="form-intro" id="cc-reg-intro">
       <div class="eyebrow">Register your place</div>
       <h2>Reserve your spot.</h2>
-      <p>The workshop is on <strong>Tuesday 11 August, 6:00 to 7:00pm</strong> (doors open 5:45pm) at IPLS, Level 7, 120 Albert Street, Auckland CBD. Register below and we will email you to confirm your place. Registrations close <strong>Sunday 9 August, 9:00pm</strong>.</p>
+      <p>The workshop is on <strong>Tuesday 11 August, 6:00 to 7:00pm</strong> (doors open 5:45pm) at IPLS, Level 7, 120 Albert Street, Auckland CBD. Register below and we will email you to confirm your place. Registrations close <strong>tonight at midnight</strong>.</p>
       <div style="background:#f5f0e8;border-left:3px solid #C9A84C;padding:16px 20px;margin-top:20px;">
         <p style="font-size:14px;color:#444;line-height:1.7;margin:0;"><strong>Premium members are prioritised.</strong> Confirmed places are filled with ALSA Premium members first, and any remaining spaces go to general members. Not a member yet? <a href="/join/" style="color:#5b0f0f;font-weight:600;text-decoration:none;border-bottom:1px solid #C9A84C;">Join ALSA</a>.</p>
       </div>
@@ -234,7 +234,7 @@
     <div class="form-intro" id="cc-closed" style="text-align:center;display:none;">
       <div class="eyebrow">Registrations</div>
       <h2>Registrations <em>closed</em>.</h2>
-      <p style="max-width:540px;margin:0 auto;">Registrations for the Chinese Cultural Competency workshop closed on Sunday 9 August. Thank you to everyone who signed up. If you registered, watch your inbox for confirmation of your place and the venue details.</p>
+      <p style="max-width:540px;margin:0 auto;">Registrations for the Chinese Cultural Competency workshop have closed. Thank you to everyone who signed up. If you registered, watch your inbox for confirmation of your place and the venue details.</p>
     </div>
 
     <div class="form-status" id="cc-banner" style="display:none;"></div>
@@ -408,8 +408,9 @@
   }
 
   // Registration deadline: registrations close automatically at this time.
-  // Sunday 9 August 2026, 9:00pm NZST (UTC+12, no daylight saving in August).
-  var CC_DEADLINE = new Date('2026-08-09T21:00:00+12:00');
+  // Registrations reopened until midnight tonight: 12:00am on Tuesday 11 August 2026
+  // NZST (UTC+12, no daylight saving in August).
+  var CC_DEADLINE = new Date('2026-08-11T00:00:00+12:00');
   function ccPastDeadline(){ return new Date() >= CC_DEADLINE; }
 
   // If the deadline has passed, close registrations no matter the prior state.
