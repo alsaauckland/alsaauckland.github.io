@@ -267,7 +267,7 @@
       </div>
     </div>
   </div>
-  <div class="hero-caption">Inaugural Launch Night · Semester 1, 2026</div>
+  <div class="hero-caption">Launch Night · Semester 1, 2026</div>
 </section>
 
 <!-- STATS -->
@@ -278,11 +278,11 @@
       <div class="stat-label">Members</div>
     </div>
     <div class="stat">
-      <div class="stat-num">500+</div>
+      <div class="stat-num">750+</div>
       <div class="stat-label">Followers</div>
     </div>
     <div class="stat">
-      <div class="stat-num">17</div>
+      <div class="stat-num">20+</div>
       <div class="stat-label">Executives</div>
     </div>
     <div class="stat">
@@ -350,17 +350,17 @@
         <ul class="prog-list">
           <li>Learning to Learn</li>
           <li>Chinese Cultural Competency Workshop</li>
-          <li>Inaugural ALSA Legal Writing Competition</li>
+          <li>ALSA Legal Writing Competition</li>
         </ul>
       </div>
       <div class="prog-card">
         <div class="prog-label">Mentoring</div>
         <h3>Structured Industry Guidance</h3>
-        <p>Connecting students with practising lawyers for ongoing, structured mentorship throughout the semester. Not a one-off coffee. A real relationship that develops over time.</p>
+        <p>Connecting students with lawyers and recent graduates for ongoing, structured mentorship throughout the semester. Not a one-off coffee. A real relationship that develops over time.</p>
         <ul class="prog-list">
           <li>Semester-long mentorship programme</li>
-          <li>Practising lawyer mentors</li>
-          <li>Law firm tour</li>
+          <li>Graduate mentors</li>
+          <li>Law firm tour at DLA Piper</li>
         </ul>
       </div>
       <div class="prog-card">
@@ -368,8 +368,8 @@
         <h3>Community Beyond Your Cohort</h3>
         <p>Social events and informal gatherings that build the connections you actually need. The more people you know across different years, faculties, and industries, the stronger your network becomes.</p>
         <ul class="prog-list">
-          <li>Inaugural Launch Night</li>
-          <li>Monthly socials</li>
+          <li>Launch Night</li>
+          <li>Social events</li>
           <li>Closing Night</li>
         </ul>
       </div>
@@ -389,7 +389,7 @@
         <p>The legal profession needs to see what Asian law students are doing. ALSA's marketing team puts student work, stories, and thinking in front of the people who matter through every channel we run.</p>
         <ul class="prog-list">
           <li>ALSA Newsletter</li>
-          <li>The ALSA Podcast (launching Semester 2)</li>
+          <li>The ALSA Podcast</li>
           <li>Social media content</li>
         </ul>
       </div>
@@ -510,39 +510,45 @@
   <div class="moments-head">
     <div>
       <div class="section-eyebrow">From the Gallery</div>
-      <h2 class="section-title" style="margin-bottom:0;">Moments from our <em>founding semester</em>.</h2>
+      <h2 class="section-title" style="margin-bottom:0;">Moments from our <em>founding year</em>.</h2>
     </div>
     <a href="/gallery/" style="font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#5b0f0f;text-decoration:none;font-weight:600;white-space:nowrap;">View the Gallery &rarr;</a>
   </div>
   <div class="moments-scroller">
-  <div class="moments-strip">
-    <a href="/gallery/" class="moment">
-      <div class="moment-frame"><img src="/images/home/moment-launch-1.jpg" alt="Students in conversation at the Inaugural Launch Night" loading="lazy"></div>
-      <span class="moment-cap">Inaugural Launch Night</span>
-    </a>
-    <a href="/gallery/" class="moment">
-      <div class="moment-frame"><img src="/images/home/moment-workshop.jpg" alt="Guest speaker presenting at the Inaugural Academic Workshop" loading="lazy"></div>
-      <span class="moment-cap">Inaugural Academic Workshop</span>
-    </a>
-    <a href="/gallery/" class="moment">
-      <div class="moment-frame"><img src="/images/home/moment-networking.jpg" alt="Members at the Inaugural Networking Night" loading="lazy"></div>
-      <span class="moment-cap">Inaugural Networking Night</span>
-    </a>
-    <a href="/gallery/" class="moment">
-      <div class="moment-frame"><img src="/images/home/moment-launch-3.jpg" alt="Members mingling at the Inaugural Launch Night" loading="lazy"></div>
-      <span class="moment-cap">Inaugural Launch Night</span>
-    </a>
-    <a href="/gallery/" class="moment">
-      <div class="moment-frame"><img src="/images/home/moment-networking-2.jpg" alt="Members at the Family and Criminal Law Networking Night" loading="lazy"></div>
-      <span class="moment-cap">Inaugural Networking Night</span>
-    </a>
-    <a href="/gallery/" class="moment">
-      <div class="moment-frame"><img src="/images/home/moment-launch-2.jpg" alt="Members celebrating at the Inaugural Launch Night" loading="lazy"></div>
-      <span class="moment-cap">Inaugural Launch Night</span>
-    </a>
+  <div class="moments-strip" id="momentsStrip">
+    <!-- Populated from /gallery-data.js so this stays in sync with the gallery. -->
   </div>
   </div>
 </section>
+
+<script src="/gallery-data.js"></script>
+<script>
+  // Build the moments strip from the shared gallery data: newest albums first,
+  // a few photos from each, linking straight to that album. Updates automatically
+  // as albums/photos are added to gallery-data.js.
+  (function(){
+    var strip = document.getElementById('momentsStrip');
+    var albums = (window.ALSA_GALLERY || []).slice().sort(function(a,b){
+      return (b.dateISO || '').localeCompare(a.dateISO || '');
+    });
+    var PER_ALBUM = 3, MAX = 12, cards = [];
+    for (var i = 0; i < albums.length && cards.length < MAX; i++) {
+      var ev = albums[i];
+      var cap = (ev.title || '').replace(/^Inaugural\s+/, '');
+      for (var j = 0; j < PER_ALBUM && j < (ev.photos||[]).length && cards.length < MAX; j++) {
+        var src = ev.basePath ? ev.basePath + '/' + ev.photos[j] : 'images/gallery/' + ev.folder + '/' + ev.photos[j];
+        cards.push(
+          '<a href="/gallery/?event=' + ev.slug + '" class="moment">' +
+            '<div class="moment-frame"><img src="' + src + '" alt="' + cap + '" loading="lazy" ' +
+              'onerror="this.closest(\'.moment\').style.display=\'none\'"></div>' +
+            '<span class="moment-cap">' + cap + '</span>' +
+          '</a>'
+        );
+      }
+    }
+    if (cards.length) strip.innerHTML = cards.join('');
+  })();
+</script>
 
 <!-- NEWSLETTER -->
 <section class="newsletter-feature" id="newsletter">

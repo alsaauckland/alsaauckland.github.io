@@ -234,13 +234,21 @@ page **auto-hides events whose date has passed**. So old events disappear on the
 own — you don't have to remove them manually. The home page shows the **next four**
 upcoming events using the same mechanism.
 
-### Gallery (`/gallery/`)
-A single page driven by a JavaScript `events` array near the bottom of
-`gallery/index.html`. Each album is an object: `slug`, `title`, `date`, `dateISO`,
-`description`, `basePath`, `folder`, and a `photos: [...]` list of filenames.
-Photos load from `/images/gallery/<folder>/`. To add an album: drop images in a
-new folder and add an object to the array. Missing image files auto-hide, so the
-grid never shows broken tiles.
+### Gallery (`/gallery/`) and the shared gallery data
+Album data lives in **`/gallery-data.js`** (repo root) as `window.ALSA_GALLERY`,
+a single source of truth loaded by **both** the Gallery page and the Home page.
+Each album is an object: `slug`, `title`, `date`, `dateISO`, `description`,
+`basePath`, `folder`, and a `photos: [...]` list of filenames. The **first photo**
+in each list is the album cover. Photos load from `basePath`
+(`/images/gallery/<folder>/`). To add an album: drop images in a new folder and
+add an object to `gallery-data.js`. Missing image files auto-hide, so the grid
+never shows broken tiles.
+
+The Home page **"Moments" strip** is generated from the same `gallery-data.js`
+(newest albums first, a few photos each), so adding albums/photos there updates
+the home strip automatically. It links each thumbnail to `/gallery/?event=<slug>`
+and strips a leading "Inaugural " from captions for brevity. **Edit
+`gallery-data.js`, not the inline data** — the gallery page now reads from it.
 
 ### Deadline auto-close pattern
 Registration/application pages with a deadline should **close themselves**. The
