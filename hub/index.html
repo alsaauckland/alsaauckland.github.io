@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1M6M9RLGB6"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1M6M9RLGB6');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="/images/logo.png" sizes="196x196">
+<link rel="apple-touch-icon" href="/images/logo.png">
+<title>Hub | ALSA Auckland</title>
+<meta name="description" content="ALSA Auckland's hub. The podcast, our socials, the newsletter, and membership, all in one place.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ALSA Auckland">
+<meta property="og:title" content="Hub | ALSA Auckland">
+<meta property="og:description" content="ALSA Auckland's hub. The podcast, our socials, the newsletter, and membership, all in one place.">
+<meta property="og:url" content="https://alsaauckland.org/hub/">
+<meta property="og:image" content="https://alsaauckland.org/images/home/hero-launch.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=optional" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;overflow-y:scroll;}
+  body{font-family:'Lora',Georgia,serif;color:#2a2a2a;background:#fdfaf4;line-height:1.7;}
+
+  /* NAV */
+  .nav{position:sticky;top:0;background:rgba(253,250,244,0.96);backdrop-filter:blur(10px);border-bottom:0.5px solid rgba(0,0,0,0.06);z-index:100;}
+  .nav-inner{max-width:1200px;margin:0 auto;padding:8px 40px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#1a1a1a;}
+  .nav-logo{width:70px;height:70px;object-fit:contain;}
+  .nav-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;letter-spacing:2px;}
+  .nav-name span{color:#5b0f0f;}
+  .nav-links{display:flex;gap:22px;}
+  .nav-links a{font-size:13px;color:#555;text-decoration:none;letter-spacing:0.5px;}
+  .nav-links a:hover{color:#5b0f0f;}
+  .nav-cta{background:#5b0f0f;color:#fff;padding:9px 20px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;font-weight:600;white-space:nowrap;flex-shrink:0;}
+  @media(max-width:1120px) and (min-width:901px){.nav-links{gap:12px;}.nav-links a{font-size:12px;}.nav-inner{padding-left:16px;padding-right:16px;}.nav-name{display:none;}}
+
+  /* LINKTREE */
+  .links-hero{background:#5b0f0f;color:#fff;padding:70px 24px 60px;text-align:center;position:relative;overflow:hidden;}
+  .links-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(91,15,15,0) 40%,rgba(43,14,14,0.55));pointer-events:none;}
+  .links-crest{width:96px;height:96px;object-fit:contain;margin:0 auto 20px;display:block;position:relative;z-index:1;}
+  .links-hero h1{font-family:'Playfair Display',serif;font-size:34px;font-weight:700;letter-spacing:0.5px;position:relative;z-index:1;}
+  .links-hero p{font-size:14px;color:rgba(255,255,255,0.75);margin-top:10px;position:relative;z-index:1;letter-spacing:0.3px;}
+
+  .links-wrap{max-width:560px;margin:-28px auto 0;padding:0 24px 70px;position:relative;z-index:2;}
+
+  .link-card{display:flex;align-items:center;gap:16px;background:#fff;border:0.5px solid rgba(0,0,0,0.08);border-left:3px solid #C9A84C;padding:18px 22px;margin-bottom:16px;text-decoration:none;color:#1a1a1a;box-shadow:0 6px 20px -12px rgba(43,14,14,0.4);transition:transform 0.15s ease,box-shadow 0.2s ease,border-left-color 0.2s;}
+  .link-card:hover{transform:translateY(-2px);box-shadow:0 12px 28px -14px rgba(43,14,14,0.5);border-left-color:#5b0f0f;}
+  .link-icon{width:42px;height:42px;flex-shrink:0;border-radius:50%;background:#f5f0e8;display:flex;align-items:center;justify-content:center;}
+  .link-icon svg{width:22px;height:22px;display:block;}
+  .link-body{flex:1;min-width:0;}
+  .link-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;line-height:1.25;}
+  .link-sub{font-size:12.5px;color:#888;margin-top:3px;letter-spacing:0.2px;}
+  .link-arrow{color:#C9A84C;font-size:20px;flex-shrink:0;transition:transform 0.2s;}
+  .link-card:hover .link-arrow{transform:translateX(3px);color:#5b0f0f;}
+
+  .links-social{text-align:center;margin-top:34px;}
+  .links-social a{display:inline-block;margin:0 10px;color:#5b0f0f;text-decoration:none;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;}
+  .links-social a:hover{color:#2b0e0e;}
+
+  /* FOOTER */
+  footer{background:#1a1a1a;color:rgba(255,255,255,0.5);padding:50px 0 30px;}
+  .footer-inner{max-width:1100px;margin:0 auto;padding:0 40px;}
+  .footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:36px;padding-bottom:36px;border-bottom:0.5px solid rgba(255,255,255,0.1);flex-wrap:wrap;gap:30px;}
+  .footer-brand{font-family:'Playfair Display',serif;font-size:24px;color:#fff;letter-spacing:3px;font-weight:700;}
+  .footer-brand span{color:#C9A84C;}
+  .footer-tagline{font-size:13px;font-style:italic;color:rgba(255,255,255,0.4);margin-top:6px;}
+  .footer-cols{display:flex;gap:50px;flex-wrap:wrap;}
+  .footer-col h4{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:14px;font-weight:600;font-family:'Lora',serif;}
+  .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,0.6);text-decoration:none;padding:4px 0;}
+  .footer-col a:hover{color:#fff;}
+  .footer-bottom{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.7;text-align:center;}
+
+  @media(max-width:900px){
+    .nav-links{display:none;}
+    .nav-inner,.footer-inner{padding-left:24px;padding-right:24px;}
+    .footer-top{flex-direction:column;gap:14px;text-align:center;}
+  }
+
+  /* MOBILE NAV */
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+  .hamburger span{display:block;width:22px;height:2px;background:#5b0f0f;transition:all 0.3s;}
+  @media(max-width:900px){
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(253,250,244,0.98);padding:16px 24px;flex-direction:column;gap:0;border-bottom:0.5px solid rgba(0,0,0,0.08);z-index:200;}
+    .nav-links.open{display:flex;}
+    .nav-links a{padding:12px 0;border-bottom:0.5px solid rgba(0,0,0,0.06);font-size:14px;}
+    .nav-links a:last-child{border-bottom:none;}
+    .nav-cta{display:none;}
+    .hamburger{display:flex;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      <img src="/images/logo-nav.png" alt="ALSA" class="nav-logo">
+      <span class="nav-name">ALSA <span>AUCKLAND</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/programmes/">Programmes</a>
+      <a href="/newsletters/">Newsletter</a>
+      <a href="/gallery/">Gallery</a>
+      <a href="/team/">Team</a>
+      <a href="/contact/">Contact</a>
+      <a href="/hub/" style="color:#5b0f0f;font-weight:600;">Hub</a>
+    </div>
+    <a href="/join/" class="nav-cta">Join Us</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="links-hero">
+  <img src="/images/logo.png" alt="ALSA Auckland" class="links-crest">
+  <h1>ALSA Auckland</h1>
+  <p>Everything in one place.</p>
+</section>
+
+<!-- LINKS -->
+<div class="links-wrap">
+
+  <a href="https://www.youtube.com/@ALSA_AKL" target="_blank" rel="noopener noreferrer" class="link-card">
+    <span class="link-icon">
+      <svg viewBox="0 0 24 24" fill="#5b0f0f" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+    </span>
+    <span class="link-body">
+      <span class="link-title">ALSA Podcast</span>
+      <span class="link-sub">Watch on our YouTube channel</span>
+    </span>
+    <span class="link-arrow">&rarr;</span>
+  </a>
+
+  <a href="https://instagram.com/alsa.akl" target="_blank" rel="noopener noreferrer" class="link-card">
+    <span class="link-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#5b0f0f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </span>
+    <span class="link-body">
+      <span class="link-title">Instagram</span>
+      <span class="link-sub">@alsa.akl</span>
+    </span>
+    <span class="link-arrow">&rarr;</span>
+  </a>
+
+  <a href="https://www.linkedin.com/company/alsa-akl/" target="_blank" rel="noopener noreferrer" class="link-card">
+    <span class="link-icon">
+      <svg viewBox="0 0 24 24" fill="#5b0f0f" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+    </span>
+    <span class="link-body">
+      <span class="link-title">LinkedIn</span>
+      <span class="link-sub">ALSA Auckland</span>
+    </span>
+    <span class="link-arrow">&rarr;</span>
+  </a>
+
+  <a href="/newsletters/" class="link-card">
+    <span class="link-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#5b0f0f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+    </span>
+    <span class="link-body">
+      <span class="link-title">The ALSA Newsletter</span>
+      <span class="link-sub">Read our latest issue</span>
+    </span>
+    <span class="link-arrow">&rarr;</span>
+  </a>
+
+  <a href="/join/" class="link-card">
+    <span class="link-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#5b0f0f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+    </span>
+    <span class="link-body">
+      <span class="link-title">Become a Member</span>
+      <span class="link-sub">Join ALSA Auckland</span>
+    </span>
+    <span class="link-arrow">&rarr;</span>
+  </a>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">ALSA <span>AUCKLAND</span></div>
+        <div class="footer-tagline">Confidence. Competence. Community.</div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>About</h4>
+          <a href="/about/">About ALSA</a>
+          <a href="/programmes/">Programmes</a>
+          <a href="/team/">Team</a>
+        </div>
+        <div class="footer-col">
+          <h4>Engage</h4>
+          <a href="/newsletters/">Newsletter</a>
+          <a href="/gallery/">Gallery</a>
+          <a href="/events/">Events</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://instagram.com/alsa.akl" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.linkedin.com/company/alsa-akl/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="/partners/">Partners</a>
+        </div>
+        <div class="footer-col">
+          <h4>Policies</h4>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/conduct/">Code of Conduct</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      ALSA Auckland &middot; Incorporated Society<br>
+      &copy; 2026 Asian Law Students' Association. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn = document.getElementById('hamburger');
+  var links = document.querySelector('.nav-links');
+  if(btn && links){
+    btn.addEventListener('click', function(){ links.classList.toggle('open'); });
+    document.addEventListener('click', function(e){
+      if(!btn.contains(e.target) && !links.contains(e.target)){ links.classList.remove('open'); }
+    });
+  }
+})();
+</script>
+</body>
+</html>

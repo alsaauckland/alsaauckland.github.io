@@ -57,6 +57,8 @@ Pages (each is a folder with an index.html):
 /about        /contact      /join         /partners     /programmes
 /events       /gallery      /newsletters  /spotlight    /competition
 /careers      /card         /privacy      /conduct
+/hub          Linktree-style page (podcast, socials, newsletter, join);
+              last item in the top nav, right of Contact
 
 /mentoring            Mentoring hub
 /mentoring/why        Why the programme matters
