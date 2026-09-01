@@ -531,7 +531,7 @@
     var albums = (window.ALSA_GALLERY || []).slice().sort(function(a,b){
       return (b.dateISO || '').localeCompare(a.dateISO || '');
     });
-    var PER_ALBUM = 3, MAX = 12, cards = [];
+    var PER_ALBUM = 1, MAX = 12, cards = [];
     for (var i = 0; i < albums.length && cards.length < MAX; i++) {
       var ev = albums[i];
       var cap = (ev.title || '').replace(/^Inaugural\s+/, '');
