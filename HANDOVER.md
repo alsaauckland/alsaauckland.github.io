@@ -59,9 +59,12 @@ Pages (each is a folder with an index.html):
 /careers      /card         /privacy      /conduct
 /hub          Linktree-style page (podcast, socials, newsletter, join);
               last item in the top nav, right of Contact
-/careers      Legal Careers Board (coming soon)
-/careers/applying   "Applying to firms" guide (clerkship/grad application
-              help for members); linked from /careers/
+
+/team/apply                     Exec recruitment hub (roles + process)
+/team/apply/helpful-information  Applicant "helpful information" guide for
+              exec recruitment (what you submit, video/task/interview tips,
+              FAQs); linked from /team/apply/
+/team/standards                 Executive standards
 
 /mentoring            Mentoring hub
 /mentoring/why        Why the programme matters
