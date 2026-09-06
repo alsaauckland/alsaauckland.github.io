@@ -59,6 +59,9 @@ Pages (each is a folder with an index.html):
 /careers      /card         /privacy      /conduct
 /hub          Linktree-style page (podcast, socials, newsletter, join);
               last item in the top nav, right of Contact
+/careers      Legal Careers Board (coming soon)
+/careers/applying   "Applying to firms" guide (clerkship/grad application
+              help for members); linked from /careers/
 
 /mentoring            Mentoring hub
 /mentoring/why        Why the programme matters
