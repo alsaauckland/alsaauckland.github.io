@@ -100,18 +100,18 @@
   .role-pick-item.rp-selected .role-pick-num{opacity:1;}
   .cond-group{display:none;}
   .cond-group.visible{display:flex;}
-  .avail-grid{border:1.5px solid rgba(0,0,0,0.14);overflow-x:auto;}
+  .avail-grid{border:1.5px solid rgba(0,0,0,0.14);overflow:auto;max-height:440px;-webkit-user-select:none;user-select:none;}
   .avail-grid table{border-collapse:collapse;width:100%;min-width:560px;}
   .avail-grid th,.avail-grid td{border:0.5px solid rgba(0,0,0,0.08);}
-  .avail-grid thead th{background:#f5f0e8;color:#5b0f0f;font-family:'Lora',serif;font-size:11px;font-weight:700;padding:8px 4px;line-height:1.35;white-space:nowrap;}
+  .avail-grid thead th{position:sticky;top:0;z-index:2;background:#f5f0e8;color:#5b0f0f;font-family:'Lora',serif;font-size:11px;font-weight:700;padding:8px 4px;line-height:1.3;white-space:nowrap;text-align:center;}
   .avail-grid thead th span{display:block;font-size:9px;color:#999;font-weight:600;}
-  .avail-grid td.rowlabel{background:#faf6ef;color:#555;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;padding:0 12px;white-space:nowrap;text-align:right;}
-  .avail-grid td.rowlabel span{display:block;font-size:9px;color:#aaa;letter-spacing:0;text-transform:none;font-weight:600;}
-  .avail-cell{cursor:pointer;background:#fff;text-align:center;transition:background 0.1s;height:44px;}
+  .avail-grid thead th:first-child{left:0;z-index:3;}
+  .avail-grid td.timelabel{position:sticky;left:0;z-index:1;background:#faf6ef;color:#888;font-size:10px;font-weight:600;padding:0 10px;white-space:nowrap;text-align:right;}
+  .avail-grid td.timelabel.half{color:#c6c6c6;}
+  .avail-grid tr.hour td{border-top-color:rgba(0,0,0,0.16);}
+  .avail-cell{cursor:pointer;background:#fff;height:19px;transition:background 0.05s;touch-action:none;}
   .avail-cell:hover{background:#fdf3e6;}
   .avail-cell.sel{background:#5b0f0f;}
-  .avail-cell::after{content:'';color:#fff;font-size:13px;font-weight:700;}
-  .avail-cell.sel::after{content:'\2713';}
 
   footer{background:#1a1a1a;color:rgba(255,255,255,0.5);padding:50px 0 30px;}
   .footer-inner{max-width:1100px;margin:0 auto;padding:0 40px;}
@@ -501,50 +501,64 @@ charCounter('app-delivered','delivered-count');
 charCounter('app-idea','idea-count');
 charCounter('app-capacity','cap-count');
 
-// Interview availability grid (tap to select). Writes a summary into #app-availability.
+// Interview availability: when2meet-style 30-minute grid, drag (or tap) to paint.
 (function buildAvailGrid(){
   var grid = document.getElementById('availGrid');
   if (!grid) return;
-  var dates = [
-    {wd:'Fri', dm:'25 Sep'}, {wd:'Sat', dm:'26 Sep'}, {wd:'Sun', dm:'27 Sep'}, {wd:'Mon', dm:'28 Sep'},
-    {wd:'Tue', dm:'29 Sep'}, {wd:'Wed', dm:'30 Sep'}, {wd:'Thu', dm:'1 Oct'}, {wd:'Fri', dm:'2 Oct'}
-  ];
-  dates.forEach(function(d){ d.key = d.wd + ' ' + d.dm; });
-  var blocks = [
-    {b:'Morning', sub:'9–12'}, {b:'Afternoon', sub:'12–5'}, {b:'Evening', sub:'5–8'}
-  ];
+  var dates = ['Fri 25 Sep','Sat 26 Sep','Sun 27 Sep','Mon 28 Sep','Tue 29 Sep','Wed 30 Sep','Thu 1 Oct','Fri 2 Oct'];
+  var START = 540, END = 1230; // 9:00am start-slots through 8:30pm (last slot ends 9:00pm)
+  function fmt(mins){ var h=Math.floor(mins/60), m=mins%60, ap=h<12?'am':'pm', hr=h%12||12; return hr+':'+(m<10?'0'+m:m)+ap; }
+  function key(d,t){ return d+'|'+t; }
+
   var html = '<table><thead><tr><th></th>';
-  dates.forEach(function(d){ html += '<th>' + d.wd + '<span>' + d.dm + '</span></th>'; });
+  dates.forEach(function(d){ var p=d.split(' '); html += '<th>'+p[0]+'<span>'+p[1]+' '+p[2]+'</span></th>'; });
   html += '</tr></thead><tbody>';
-  blocks.forEach(function(bl){
-    html += '<tr><td class="rowlabel">' + bl.b + '<span>' + bl.sub + '</span></td>';
-    dates.forEach(function(d){ html += '<td class="avail-cell" data-date="' + d.key + '" data-block="' + bl.b + '"></td>'; });
+  for (var t=START; t<=END; t+=30){
+    var isHour = (t%60===0);
+    html += '<tr class="'+(isHour?'hour':'')+'"><td class="timelabel'+(isHour?'':' half')+'">'+fmt(t)+'</td>';
+    dates.forEach(function(d){ html += '<td class="avail-cell" data-d="'+d+'" data-t="'+t+'"></td>'; });
     html += '</tr>';
-  });
+  }
   html += '</tbody></table>';
   grid.innerHTML = html;
 
   var selected = {};
-  var blockOrder = blocks.map(function(b){ return b.b; });
+  function cellFrom(el){ return (el && el.classList && el.classList.contains('avail-cell')) ? el : null; }
+  function setCell(cell, on){
+    var k = key(cell.dataset.d, cell.dataset.t);
+    if (on){ cell.classList.add('sel'); selected[k]=true; } else { cell.classList.remove('sel'); delete selected[k]; }
+  }
   function updateAvail(){
     var out = [];
     dates.forEach(function(d){
-      var picked = blockOrder.filter(function(b){ return selected[d.key + '|' + b]; });
-      if (picked.length) out.push(d.key + ': ' + picked.join(', '));
+      var ts = []; for (var t=START; t<=END; t+=30){ if (selected[key(d,t)]) ts.push(t); }
+      if (!ts.length) return;
+      var ranges = [], s = ts[0], p = ts[0];
+      for (var i=1;i<ts.length;i++){ if (ts[i]===p+30){ p=ts[i]; } else { ranges.push(fmt(s)+'–'+fmt(p+30)); s=ts[i]; p=ts[i]; } }
+      ranges.push(fmt(s)+'–'+fmt(p+30));
+      out.push(d + ': ' + ranges.join(', '));
     });
     var str = out.join('; ');
     document.getElementById('app-availability').value = str;
-    var summary = document.getElementById('availSummary');
-    summary.textContent = str ? 'Selected: ' + str : 'Tap the cells when you are free.';
+    document.getElementById('availSummary').textContent = str ? 'Selected: ' + str : 'Tap or drag across the cells when you are free.';
   }
-  grid.querySelectorAll('.avail-cell').forEach(function(cell){
-    cell.addEventListener('click', function(){
-      var k = this.dataset.date + '|' + this.dataset.block;
-      if (selected[k]) { delete selected[k]; this.classList.remove('sel'); }
-      else { selected[k] = true; this.classList.add('sel'); }
-      updateAvail();
-    });
+
+  var dragging = false, paintOn = true;
+  grid.addEventListener('pointerdown', function(e){
+    var c = cellFrom(e.target); if (!c) return;
+    dragging = true; paintOn = !selected[key(c.dataset.d, c.dataset.t)];
+    try { grid.setPointerCapture(e.pointerId); } catch(_) {}
+    setCell(c, paintOn); updateAvail(); e.preventDefault();
   });
+  grid.addEventListener('pointermove', function(e){
+    if (!dragging) return;
+    var c = cellFrom(document.elementFromPoint(e.clientX, e.clientY));
+    if (c) { setCell(c, paintOn); updateAvail(); }
+  });
+  grid.addEventListener('pointerup', function(){ dragging = false; });
+  grid.addEventListener('pointercancel', function(){ dragging = false; });
+
+  updateAvail();
 })();
 
 function needsVideo(){ return selectedRoles.some(function(r){ return CORE_OFFICER_ROLES.includes(r); }); }
