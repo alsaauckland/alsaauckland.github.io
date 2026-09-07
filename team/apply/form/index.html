@@ -516,7 +516,7 @@ charCounter('app-capacity','cap-count');
   var grid = document.getElementById('availGrid');
   if (!grid) return;
   var dates = ['Fri 25 Sep','Sat 26 Sep','Sun 27 Sep','Mon 28 Sep','Tue 29 Sep','Wed 30 Sep','Thu 1 Oct','Fri 2 Oct'];
-  var START = 720, END = 1140, STEP = 60; // 12pm through 7pm start-slots (last slot ends 8pm)
+  var START = 540, END = 1140, STEP = 60; // 9am through 7pm start-slots (last slot ends 8pm)
   function fmt(mins){ var h=Math.floor(mins/60), m=mins%60, ap=h<12?'am':'pm', hr=h%12||12; return hr+':'+(m<10?'0'+m:m)+ap; }
   function key(d,t){ return d+'|'+t; }
 
