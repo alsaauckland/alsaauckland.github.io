@@ -215,6 +215,16 @@
           <span class="hint">If you are doing a conjoint, include your other degree and its major(s).</span>
         </div>
       </div>
+      <div class="form-group">
+        <label for="app-member">Are you an ALSA member? <span class="req">*</span></label>
+        <select id="app-member">
+          <option value="">Select one</option>
+          <option>Yes, Premium member</option>
+          <option>Yes, General member</option>
+          <option>Not yet</option>
+        </select>
+        <span class="hint">Not required to apply. Executives are asked to be members once they join.</span>
+      </div>
 
       <hr class="form-divider">
 
@@ -332,24 +342,15 @@
           <option>Instagram</option>
           <option>LinkedIn</option>
           <option>From a friend or word of mouth</option>
+          <option>From an ALSA executive</option>
           <option>Class rep or in a lecture</option>
           <option>I am already an ALSA member</option>
           <option>Other</option>
         </select>
       </div>
-      <div class="form-group">
-        <label for="app-member">Are you an ALSA member? <span class="req">*</span></label>
-        <select id="app-member">
-          <option value="">Select one</option>
-          <option>Yes, Premium member</option>
-          <option>Yes, General member</option>
-          <option>Not yet</option>
-        </select>
-        <span class="hint">Not required to apply. Executives are asked to be members once they join.</span>
-      </div>
-      <div class="form-group">
-        <label for="app-referral">Who referred you?</label>
-        <input type="text" id="app-referral" placeholder="Optional. If an ALSA executive encouraged you to apply, tell us who.">
+      <div class="form-group cond-group" id="referralGroup">
+        <label for="app-referral">Which executive told you about it? <span class="req">*</span></label>
+        <input type="text" id="app-referral" placeholder="Their name, so we know who to thank.">
       </div>
 
       <div style="display:flex;align-items:flex-start;gap:11px;margin:4px 0 22px;">
@@ -574,6 +575,17 @@ charCounter('app-capacity','cap-count');
   updateAvail();
 })();
 
+// Reveal "which executive" only when they heard from an executive
+(function(){
+  var src = document.getElementById('app-source');
+  var grp = document.getElementById('referralGroup');
+  if (!src || !grp) return;
+  src.addEventListener('change', function(){
+    if (this.value === 'From an ALSA executive') { grp.classList.add('visible'); }
+    else { grp.classList.remove('visible'); document.getElementById('app-referral').value = ''; }
+  });
+})();
+
 function needsVideo(){ return selectedRoles.some(function(r){ return CORE_OFFICER_ROLES.includes(r); }); }
 function needsPortfolio(){ return selectedRoles.some(function(r){ return MARKETING_ROLES.includes(r); }); }
 
@@ -649,6 +661,9 @@ async function submitApplication() {
   }
   if (!document.getElementById('app-consent').checked) {
     noteEl.style.color = '#c0392b'; noteEl.textContent = 'Please agree to the Privacy Policy, Code of Conduct, and Executive Standards to submit.'; return;
+  }
+  if (source === 'From an ALSA executive' && !referral) {
+    noteEl.style.color = '#c0392b'; noteEl.textContent = 'Please tell us which executive told you about the round.'; return;
   }
 
   const rolesText = selectedRoles.map(function(r, i){ return (i+1) + '. ' + r; }).join(', ');
