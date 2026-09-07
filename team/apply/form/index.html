@@ -37,7 +37,10 @@
   .nav-cta{background:#5b0f0f;color:#fff;padding:9px 20px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;font-weight:600;white-space:nowrap;flex-shrink:0;}
   @media(max-width:1120px) and (min-width:901px){.nav-links{gap:12px;}.nav-links a{font-size:12px;}.nav-inner{padding-left:16px;padding-right:16px;}.nav-name{display:none;}}
 
-  .form-header{background:#2b0e0e;padding:52px 40px;text-align:center;}
+  .form-header{position:relative;background:#2b0e0e;padding:92px 40px;text-align:center;overflow:hidden;}
+  .form-header-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 28%;}
+  .form-header-overlay{position:absolute;inset:0;background:linear-gradient(rgba(40,9,9,0.82),rgba(28,7,7,0.9));}
+  .form-header-inner{position:relative;z-index:1;max-width:760px;margin:0 auto;}
   .form-header-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#C9A84C;font-weight:600;margin-bottom:16px;}
   .form-header h1{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:#fff;letter-spacing:-0.3px;}
   .form-header p{font-size:14px;color:rgba(255,255,255,0.6);margin-top:14px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.7;}
@@ -157,15 +160,14 @@
 </nav>
 
 <div class="form-header">
-  <div class="form-header-eyebrow">2027 Executive Team</div>
-  <h1>Executive Application</h1>
-  <p>Applying for an Officer or Marketing team role. Read the <a href="/team/apply/helpful-information/" style="color:#C9A84C;text-decoration:underline;">helpful information</a> and <a href="/team/standards/" style="color:#C9A84C;text-decoration:underline;">executive standards</a> first if you have not already.</p>
-  <a href="/team/apply/" class="form-header-back">&larr; Back to all roles</a>
-</div>
-
-<div style="background:#2b0e0e;padding:0 40px 52px;">
-  <img src="/images/team/hero.jpg" alt="The ALSA Auckland executive team" loading="lazy" style="display:block;width:100%;max-width:760px;margin:0 auto;border-radius:14px;box-shadow:0 24px 55px -22px rgba(0,0,0,0.7);">
-  <p style="text-align:center;color:rgba(255,255,255,0.55);font-size:12.5px;letter-spacing:1px;margin:16px auto 0;">The team you would be joining.</p>
+  <img src="/images/team/hero.jpg" class="form-header-bg" alt="The ALSA Auckland executive team">
+  <div class="form-header-overlay"></div>
+  <div class="form-header-inner">
+    <div class="form-header-eyebrow">2027 Executive Team</div>
+    <h1>Executive Application</h1>
+    <p>Applying for an Officer or Marketing team role. Read the <a href="/team/apply/helpful-information/" style="color:#C9A84C;text-decoration:underline;">helpful information</a> and <a href="/team/standards/" style="color:#C9A84C;text-decoration:underline;">executive standards</a> first if you have not already.</p>
+    <a href="/team/apply/" class="form-header-back">&larr; Back to all roles</a>
+  </div>
 </div>
 
 <section style="padding:60px 0 80px;background:#f5f0e8;">
@@ -351,7 +353,7 @@
         <div class="step-num">02</div>
         <div>
           <div class="step-title">Review</div>
-          <div class="step-desc">The committee reviews every application on 20 to 21 September. Shortlisted applicants receive a short task by email.</div>
+          <div class="step-desc">Cabinet reviews every application on 20 to 21 September. Shortlisted applicants receive a short task by email.</div>
         </div>
       </div>
       <div class="process-step">
