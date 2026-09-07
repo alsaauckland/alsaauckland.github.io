@@ -68,13 +68,25 @@
   .track h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#1a1a1a;margin-bottom:6px;}
   .track p{font-size:14.5px;color:#555;line-height:1.75;margin:0;}
 
+  .timeline{margin-top:26px;padding-left:30px;border-left:2px solid rgba(91,15,15,0.18);}
+  .tl-item{position:relative;padding-bottom:28px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{content:'';position:absolute;left:-37px;top:3px;width:12px;height:12px;border-radius:50%;background:#C9A84C;border:2.5px solid #fff;box-shadow:0 0 0 1.5px rgba(91,15,15,0.22);}
+  .tl-when{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#5b0f0f;font-weight:700;margin-bottom:4px;}
+  .tl-what{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#1a1a1a;margin-bottom:5px;}
+  .tl-desc{font-size:14.5px;color:#555;line-height:1.7;max-width:560px;}
   .callout{background:#f5f0e8;border-left:3px solid #C9A84C;padding:20px 24px;margin-top:20px;}
   .callout p{font-size:14.5px;color:#444;line-height:1.75;margin:0;}
 
   /* FAQ */
   .faq-item{border-bottom:0.5px solid rgba(0,0,0,0.1);}
-  .faq-q{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#1a1a1a;padding:20px 0 8px;}
-  .faq-a{font-size:15px;color:#555;line-height:1.75;padding-bottom:20px;}
+  .faq-q{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#1a1a1a;padding:20px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:24px;transition:color 0.15s;}
+  .faq-q::-webkit-details-marker{display:none;}
+  .faq-q:hover{color:#5b0f0f;}
+  .faq-q::after{content:'+';font-family:'Inter',sans-serif;font-size:22px;font-weight:300;color:#5b0f0f;flex-shrink:0;line-height:1;}
+  .faq-item[open] .faq-q{color:#5b0f0f;}
+  .faq-item[open] .faq-q::after{content:'\2013';}
+  .faq-a{font-size:15px;color:#555;line-height:1.75;padding:0 0 22px;max-width:640px;}
   .faq-a a{color:#5b0f0f;font-weight:600;text-decoration:none;}
 
   .cta-bar{margin-top:64px;padding-top:44px;border-top:0.5px solid rgba(0,0,0,0.1);text-align:center;}
@@ -132,6 +144,7 @@
       <a href="/newsletters/">Newsletter</a>
       <a href="/gallery/">Gallery</a>
       <a href="/team/">Team</a>
+      <a href="/team/apply/">Apply</a>
       <a href="/contact/">Contact</a>
       <a href="/hub/">Hub</a>
     </div>
@@ -219,7 +232,7 @@
       <div class="section-label">The Task</div>
       <h2>A preview of the real work.</h2>
       <p>Officer and marketing applicants complete a short task relevant to the role. It is the closest thing to a preview of the job itself, and it is where we learn the most about how you would actually operate.</p>
-      <div class="callout"><p><strong>The task should take no longer than three hours in total, spread across three days.</strong> It is designed to fit around a full study load, so if you find yourself pouring far more time into it than that, step back: we are testing judgement and follow-through, not who can grind the longest.</p></div>
+      <div class="callout"><p><strong>The task should take no longer than about three hours of work in total, across the day or two you have to complete it.</strong> It is designed to fit around a full study load, so if you find yourself pouring far more time into it than that, step back: we are testing judgement and follow-through, not who can grind the longest.</p></div>
       <ul class="tip-list" style="margin-top:20px;">
         <li><strong>Treat it like the job, not an exam.</strong> The task mirrors something the role genuinely involves, so approach it the way you would approach real work for the team: understand what is being asked, make sensible calls, and produce something you would actually be comfortable handing over.</li>
         <li><strong>Show your thinking, not just the output.</strong> We care as much about how you got there as what you produced. A short note on your reasoning, the trade-offs you weighed, or what you would do next with more time, tells us more than a polished result with no thought shown behind it.</li>
@@ -242,28 +255,86 @@
     </div>
 
     <div class="doc-section">
+      <div class="section-label">The Timeline</div>
+      <h2>How the round runs.</h2>
+      <p>Here is the shape of this round, start to finish, so you can plan around it. Dates can shift slightly, but this is what to expect.</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-when">Sunday 20 September</div>
+          <div class="tl-what">Applications close</div>
+          <div class="tl-desc">Get your CV, written answers, and your video or portfolio in before 9:00 pm. Officer applicants submit their video with the application. Late applications are hard to accept, so aim to be done a day early.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-when">20 to 21 September</div>
+          <div class="tl-what">Review of applications</div>
+          <div class="tl-desc">The committee reads every application in full. This is a first review to decide who moves forward; the deeper conversation happens at interview. Everyone hears back on this stage either way.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-when">22 September, due 23 to 24 September</div>
+          <div class="tl-what">Task handed out</div>
+          <div class="tl-desc">Shortlisted applicants receive a short task relevant to the role, given out on the 22nd and due within a day or two. It is designed to fit around study, not take it over.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-when">From 26 September</div>
+          <div class="tl-what">Interview, round one</div>
+          <div class="tl-desc">The committee interviews applicants. This is the conversation the rest of this guide prepares you for.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-when">Late September</div>
+          <div class="tl-what">Interview, round two</div>
+          <div class="tl-desc">Shortlisted applicants progress to a second, final round with the team.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-when">By 3 October</div>
+          <div class="tl-what">Final selections</div>
+          <div class="tl-desc">Offers go out and the new team is confirmed. Everyone who interviewed hears back either way.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-section">
       <div class="section-label">Common Questions</div>
       <h2>FAQs.</h2>
-      <div class="faq-item">
-        <div class="faq-q">Do I need previous exec or legal experience?</div>
-        <div class="faq-a">No. Officers need to show they can plan and execute; interns are chosen on potential. Non-legal work, leadership, and involvement all count. Show what you have done and what it taught you.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Which track should I apply for?</div>
-        <div class="faq-a">Officers own a portfolio, and it is natural for second years and above to step into that kind of leadership. Interns support an officer and suit first and second years and international students, no experience needed. The 2027 round is recruiting Officer and Marketing team roles.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Can I apply for more than one role?</div>
-        <div class="faq-a">This round, you can choose up to two roles. Pick the two that fit you best, and make clear which is your first preference.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">How much time does a role take?</div>
-        <div class="faq-a">Officer roles are roughly 5 to 10 hours a week, with more in event weeks. Each <a href="/team/apply/">role page</a> sets out the specifics.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">When do applications open?</div>
-        <div class="faq-a">Applications for the 2027 executive team open soon. Follow us on our socials to hear the moment they do.</div>
-      </div>
+      <details class="faq-item">
+        <summary class="faq-q">Do I need previous exec or legal experience?</summary>
+        <div class="faq-a">No. Officers need to show they can plan something and see it through; interns are chosen on potential rather than track record. Non-legal work, leadership in any setting, running an event, holding down a job, involvement in a club, it all counts. What matters is that you can point to something real you have done and talk honestly about what it taught you.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Which track should I apply for?</summary>
+        <div class="faq-a">Officers own a portfolio and answer for it, so it is natural for second years and above to step into that kind of leadership, though motivated first years are welcome to make the case. Interns support an officer, learn the ropes, and suit first and second years and international students with no experience needed. If you are genuinely unsure, apply for the one you are drawn to and say in your application why you are weighing it up. This round is recruiting Officer and Marketing team roles.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Can I apply for more than one role?</summary>
+        <div class="faq-a">Yes. This round you can choose up to two roles. Pick the two that genuinely fit you rather than casting wide, and make clear which is your first preference so we know where to place you if both are open.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">How much time does a role take?</summary>
+        <div class="faq-a">Officer roles are roughly 5 to 10 hours a week, with more in the lead-up to an event and less in quiet weeks. It is designed to sit alongside a full study load, and each <a href="/team/apply/">role page</a> sets out the specifics. We would always rather you were honest about your capacity up front than overcommit and burn out.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">What makes a strong application?</summary>
+        <div class="faq-a">Genuine interest in this particular role, honesty about where you are, and at least one concrete example that backs up what you claim. We are not looking for the most decorated CV or the person who sounds most like a lawyer already. We are looking for someone who wants it, who follows through, and who would be good to work alongside for a semester. Specific beats polished every time.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">What should I wear to the interview?</summary>
+        <div class="faq-a">Smart casual is right. You do not need a suit, and turning up in one will not win you anything. Wear something you feel comfortable and presentable in, and put your energy into the conversation rather than the outfit.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">What if the interview time does not work for me?</summary>
+        <div class="faq-a">Tell us. We will always try to find a time that works around your classes and commitments, and asking for a reschedule counts against you in no way at all. What matters is that you let us know early rather than going quiet.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Can I get feedback if I am not successful?</summary>
+        <div class="faq-a">Yes. If you would like feedback on your application or interview, just ask and we will give you something honest and useful to build on. Missing out on one round is common and says nothing final about you, plenty of strong people apply again and get in.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Can I apply again in a future round?</summary>
+        <div class="faq-a">Absolutely, and we would encourage it. We recruit each semester, and people who were not selected the first time often come back stronger and join the following round. Applying now is worthwhile even if the timing is not perfect, because you learn the process and put yourself on our radar.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">When do applications close?</summary>
+        <div class="faq-a">Applications close on <strong>Sunday 20 September</strong>, with final selections made by <strong>3 October</strong>. The full timeline is above. Follow our socials for the application link and any updates.</div>
+      </details>
     </div>
 
     <div class="cta-bar">

@@ -61,9 +61,13 @@ Pages (each is a folder with an index.html):
               last item in the top nav, right of Contact
 
 /team/apply                     Exec recruitment hub (roles + process)
+/team/apply/form                 The live executive application form (single
+              page; 6 roles, pick up to 2; conditional video for the 4 core
+              officers, portfolio for the 2 Marketing roles; auto-closes at
+              the deadline). Posts to the application.gs backend.
 /team/apply/helpful-information  Applicant "helpful information" guide for
               exec recruitment (what you submit, video/task/interview tips,
-              FAQs); linked from /team/apply/
+              timeline, FAQs); linked from /team/apply/
 /team/standards                 Executive standards
 
 /mentoring            Mentoring hub
@@ -165,7 +169,19 @@ Google scripts that write to Google Sheets and send branded emails). There is **
 traditional server or database** — Google Sheets *is* the database.
 
 **Pages with forms:** `join`, `contact`, `partners`, `spotlight`, `competition`,
-`mentoring/apply`, `cultural-competency`, `technology-networking`.
+`mentoring/apply`, `cultural-competency`, `technology-networking`, `team/apply/form`.
+
+**Exec application form (`team/apply/form`):** posts JSON (no-cors) to the
+`application.gs` `/exec`. `application.gs` is *container-bound* to the original
+applications spreadsheet and writes every submission to the **"Officer
+Applications"** tab (Officer and Marketing both land here; a Role column
+distinguishes them). CV/portfolio uploads go to the Drive folder in
+`DRIVE_FOLDER_ID`. The form auto-closes after the deadline in its `DEADLINE`
+constant (currently 9:00 pm, Sun 20 Sep). **Gotcha:** if the web app's "Who has
+access" is not set to **Anyone**, anonymous submissions get an HTTP 403 (a
+Google login page) and nothing reaches the sheet — the form silently fails.
+After any redeploy, confirm access is "Anyone" and the `/exec` URL in the form's
+`CONTACT_ENDPOINT` still matches.
 
 ### The source of truth for scripts
 
