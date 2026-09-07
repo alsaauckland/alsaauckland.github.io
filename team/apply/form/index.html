@@ -337,6 +337,16 @@
           <option>Other</option>
         </select>
       </div>
+      <div class="form-group">
+        <label for="app-member">Are you an ALSA member? <span class="req">*</span></label>
+        <select id="app-member">
+          <option value="">Select one</option>
+          <option>Yes, Premium member</option>
+          <option>Yes, General member</option>
+          <option>Not yet</option>
+        </select>
+        <span class="hint">Not required to apply. Executives are asked to be members once they join.</span>
+      </div>
 
       <div style="display:flex;align-items:flex-start;gap:11px;margin:4px 0 22px;">
         <input type="checkbox" id="app-consent" style="width:auto;margin-top:5px;flex-shrink:0;">
@@ -622,8 +632,9 @@ async function submitApplication() {
   const availability = document.getElementById('app-availability').value.trim();
   const access = document.getElementById('app-access').value.trim();
   const source = document.getElementById('app-source').value;
+  const member = document.getElementById('app-member').value;
 
-  if (!selectedRoles.length || !cvFileData || !why || !delivered || !idea || !cap || !availability) {
+  if (!selectedRoles.length || !cvFileData || !why || !delivered || !idea || !cap || !availability || !member) {
     noteEl.style.color = '#c0392b'; noteEl.textContent = 'Please complete all required fields before submitting.'; return;
   }
   if (needsVideo() && !video) {
@@ -652,6 +663,7 @@ async function submitApplication() {
     '\nInterview Availability:\n' + availability,
     access ? 'Access Needs: ' + access : null,
     source ? 'Heard About Us: ' + source : null,
+    'ALSA Member: ' + member,
     extra ? '\nAdditional Notes:\n' + extra : null
   ].filter(Boolean).join('\n');
 
