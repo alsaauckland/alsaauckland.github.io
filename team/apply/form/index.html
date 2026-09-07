@@ -109,7 +109,7 @@
   .avail-grid td.timelabel{position:sticky;left:0;z-index:1;background:#faf6ef;color:#888;font-size:10px;font-weight:600;padding:0 10px;white-space:nowrap;text-align:right;}
   .avail-grid td.timelabel.half{color:#c6c6c6;}
   .avail-grid tr.hour td{border-top-color:rgba(0,0,0,0.16);}
-  .avail-cell{cursor:pointer;background:#fff;height:19px;transition:background 0.05s;touch-action:none;}
+  .avail-cell{cursor:pointer;background:#fff;height:34px;transition:background 0.05s;touch-action:none;}
   .avail-cell:hover{background:#fdf3e6;}
   .avail-cell.sel{background:#5b0f0f;}
 
@@ -516,16 +516,15 @@ charCounter('app-capacity','cap-count');
   var grid = document.getElementById('availGrid');
   if (!grid) return;
   var dates = ['Fri 25 Sep','Sat 26 Sep','Sun 27 Sep','Mon 28 Sep','Tue 29 Sep','Wed 30 Sep','Thu 1 Oct','Fri 2 Oct'];
-  var START = 540, END = 1230; // 9:00am start-slots through 8:30pm (last slot ends 9:00pm)
+  var START = 720, END = 1140, STEP = 60; // 12pm through 7pm start-slots (last slot ends 8pm)
   function fmt(mins){ var h=Math.floor(mins/60), m=mins%60, ap=h<12?'am':'pm', hr=h%12||12; return hr+':'+(m<10?'0'+m:m)+ap; }
   function key(d,t){ return d+'|'+t; }
 
   var html = '<table><thead><tr><th></th>';
   dates.forEach(function(d){ var p=d.split(' '); html += '<th>'+p[0]+'<span>'+p[1]+' '+p[2]+'</span></th>'; });
   html += '</tr></thead><tbody>';
-  for (var t=START; t<=END; t+=30){
-    var isHour = (t%60===0);
-    html += '<tr class="'+(isHour?'hour':'')+'"><td class="timelabel'+(isHour?'':' half')+'">'+fmt(t)+'</td>';
+  for (var t=START; t<=END; t+=STEP){
+    html += '<tr class="hour"><td class="timelabel">'+fmt(t)+'</td>';
     dates.forEach(function(d){ html += '<td class="avail-cell" data-d="'+d+'" data-t="'+t+'"></td>'; });
     html += '</tr>';
   }
@@ -541,11 +540,11 @@ charCounter('app-capacity','cap-count');
   function updateAvail(){
     var out = [];
     dates.forEach(function(d){
-      var ts = []; for (var t=START; t<=END; t+=30){ if (selected[key(d,t)]) ts.push(t); }
+      var ts = []; for (var t=START; t<=END; t+=STEP){ if (selected[key(d,t)]) ts.push(t); }
       if (!ts.length) return;
       var ranges = [], s = ts[0], p = ts[0];
-      for (var i=1;i<ts.length;i++){ if (ts[i]===p+30){ p=ts[i]; } else { ranges.push(fmt(s)+'–'+fmt(p+30)); s=ts[i]; p=ts[i]; } }
-      ranges.push(fmt(s)+'–'+fmt(p+30));
+      for (var i=1;i<ts.length;i++){ if (ts[i]===p+STEP){ p=ts[i]; } else { ranges.push(fmt(s)+'–'+fmt(p+STEP)); s=ts[i]; p=ts[i]; } }
+      ranges.push(fmt(s)+'–'+fmt(p+STEP));
       out.push(d + ': ' + ranges.join(', '));
     });
     var str = out.join('; ');
