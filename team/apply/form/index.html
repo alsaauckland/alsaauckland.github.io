@@ -101,7 +101,7 @@
   .cond-group{display:none;}
   .cond-group.visible{display:flex;}
   .avail-grid{border:1.5px solid rgba(0,0,0,0.14);overflow:auto;max-height:440px;-webkit-user-select:none;user-select:none;}
-  .avail-grid table{border-collapse:collapse;width:100%;min-width:560px;}
+  .avail-grid table{border-collapse:collapse;width:100%;min-width:720px;}
   .avail-grid th,.avail-grid td{border:0.5px solid rgba(0,0,0,0.08);}
   .avail-grid thead th{position:sticky;top:0;z-index:2;background:#f5f0e8;color:#5b0f0f;font-family:'Lora',serif;font-size:11px;font-weight:700;padding:8px 4px;line-height:1.3;white-space:nowrap;text-align:center;}
   .avail-grid thead th span{display:block;font-size:9px;color:#999;font-weight:600;}
@@ -515,7 +515,7 @@ charCounter('app-capacity','cap-count');
 (function buildAvailGrid(){
   var grid = document.getElementById('availGrid');
   if (!grid) return;
-  var dates = ['Fri 25 Sep','Sat 26 Sep','Sun 27 Sep','Mon 28 Sep','Tue 29 Sep','Wed 30 Sep','Thu 1 Oct','Fri 2 Oct'];
+  var dates = ['Tue 22 Sep','Wed 23 Sep','Thu 24 Sep','Fri 25 Sep','Sat 26 Sep','Sun 27 Sep','Mon 28 Sep','Tue 29 Sep','Wed 30 Sep','Thu 1 Oct','Fri 2 Oct'];
   var START = 540, END = 1140, STEP = 60; // 9am through 7pm start-slots (last slot ends 8pm)
   function fmt(mins){ var h=Math.floor(mins/60), m=mins%60, ap=h<12?'am':'pm', hr=h%12||12; return hr+':'+(m<10?'0'+m:m)+ap; }
   function key(d,t){ return d+'|'+t; }
