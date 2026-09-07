@@ -189,6 +189,7 @@
             <option>Part III</option>
             <option>Part IV+</option>
           </select>
+          <span class="hint">This round is open to Part II and above.</span>
         </div>
         <div class="form-group">
           <label for="app-degree">Degree</label>
@@ -531,6 +532,7 @@ async function submitApplication() {
 
   if (!name || !email || !year) { noteEl.style.color = '#c0392b'; noteEl.textContent = 'Please fill in your name, email, and year of study.'; return; }
   if (!emailRegex.test(email)) { noteEl.style.color = '#c0392b'; noteEl.textContent = 'Please enter a valid email address.'; return; }
+  if (year === 'Part I') { noteEl.style.color = '#c0392b'; noteEl.textContent = 'This round is open to Part II and above. Thanks for your interest, and keep an eye out for future rounds.'; return; }
 
   const video = document.getElementById('app-video').value.trim();
   const portfolioLink = document.getElementById('app-portfolio-link').value.trim();
