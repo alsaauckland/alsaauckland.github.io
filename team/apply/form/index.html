@@ -347,6 +347,10 @@
         </select>
         <span class="hint">Not required to apply. Executives are asked to be members once they join.</span>
       </div>
+      <div class="form-group">
+        <label for="app-referral">Who referred you?</label>
+        <input type="text" id="app-referral" placeholder="Optional. If an ALSA executive encouraged you to apply, tell us who.">
+      </div>
 
       <div style="display:flex;align-items:flex-start;gap:11px;margin:4px 0 22px;">
         <input type="checkbox" id="app-consent" style="width:auto;margin-top:5px;flex-shrink:0;">
@@ -632,6 +636,7 @@ async function submitApplication() {
   const access = document.getElementById('app-access').value.trim();
   const source = document.getElementById('app-source').value;
   const member = document.getElementById('app-member').value;
+  const referral = document.getElementById('app-referral').value.trim();
 
   if (!selectedRoles.length || !cvFileData || !why || !delivered || !idea || !cap || !availability || !member) {
     noteEl.style.color = '#c0392b'; noteEl.textContent = 'Please complete all required fields before submitting.'; return;
@@ -663,6 +668,7 @@ async function submitApplication() {
     access ? 'Access Needs: ' + access : null,
     source ? 'Heard About Us: ' + source : null,
     'ALSA Member: ' + member,
+    referral ? 'Referred By: ' + referral : null,
     extra ? '\nAdditional Notes:\n' + extra : null
   ].filter(Boolean).join('\n');
 
