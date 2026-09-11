@@ -215,21 +215,30 @@
       title: 'Issue One',
       date: 'June 2026',
       file: '/newsletters/issue-1/',
+      cardImage: '/images/newsletters/issue-1-card.jpg',
+      cardPos: 'center 22%',
       topics: [
         'Inaugural Launch Night recap',
         'ALSA Mentoring Programme launch',
         'Development: Professional Spotlight',
         'ALSA Legal Writing Competition',
       ]
+    },
+    {
+      number: 2,
+      title: 'Issue Two',
+      date: 'September 2026',
+      file: '/newsletters/issue-2/',
+      cardImage: '/images/gallery/Inaugural%20Mentoring%20Opening%20Night/photo63.JPG',
+      cardPos: 'center 30%',
+      topics: [
+        'Cultural Competency Workshop',
+        'Asian Lawyers in Practice panel',
+        'Mentoring Programme launch',
+        'Precedent: the ALSA Podcast',
+        'Legal Writing Competition winners',
+      ]
     }
-    // Add future issues here. Example:
-    // ,{
-    //   number: 2,
-    //   title: 'Issue Two',
-    //   date: 'June 2026',
-    //   file: 'newsletter-2.html',
-    //   topics: ['Topic one', 'Topic two', 'Topic three']
-    // }
   ];
 
   // =============================================
@@ -251,7 +260,7 @@
     const topicsHTML = issue.topics.map(t => `<div class="issue-topic">${t}</div>`).join('');
 
     card.innerHTML = `
-      <div class="issue-card-top" ${issue.number === 1 ? 'style="background-image:url(/images/newsletters/issue-1-card.jpg);background-size:cover;background-position:center 22%;"' : ''}>
+      <div class="issue-card-top" ${issue.cardImage ? `style="background-image:url('${issue.cardImage}');background-size:cover;background-position:${issue.cardPos || 'center 22%'};"` : ''}>
         <div class="issue-number">Issue ${String(issue.number).padStart(2, '0')}</div>
         <div class="issue-title">${issue.title}</div>
         <div class="issue-date">${issue.date}</div>
