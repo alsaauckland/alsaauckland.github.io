@@ -220,7 +220,7 @@
 
     <div class="form-status" id="ev-banner" style="display:none;"></div>
 
-    <form id="evForm" onsubmit="submitEvForm(event)">
+    <form id="evForm" onsubmit="submitEvForm(event)" novalidate>
       <input type="text" class="alsa-hp" name="company_url" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute!important;left:-9999px!important;top:-9999px;width:1px;height:1px;opacity:0;">
 
       <div class="form-group">
@@ -307,8 +307,7 @@
         <label for="ev-consent">I am happy for ALSA Auckland to contact me at this email about this event, and I have read ALSA's <a href="/privacy/" target="_blank" rel="noopener noreferrer" style="color:#5b0f0f;font-weight:600;">Privacy Policy</a> and <a href="/conduct/" target="_blank" rel="noopener noreferrer" style="color:#5b0f0f;font-weight:600;">Code of Conduct</a>.</label>
       </div>
 
-      <p id="ev-capnote" style="display:none;text-align:center;font-size:13px;color:#5b0f0f;font-weight:600;margin:0 0 14px;"></p>
-      <button type="submit" class="submit-btn" id="ev-submit">Register my place</button>
+      <button type="button" class="submit-btn" id="ev-submit" onclick="submitEvForm(event)">Register my place</button>
       <div class="form-status" id="ev-status"></div>
     </form>
   </div>
@@ -383,17 +382,14 @@
     var box = document.getElementById('ev-detail');
     var banner = document.getElementById('ev-banner');
     var btn = document.getElementById('ev-submit');
-    var capnote = document.getElementById('ev-capnote');
     var dietGroup = document.getElementById('ev-dietary-group');
     banner.style.display = 'none';
     btn.disabled = false; btn.textContent = 'Register my place';
-    if (!key || !EVENTS[key]) { box.className = 'ev-detail-box'; capnote.style.display = 'none'; dietGroup.style.display = ''; return; }
+    if (!key || !EVENTS[key]) { box.className = 'ev-detail-box'; dietGroup.style.display = ''; return; }
     box.querySelector('p').innerHTML = '<strong>' + EVENTS[key].name + '.</strong> ' + EVENTS[key].line;
     box.className = 'ev-detail-box show';
     // Matcha x Pilates does not collect dietary requirements.
     dietGroup.style.display = EVENTS[key].diet ? '' : 'none';
-    if (EVENTS[key].cap) { capnote.textContent = EVENTS[key].name + ' has ' + EVENTS[key].cap + ' places, so please register only if you can make it.'; capnote.style.display = 'block'; }
-    else { capnote.style.display = 'none'; }
 
     if (evPastDeadline(key)) {
       banner.style.display = 'block';
@@ -402,35 +398,10 @@
       btn.disabled = true; btn.textContent = 'Registrations closed';
       return;
     }
-    // Live capacity check for the chosen event (JSONP; the form posts no-cors).
-    var s = document.createElement('script');
-    s.src = EV_ENDPOINT + '?event=' + encodeURIComponent(key) + '&callback=__evStatus&t=' + Date.now();
-    s.async = true;
-    document.body.appendChild(s);
   }
 
-  window.__evStatus = function(info){
-    var key = document.getElementById('ev-event').value;
-    if (!key || !info || info.error) return;
-    if (evPastDeadline(key)) return;
-    var banner = document.getElementById('ev-banner');
-    var btn = document.getElementById('ev-submit');
-    if (info.closed) {
-      banner.style.display = 'block';
-      banner.className = 'form-status error';
-      banner.innerHTML = '<strong>This event is full.</strong> Both the confirmed places and the waitlist have filled. Try another event, or watch our Instagram for the next one.';
-      btn.disabled = true; btn.textContent = 'Event full';
-    } else if (info.waitlist) {
-      banner.style.display = 'block';
-      banner.className = 'form-status notice';
-      banner.innerHTML = '<strong>Confirmed places for this event are full.</strong> You can still join the waitlist below, and we will email you if a place opens up.';
-      btn.textContent = 'Join the waitlist';
-    }
-  };
-
   async function submitEvForm(event) {
-    event.preventDefault();
-    if (event.target.querySelector('.alsa-hp') && event.target.querySelector('.alsa-hp').value) return;
+    if (event && event.preventDefault) event.preventDefault();
     var status = document.getElementById('ev-status');
     var btn = document.getElementById('ev-submit');
     var key = evval('ev-event');
@@ -443,6 +414,24 @@
     if (evPastDeadline(key)) {
       status.className = 'form-status error'; status.style.display = 'block';
       status.innerHTML = 'Registrations for this event have closed.';
+      return;
+    }
+
+    // Field validation in JS (the form uses novalidate so this behaves the same in every browser).
+    var need = { 'ev-first':'first name', 'ev-last':'last name', 'ev-email':'email', 'ev-uni':'university', 'ev-year':'year level', 'ev-member':'ALSA membership' };
+    for (var id in need) {
+      if (!evval(id)) {
+        status.className = 'form-status error'; status.style.display = 'block';
+        status.innerHTML = 'Please fill in all the required fields (' + need[id] + ' is missing).';
+        var el = document.getElementById(id); if (el) el.focus();
+        window.scrollTo({top: status.offsetTop - 100, behavior: 'smooth'});
+        return;
+      }
+    }
+    if (!document.getElementById('ev-consent').checked) {
+      status.className = 'form-status error'; status.style.display = 'block';
+      status.innerHTML = 'Please tick the box to confirm you are happy to be contacted about this event.';
+      window.scrollTo({top: status.offsetTop - 100, behavior: 'smooth'});
       return;
     }
 
@@ -480,7 +469,7 @@
       });
       status.className = 'form-status success'; status.style.display = 'block';
       status.innerHTML = '<strong>Thanks for registering.</strong> We will email you to confirm your place, or your spot on the waitlist. Keep an eye on your inbox.';
-      event.target.reset();
+      var evForm = document.getElementById('evForm'); if (evForm) evForm.reset();
       document.getElementById('ev-detail').className = 'ev-detail-box';
       document.getElementById('ev-dietary-group').style.display = '';
       window.scrollTo({top: status.offsetTop - 100, behavior: 'smooth'});

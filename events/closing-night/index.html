@@ -168,7 +168,7 @@
 
     <div class="form-status" id="cn-banner" style="display:none;"></div>
 
-    <form id="cnForm" onsubmit="submitCnForm(event)">
+    <form id="cnForm" onsubmit="submitCnForm(event)" novalidate>
       <input type="text" class="alsa-hp" name="company_url" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute!important;left:-9999px!important;top:-9999px;width:1px;height:1px;opacity:0;">
 
       <div class="ev-detail-box" id="cn-detail">
@@ -246,7 +246,7 @@
         <label for="cn-consent">I am happy for ALSA Auckland to contact me at this email about this event, and I have read ALSA's <a href="/privacy/" target="_blank" rel="noopener noreferrer" style="color:#5b0f0f;font-weight:600;">Privacy Policy</a> and <a href="/conduct/" target="_blank" rel="noopener noreferrer" style="color:#5b0f0f;font-weight:600;">Code of Conduct</a>.</label>
       </div>
 
-      <button type="submit" class="submit-btn" id="cn-submit">Register my place</button>
+      <button type="button" class="submit-btn" id="cn-submit" onclick="submitCnForm(event)">Register my place</button>
       <div class="form-status" id="cn-status"></div>
     </form>
   </div>
@@ -309,14 +309,31 @@
   function cnval(id){ var el = document.getElementById(id); return el ? el.value.trim() : ''; }
 
   async function submitCnForm(event) {
-    event.preventDefault();
-    if (event.target.querySelector('.alsa-hp') && event.target.querySelector('.alsa-hp').value) return;
+    if (event && event.preventDefault) event.preventDefault();
     var status = document.getElementById('cn-status');
     var btn = document.getElementById('cn-submit');
 
     if (cnPastDeadline()) {
       status.className = 'form-status error'; status.style.display = 'block';
       status.innerHTML = 'Registrations for this event have closed.';
+      return;
+    }
+
+    // Field validation in JS (the form uses novalidate so it behaves the same in every browser).
+    var need = { 'cn-first':'first name', 'cn-last':'last name', 'cn-email':'email', 'cn-uni':'university', 'cn-year':'year level', 'cn-member':'ALSA membership' };
+    for (var id in need) {
+      if (!cnval(id)) {
+        status.className = 'form-status error'; status.style.display = 'block';
+        status.innerHTML = 'Please fill in all the required fields (' + need[id] + ' is missing).';
+        var el = document.getElementById(id); if (el) el.focus();
+        window.scrollTo({top: status.offsetTop - 100, behavior: 'smooth'});
+        return;
+      }
+    }
+    if (!document.getElementById('cn-consent').checked) {
+      status.className = 'form-status error'; status.style.display = 'block';
+      status.innerHTML = 'Please tick the box to confirm you are happy to be contacted about this event.';
+      window.scrollTo({top: status.offsetTop - 100, behavior: 'smooth'});
       return;
     }
 
@@ -353,7 +370,7 @@
       });
       status.className = 'form-status success'; status.style.display = 'block';
       status.innerHTML = '<strong>Thanks for registering.</strong> We will email you to confirm your place, or your spot on the waitlist, and send the date and venue once they are locked in.';
-      event.target.reset();
+      var cnForm = document.getElementById('cnForm'); if (cnForm) cnForm.reset();
       window.scrollTo({top: status.offsetTop - 100, behavior: 'smooth'});
     } catch(err) {
       status.className = 'form-status error'; status.style.display = 'block';
@@ -362,30 +379,8 @@
     }
   }
 
-  // Live capacity check (JSONP; the form posts no-cors and cannot read a reply).
-  window.__cnStatus = function(info){
-    if (cnPastDeadline() || !info || info.error) return;
-    var form = document.getElementById('cnForm');
-    var banner = document.getElementById('cn-banner');
-    var btn = document.getElementById('cn-submit');
-    if (info.closed) {
-      form.style.display = 'none';
-      banner.style.display = 'block';
-      banner.className = 'form-status error';
-      banner.innerHTML = '<strong>Registrations are full.</strong> Both the confirmed places and the waitlist have filled. Keep an eye on our Instagram for the next event.';
-    } else if (info.waitlist) {
-      banner.style.display = 'block';
-      banner.className = 'form-status notice';
-      banner.innerHTML = '<strong>Confirmed places are full.</strong> You can still join the waitlist below, and we will email you if a place opens up.';
-      if (btn) btn.textContent = 'Join the waitlist';
-    }
-  };
-  if (!cnPastDeadline()) {
-    var s = document.createElement('script');
-    s.src = EV_ENDPOINT + '?event=' + encodeURIComponent(EV_KEY) + '&callback=__cnStatus&t=' + Date.now();
-    s.async = true;
-    document.body.appendChild(s);
-  } else {
+  // If past the deadline, close registration.
+  if (cnPastDeadline()) {
     (function(){
       var form = document.getElementById('cnForm');
       var intro = document.getElementById('cn-reg-intro');
