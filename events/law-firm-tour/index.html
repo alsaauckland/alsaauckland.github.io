@@ -114,12 +114,12 @@
     <div class="form-intro" id="reg-intro">
       <div class="eyebrow">Register your place</div>
       <h2>Reserve your spot.</h2>
-      <p>Register below and we will email you to confirm your place, or your spot on the waitlist.</p>
+      <p>Register below and we will email you to confirm your place.</p>
       <div style="background:#fff;border-left:3px solid #C9A84C;padding:16px 20px;margin-top:20px;">
-        <p style="font-size:14px;color:#444;line-height:1.7;margin:0;"><strong>Open only to ALSA members in the Mentoring Programme.</strong> Premium members are prioritised. Not in the programme yet? <a href="/join/" style="color:#5b0f0f;font-weight:600;text-decoration:none;border-bottom:1px solid #C9A84C;">Join ALSA</a>.</p>
+        <p style="font-size:14px;color:#444;line-height:1.7;margin:0;"><strong>Open only to members in the ALSA Mentoring Programme.</strong> Places are reserved for programme mentees, whether you are a Premium or general member. <a href="/mentoring/" style="color:#5b0f0f;font-weight:600;text-decoration:none;border-bottom:1px solid #C9A84C;">Learn about the programme</a>.</p>
       </div>
       <div style="background:#fff0f0;border-left:3px solid #e53935;padding:16px 20px;margin-top:16px;">
-        <p style="font-size:14px;color:#444;line-height:1.7;margin:0;"><strong>Only register if you plan to come.</strong> Places are limited, and every no-show keeps another member out. If your plans change, just let us know so we can offer your spot to someone on the waitlist. Being mindful of this helps us keep events fair and open to everyone.</p>
+        <p style="font-size:14px;color:#444;line-height:1.7;margin:0;"><strong>Only register if you plan to come.</strong> Places are limited, and every no-show keeps another mentee out. If your plans change, just let us know so we can offer your spot to another mentee in the programme.</p>
       </div>
     </div>
     <div class="form-intro" id="reg-closed" style="text-align:center;display:none;">
@@ -142,7 +142,7 @@
         <div class="form-group"><label for="r-uni">University <span class="req">*</span></label><select id="r-uni"><option value="">Select</option><option>University of Auckland</option><option>Auckland University of Technology</option><option>Other</option></select></div>
         <div class="form-group"><label for="r-year">Year Level <span class="req">*</span></label><select id="r-year"><option value="">Select</option><option>Part I</option><option>Part II</option><option>Part II.5</option><option>Part III</option><option>Part IV+</option></select></div>
       </div>
-      <div class="form-group"><label for="r-member">ALSA Membership <span class="req">*</span></label><select id="r-member"><option value="">Select</option><option>Premium Member</option><option>General Member</option><option>Not yet a member</option></select><p class="hint">Open to ALSA members only. Premium members are prioritised.</p></div>
+      <div class="form-group"><label for="r-member">ALSA Membership <span class="req">*</span></label><select id="r-member"><option value="">Select</option><option>Premium Member</option><option>General Member</option><option>Not yet a member</option></select><p class="hint">For members taking part in the ALSA Mentoring Programme.</p></div>
       <div class="form-group"><label for="r-dietary">Dietary requirements or allergies <span style="color:#aaa;font-weight:400;text-transform:none;letter-spacing:0;">(optional)</span></label><input type="text" id="r-dietary" placeholder="e.g. vegetarian, halal, nut allergy, none"></div>
       <div class="form-group"><label for="r-access">Access needs <span style="color:#aaa;font-weight:400;text-transform:none;letter-spacing:0;">(optional)</span></label><input type="text" id="r-access" placeholder="Anything we can do to make the event work for you"></div>
       <div class="consent-row"><input type="checkbox" id="r-consent"><label for="r-consent">I am happy for ALSA Auckland to contact me at this email about this event, and I have read ALSA's <a href="/privacy/" target="_blank" rel="noopener noreferrer" style="color:#5b0f0f;font-weight:600;">Privacy Policy</a> and <a href="/conduct/" target="_blank" rel="noopener noreferrer" style="color:#5b0f0f;font-weight:600;">Code of Conduct</a>.</label></div>
@@ -187,7 +187,7 @@
     try{
       await fetch(EV_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)});
       status.className='form-status success'; status.style.display='block';
-      status.innerHTML='<strong>Thanks for registering.</strong> We will email you to confirm your place, or your spot on the waitlist. Keep an eye on your inbox.';
+      status.innerHTML='<strong>Thanks for registering.</strong> We will email you to confirm your place. Keep an eye on your inbox.';
       var f=document.getElementById('regForm'); if(f) f.reset();
       window.scrollTo({top:status.offsetTop-100,behavior:'smooth'});
     }catch(err){
