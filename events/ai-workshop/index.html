@@ -129,7 +129,7 @@
     </div>
     <div class="form-status" id="reg-banner" style="display:none;"></div>
     <form id="regForm" onsubmit="submitReg(event)" novalidate>
-      <div class="ev-detail-box" id="reg-detail"><p><strong>AI Workshop.</strong> Thursday 15 October, 5:30 to 7:00pm at IPLS, Level 7, 120 Albert Street, Auckland CBD. Hosted by Mingze Sun. <a href="https://www.google.com/maps/search/?api=1&query=IPLS+120+Albert+Street+Auckland" target="_blank" rel="noopener noreferrer" style="color:#5b0f0f;font-weight:600;text-decoration:none;">View on map &#8599;</a></p></div>
+      <div class="ev-detail-box" id="reg-detail"><p><strong>AI Workshop.</strong> Tuesday 13 October, 5:30 to 7:00pm at IPLS, Level 7, 120 Albert Street, Auckland CBD. Hosted by Mingze Sun. <a href="https://www.google.com/maps/search/?api=1&query=IPLS+120+Albert+Street+Auckland" target="_blank" rel="noopener noreferrer" style="color:#5b0f0f;font-weight:600;text-decoration:none;">View on map &#8599;</a></p></div>
       <div class="form-row-2">
         <div class="form-group"><label for="r-first">First Name <span class="req">*</span></label><input type="text" id="r-first"></div>
         <div class="form-group"><label for="r-last">Last Name <span class="req">*</span></label><input type="text" id="r-last"></div>
@@ -168,8 +168,8 @@
 <script>
   const EV_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyQzCdngvkDa_PEuOUUJwKfLD9bqqZ098iUn8IfSuks8jW-J0xnhoqwl0ZFVv54QWFx2g/exec';
   const EV_KEY = 'ai-workshop';
-  // Registration closes automatically at 5:30pm on Thursday 15 October (NZDT, UTC+13).
-  const REG_DEADLINE = new Date('2026-10-15T17:30:00+13:00');
+  // Registration closes automatically at 5:30pm on Tuesday 13 October (NZDT, UTC+13).
+  const REG_DEADLINE = new Date('2026-10-13T17:30:00+13:00');
   function regPast(){ return new Date() >= REG_DEADLINE; }
   function val(id){ var el=document.getElementById(id); return el?el.value.trim():''; }
 
