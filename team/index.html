@@ -59,6 +59,7 @@
 
   .cabinet-grid{display:flex;flex-direction:column;gap:24px;}
   .cabinet-card{display:flex;align-items:flex-start;gap:28px;background:#fff;padding:32px;border-left:3px solid #5b0f0f;text-decoration:none;color:inherit;transition:box-shadow 0.2s,transform 0.2s;}.cabinet-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.08);transform:translateX(3px);}
+  .cabinet-card.static{cursor:default;}.cabinet-card.static:hover{box-shadow:none;transform:none;}
   .member-avatar{width:180px;height:220px;background:#f0ebe0;color:#C9A84C;font-family:'Playfair Display',serif;font-size:20px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;}.member-avatar img{width:180px;height:220px;object-fit:cover;object-position:top;display:block;}
   .member-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#1a1a1a;margin-bottom:4px;}
   .member-role{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;font-weight:600;margin-bottom:10px;}
@@ -134,7 +135,6 @@
       <a href="/newsletters/">Newsletter</a>
       <a href="/gallery/">Gallery</a>
       <a href="/team/" style="color:#5b0f0f;font-weight:600;">Team</a>
-      <a href="/team/apply/" style="color:#C9A84C;font-weight:600;">Apply</a>
       <a href="/contact/">Contact</a>
       <a href="/hub/">Hub</a>
     </div>
@@ -211,6 +211,15 @@
           <div class="member-portfolio" style="margin-bottom:12px;">Event logistics, programme delivery, and mentoring operations.</div>
         </div>
       </a>
+
+      <div class="cabinet-card static">
+        <div class="member-avatar"><img src="/images/portraits/bella-portrait.jpg" alt="Isabella Capunitan" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;" onerror="this.style.display='none'" loading="lazy"></div>
+        <div class="member-info">
+          <div class="member-name">Isabella Capunitan</div>
+          <div class="member-role">Marketing Director</div>
+          <div class="member-portfolio" style="margin-bottom:12px;">Brand, communications, and content across ALSA's channels.</div>
+        </div>
+      </div>
 
     </div>
   </div>
