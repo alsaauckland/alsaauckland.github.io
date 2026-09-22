@@ -186,7 +186,7 @@
     try{
       await fetch(EV_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)});
       status.className='form-status success'; status.style.display='block';
-      status.innerHTML='<strong>Thanks for registering.</strong> We will email you to confirm your place, or your spot on the waitlist. Keep an eye on your inbox.';
+      status.innerHTML='<strong>Thanks for registering.</strong> We will email you to confirm your place. Keep an eye on your inbox.';
       var f=document.getElementById('regForm'); if(f) f.reset();
       window.scrollTo({top:status.offsetTop-100,behavior:'smooth'});
     }catch(err){
@@ -196,6 +196,21 @@
     }
   }
   if (regPast()){ (function(){ var f=document.getElementById('regForm'),i=document.getElementById('reg-intro'),b=document.getElementById('reg-banner'); if(f)f.style.display='none'; if(i)i.style.display='none'; if(b){b.style.display='block'; b.className='form-status error'; b.innerHTML='<strong>Registrations have closed.</strong> Keep an eye on our Instagram for what is coming up next.';} })(); }
+  else {
+    // Capacity close: if the event has reached its cap, close the form. Uses the
+    // backend "closed" flag only, so no capacity numbers are shown.
+    window.__matchaCap = function(info){
+      if (info && info.closed){
+        var f=document.getElementById('regForm'), i=document.getElementById('reg-intro'), c=document.getElementById('reg-closed');
+        if(f) f.style.display='none';
+        if(i) i.style.display='none';
+        if(c) c.style.display='block';
+      }
+    };
+    var capScript=document.createElement('script');
+    capScript.src=EV_ENDPOINT+'?event='+EV_KEY+'&callback=__matchaCap';
+    document.body.appendChild(capScript);
+  }
 </script>
 <script>
 (function(){var btn=document.getElementById('hamburger');var links=document.querySelector('.nav-links');if(btn&&links){btn.addEventListener('click',function(){links.classList.toggle('open');});document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!links.contains(e.target)){links.classList.remove('open');}});}})();
