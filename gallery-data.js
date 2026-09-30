@@ -12,6 +12,17 @@
 
 window.ALSA_GALLERY = [
     {
+      slug: 'networking-workshop',
+      title: 'Networking Workshop',
+      date: '24 September 2026',
+      dateISO: '2026-09-24',
+      description: 'A practical workshop on building the connections that shape a legal career, hosted by Mingze Sun at IPLS.',
+      basePath: '/images/gallery/Networking workshop',
+      folder: 'Networking workshop',
+      photos: [
+        'photo10.jpg', 'photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg', 'photo5.jpg', 'photo6.jpg', 'photo7.jpg', 'photo8.jpg', 'photo9.jpg', 'photo12.jpg', 'photo13.jpg']
+    },
+    {
       slug: 'cultural-competency-workshop',
       title: 'Chinese Cultural Competency Workshop',
       date: '11 August 2026',
