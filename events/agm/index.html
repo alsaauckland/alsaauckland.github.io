@@ -106,7 +106,7 @@
   <div class="hero-inner">
     <div class="hero-eyebrow">ALSA &middot; Governance</div>
     <h1>Annual General <em>Meeting</em>.</h1>
-    <p class="hero-lead">Our first AGM as an incorporated society. Hear the President's report on the year, receive the financial accounts, and have your say on how ALSA is run. Open to ALSA members.</p>
+    <p class="hero-lead">Our first AGM as an incorporated society. Hear the President's report on the year, receive the financial accounts, and see what the future of ALSA holds. Open to ALSA members.</p>
   </div>
 </section>
 <section class="form-section section-alt" id="register">
@@ -114,9 +114,9 @@
     <div class="form-intro" id="reg-intro">
       <div class="eyebrow">RSVP</div>
       <h2>Let us know if you are coming.</h2>
-      <p>RSVP below so we can plan the room. If you cannot make it, you can send your apologies here too.</p>
+      <p>RSVP below so we can plan the room.</p>
       <div style="background:#fff;border-left:3px solid #C9A84C;padding:16px 20px;margin-top:20px;">
-        <p style="font-size:14px;color:#444;line-height:1.7;margin:0;"><strong>Only ALSA members can vote.</strong> The meeting needs 25 members present to go ahead, so your attendance counts. Not a member yet? <a href="/join/" style="color:#5b0f0f;font-weight:600;text-decoration:none;border-bottom:1px solid #C9A84C;">Join ALSA</a> first, then come back and RSVP.</p>
+        <p style="font-size:14px;color:#444;line-height:1.7;margin:0;"><strong>Only ALSA members can vote.</strong> Not a member yet? <a href="/join/" style="color:#5b0f0f;font-weight:600;text-decoration:none;border-bottom:1px solid #C9A84C;">Join ALSA</a> first, then come back and RSVP.</p>
       </div>
     </div>
     <div class="form-status" id="reg-banner" style="display:none;"></div>
@@ -130,7 +130,6 @@
         <div class="form-group"><label for="r-email">Email <span class="req">*</span></label><input type="email" id="r-email"><p class="hint">The email you used when you joined ALSA.</p></div>
         <div class="form-group"><label for="r-upi">UPI <span class="req">*</span></label><input type="text" id="r-upi" placeholder="e.g. abcd123"><p class="hint">We use this to check you against the member register.</p></div>
       </div>
-      <div class="form-group"><label for="r-attend">Will you attend? <span class="req">*</span></label><select id="r-attend"><option value="">Select</option><option>Yes, I will attend</option><option>No, I send my apologies</option></select></div>
       <div class="form-group"><label for="r-access">Access needs <span style="color:#aaa;font-weight:400;text-transform:none;letter-spacing:0;">(optional)</span></label><input type="text" id="r-access" placeholder="Anything we can do to make the meeting work for you"></div>
       <div class="consent-row"><input type="checkbox" id="r-consent"><label for="r-consent">I am happy for ALSA Auckland to contact me at this email about the AGM, and I have read ALSA's <a href="/privacy/" target="_blank" rel="noopener noreferrer" style="color:#5b0f0f;font-weight:600;">Privacy Policy</a> and <a href="/conduct/" target="_blank" rel="noopener noreferrer" style="color:#5b0f0f;font-weight:600;">Code of Conduct</a>.</label></div>
       <button type="button" class="submit-btn" id="r-submit" onclick="submitReg(event)">Confirm my RSVP</button>
@@ -166,10 +165,10 @@
     var status=document.getElementById('reg-status');
     var btn=document.getElementById('r-submit');
     if (regPast()){ showErr(status,'RSVPs for the AGM have closed.'); return; }
-    var need={'r-first':'first name','r-last':'last name','r-email':'email','r-upi':'UPI','r-attend':'attendance'};
+    var need={'r-first':'first name','r-last':'last name','r-email':'email','r-upi':'UPI'};
     for (var id in need){ if(!val(id)){ showErr(status,'Please fill in all the required fields ('+need[id]+' is missing).',id); return; } }
     if (!document.getElementById('r-consent').checked){ showErr(status,'Please tick the box to confirm you are happy to be contacted about the AGM.'); return; }
-    var data={ 'event':EV_KEY,'First Name':val('r-first'),'Last Name':val('r-last'),'Email':val('r-email'),'UPI':val('r-upi'),'Attendance':val('r-attend'),'Access Needs':val('r-access'),'Consent':'Yes' };
+    var data={ 'event':EV_KEY,'First Name':val('r-first'),'Last Name':val('r-last'),'Email':val('r-email'),'UPI':val('r-upi'),'Access Needs':val('r-access'),'Consent':'Yes' };
     btn.disabled=true; btn.textContent='Submitting...'; status.className='form-status'; status.style.display='none';
     try{
       await fetch(EV_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)});
