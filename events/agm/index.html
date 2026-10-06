@@ -114,7 +114,7 @@
     <div class="form-intro" id="reg-intro">
       <div class="eyebrow">RSVP</div>
       <h2>Let us know if you are coming.</h2>
-      <p>RSVP below so we can plan the room.</p>
+      <p>RSVP below so we can plan the room and the food. We will be wrapping up the year together afterwards, and food will be provided.</p>
       <div style="background:#fff;border-left:3px solid #C9A84C;padding:16px 20px;margin-top:20px;">
         <p style="font-size:14px;color:#444;line-height:1.7;margin:0;"><strong>Only ALSA members can vote.</strong> Not a member yet? <a href="/join/" style="color:#5b0f0f;font-weight:600;text-decoration:none;border-bottom:1px solid #C9A84C;">Join ALSA</a> first, then come back and RSVP.</p>
       </div>
@@ -130,6 +130,7 @@
         <div class="form-group"><label for="r-email">Email <span class="req">*</span></label><input type="email" id="r-email"><p class="hint">The email you used when you joined ALSA.</p></div>
         <div class="form-group"><label for="r-upi">UPI <span class="req">*</span></label><input type="text" id="r-upi" placeholder="e.g. abcd123"><p class="hint">We use this to check you against the member register.</p></div>
       </div>
+      <div class="form-group"><label for="r-dietary">Dietary requirements or allergies <span style="color:#aaa;font-weight:400;text-transform:none;letter-spacing:0;">(optional)</span></label><input type="text" id="r-dietary" placeholder="e.g. vegetarian, halal, nut allergy, none"></div>
       <div class="form-group"><label for="r-access">Access needs <span style="color:#aaa;font-weight:400;text-transform:none;letter-spacing:0;">(optional)</span></label><input type="text" id="r-access" placeholder="Anything we can do to make the meeting work for you"></div>
       <div class="consent-row"><input type="checkbox" id="r-consent"><label for="r-consent">I am happy for ALSA Auckland to contact me at this email about the AGM, and I have read ALSA's <a href="/privacy/" target="_blank" rel="noopener noreferrer" style="color:#5b0f0f;font-weight:600;">Privacy Policy</a> and <a href="/conduct/" target="_blank" rel="noopener noreferrer" style="color:#5b0f0f;font-weight:600;">Code of Conduct</a>.</label></div>
       <button type="button" class="submit-btn" id="r-submit" onclick="submitReg(event)">Confirm my RSVP</button>
@@ -168,7 +169,7 @@
     var need={'r-first':'first name','r-last':'last name','r-email':'email','r-upi':'UPI'};
     for (var id in need){ if(!val(id)){ showErr(status,'Please fill in all the required fields ('+need[id]+' is missing).',id); return; } }
     if (!document.getElementById('r-consent').checked){ showErr(status,'Please tick the box to confirm you are happy to be contacted about the AGM.'); return; }
-    var data={ 'event':EV_KEY,'First Name':val('r-first'),'Last Name':val('r-last'),'Email':val('r-email'),'UPI':val('r-upi'),'Access Needs':val('r-access'),'Consent':'Yes' };
+    var data={ 'event':EV_KEY,'First Name':val('r-first'),'Last Name':val('r-last'),'Email':val('r-email'),'UPI':val('r-upi'),'Dietary Requirements':val('r-dietary'),'Access Needs':val('r-access'),'Consent':'Yes' };
     btn.disabled=true; btn.textContent='Submitting...'; status.className='form-status'; status.style.display='none';
     try{
       await fetch(EV_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)});
