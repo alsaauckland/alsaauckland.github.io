@@ -12,6 +12,17 @@
 
 window.ALSA_GALLERY = [
     {
+      slug: 'matcha-pilates',
+      title: 'Matcha x Pilates',
+      date: '1 October 2026',
+      dateISO: '2026-10-01',
+      description: 'An early morning of pilates to get moving, then matcha to bring everyone together, for ALSA members by invitation.',
+      basePath: '/images/gallery/Matcha and pilates',
+      folder: 'Matcha and pilates',
+      photos: [
+        'photo8.jpg', 'photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg', 'photo5.jpg', 'photo6.jpg', 'photo7.jpg']
+    },
+    {
       slug: 'networking-workshop',
       title: 'Networking Workshop',
       date: '24 September 2026',
