@@ -274,6 +274,16 @@ the home strip automatically. It links each thumbnail to `/gallery/?event=<slug>
 and strips a leading "Inaugural " from captions for brevity. **Edit
 `gallery-data.js`, not the inline data** — the gallery page now reads from it.
 
+**Cache-busting:** both pages load it as `/gallery-data.js?v=<YYYYMMDD>`. Because
+the filename never changes, browsers/CDN serve a stale copy and new albums appear
+"missing" until a hard refresh. **When you change `gallery-data.js`, bump the
+`?v=` value** in the `<script src>` on both `gallery/index.html` and `index.html`
+so the new data loads without a hard refresh. Gotcha: web images must be real
+JPEG/PNG. iPhone exports are often **HEIC saved with a `.jpg` name** (browsers
+can't render them, and they look broken); convert with
+`sips -s format jpeg in.jpg --out out.jpg`. A `.jpg` that is actually a video
+(ISO Media) must be excluded.
+
 ### Deadline auto-close pattern
 Registration/application pages with a deadline should **close themselves**. The
 Cultural Competency page is the reference implementation: a `DEADLINE` JS constant
