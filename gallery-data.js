@@ -20,7 +20,7 @@ window.ALSA_GALLERY = [
       basePath: '/images/gallery/Matcha and pilates',
       folder: 'Matcha and pilates',
       photos: [
-        'photo8.jpg', 'photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg', 'photo5.jpg', 'photo6.jpg', 'photo7.jpg']
+        'photo8.jpg', 'photo22.jpg', 'photo23.jpg', 'photo11.jpg', 'photo12.jpg', 'photo13.jpg', 'photo18.jpg', 'photo21.jpg', 'photo24.jpg', 'photo16.jpg', 'photo17.jpg', 'photo19.jpg', 'photo20.jpg', 'photo25.jpg', 'photo6.jpg', 'photo14.jpg', 'photo15.jpg', 'photo1.jpg', 'photo9.jpg', 'photo10.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg', 'photo5.jpg', 'photo7.jpg']
     },
     {
       slug: 'networking-workshop',
@@ -53,7 +53,7 @@ window.ALSA_GALLERY = [
       basePath: '/images/gallery/Inaugural Mentoring Opening Night',
       folder: 'Inaugural Mentoring Opening Night',
       photos: [
-        'photo1.JPG', 'photo3.JPG', 'photo4.JPG', 'photo5.JPG', 'photo6.JPG', 'photo7.JPG', 'photo8.JPG', 'photo9.JPG', 'photo10.JPG', 'photo11.JPG', 'photo12.JPG', 'photo13.JPG', 'photo14.JPG', 'photo15.JPG', 'photo16.JPG', 'photo17.JPG', 'photo18.JPG', 'photo19.JPG', 'photo20.JPG', 'photo21.JPG', 'photo22.JPG', 'photo23.JPG', 'photo24.JPG', 'photo25.JPG', 'photo26.JPG', 'photo27.JPG', 'photo28.JPG', 'photo29.JPG', 'photo30.JPG', 'photo31.JPG', 'photo32.JPG', 'photo33.JPG', 'photo34.JPG', 'photo35.JPG', 'photo36.JPG', 'photo37.JPG', 'photo38.JPG', 'photo39.JPG', 'photo40.JPG', 'photo41.JPG', 'photo42.JPG', 'photo43.JPG', 'photo44.JPG', 'photo45.JPG', 'photo46.JPG', 'photo47.JPG', 'photo48.JPG', 'photo49.JPG', 'photo50.JPG', 'photo51.JPG', 'photo52.JPG', 'photo53.JPG', 'photo54.JPG', 'photo55.JPG', 'photo56.JPG', 'photo57.JPG', 'photo58.JPG', 'photo59.JPG', 'photo60.JPG', 'photo61.JPG', 'photo62.JPG', 'photo63.JPG']
+        'photo1.JPG', 'photo3.JPG', 'photo4.JPG', 'photo5.JPG', 'photo6.JPG', 'photo7.JPG', 'photo8.JPG', 'photo9.JPG', 'photo10.JPG', 'photo11.JPG', 'photo12.JPG', 'photo13.JPG', 'photo14.JPG', 'photo15.JPG', 'photo17.JPG', 'photo18.JPG', 'photo19.JPG', 'photo20.JPG', 'photo21.JPG', 'photo22.JPG', 'photo23.JPG', 'photo24.JPG', 'photo25.JPG', 'photo26.JPG', 'photo27.JPG', 'photo28.JPG', 'photo29.JPG', 'photo30.JPG', 'photo31.JPG', 'photo32.JPG', 'photo33.JPG', 'photo34.JPG', 'photo35.JPG', 'photo36.JPG', 'photo37.JPG', 'photo38.JPG', 'photo39.JPG', 'photo40.JPG', 'photo41.JPG', 'photo42.JPG', 'photo43.JPG', 'photo44.JPG', 'photo45.JPG', 'photo46.JPG', 'photo47.JPG', 'photo48.JPG', 'photo49.JPG', 'photo50.JPG', 'photo51.JPG', 'photo52.JPG', 'photo53.JPG', 'photo54.JPG', 'photo55.JPG', 'photo56.JPG', 'photo57.JPG', 'photo58.JPG', 'photo59.JPG', 'photo60.JPG', 'photo61.JPG', 'photo62.JPG', 'photo63.JPG']
     },
     {
       slug: 'launch-night',
