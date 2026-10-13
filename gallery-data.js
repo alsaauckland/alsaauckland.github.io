@@ -20,7 +20,7 @@ window.ALSA_GALLERY = [
       basePath: '/images/gallery/Matcha and pilates',
       folder: 'Matcha and pilates',
       photos: [
-        'photo8.jpg', 'photo22.jpg', 'photo23.jpg', 'photo11.jpg', 'photo12.jpg', 'photo13.jpg', 'photo18.jpg', 'photo21.jpg', 'photo24.jpg', 'photo16.jpg', 'photo17.jpg', 'photo19.jpg', 'photo20.jpg', 'photo25.jpg', 'photo6.jpg', 'photo14.jpg', 'photo15.jpg', 'photo1.jpg', 'photo9.jpg', 'photo10.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg', 'photo5.jpg', 'photo7.jpg']
+        'photo26.jpg', 'photo8.jpg', 'photo22.jpg', 'photo23.jpg', 'photo11.jpg', 'photo12.jpg', 'photo13.jpg', 'photo18.jpg', 'photo21.jpg', 'photo24.jpg', 'photo16.jpg', 'photo17.jpg', 'photo19.jpg', 'photo20.jpg', 'photo25.jpg', 'photo6.jpg', 'photo14.jpg', 'photo15.jpg', 'photo1.jpg', 'photo9.jpg', 'photo10.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg', 'photo5.jpg', 'photo7.jpg']
     },
     {
       slug: 'networking-workshop',
