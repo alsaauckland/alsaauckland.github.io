@@ -282,7 +282,11 @@ so the new data loads without a hard refresh. Gotcha: web images must be real
 JPEG/PNG. iPhone exports are often **HEIC saved with a `.jpg` name** (browsers
 can't render them, and they look broken); convert with
 `sips -s format jpeg in.jpg --out out.jpg`. A `.jpg` that is actually a video
-(ISO Media) must be excluded.
+(ISO Media) must be excluded. **Resize camera originals before committing:**
+DSLR/mirrorless shots (e.g. `DSC00123.JPG`, 6000×4000, ~6.5MB each) bloat the repo
+and load slowly. Shrink to ~2400px on the long edge (~300KB each), e.g.
+`sips -Z 2400 -s formatOptions 82 *.JPG`, then rename to `photo1.jpg`, `photo2.jpg`...
+Keep the full-size originals outside the repo (Drive).
 
 ### Deadline auto-close pattern
 Registration/application pages with a deadline should **close themselves**. The
