@@ -16,7 +16,7 @@ window.ALSA_GALLERY = [
       title: 'Law Firm Tour at DLA Piper',
       date: '8 October 2026',
       dateISO: '2026-10-08',
-      description: 'An inside look at DLA Piper, one of the world\'s largest global law firms: the people, the spaces, and the pace of commercial practice up close.',
+      description: 'An inside look at the Auckland office of DLA Piper, one of the world\'s largest global law firms: the people, the spaces, and the pace of commercial practice up close.',
       basePath: '/images/gallery/DLA Piper Tour',
       folder: 'DLA Piper Tour',
       photos: [
