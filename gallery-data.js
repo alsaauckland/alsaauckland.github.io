@@ -12,6 +12,17 @@
 
 window.ALSA_GALLERY = [
     {
+      slug: 'law-firm-tour-dla-piper',
+      title: 'Law Firm Tour at DLA Piper',
+      date: '8 October 2026',
+      dateISO: '2026-10-08',
+      description: 'An inside look at DLA Piper, one of the world\'s largest global law firms: the people, the spaces, and the pace of commercial practice up close.',
+      basePath: '/images/gallery/DLA Piper Tour',
+      folder: 'DLA Piper Tour',
+      photos: [
+        'photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg', 'photo5.jpg', 'photo6.jpg', 'photo7.jpg', 'photo8.jpg', 'photo9.jpg', 'photo10.jpg', 'photo11.jpg', 'photo12.jpg', 'photo13.jpg', 'photo14.jpg', 'photo15.jpg', 'photo16.jpg', 'photo17.jpg', 'photo18.jpg', 'photo19.jpg', 'photo20.jpg', 'photo21.jpg', 'photo22.jpg', 'photo23.jpg', 'photo24.jpg', 'photo25.jpg', 'photo26.jpg', 'photo27.jpg']
+    },
+    {
       slug: 'matcha-pilates',
       title: 'Matcha x Pilates',
       date: '1 October 2026',
